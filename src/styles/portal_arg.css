@@ -1,0 +1,100 @@
+/* ===============================
+   PORTAL ARG 🇦🇷
+   Estilo elegante y motivador
+   =============================== */
+.portal-container {
+  min-height: 100vh;
+  padding: 160px 40px 80px;
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.portal-header {
+  margin-bottom: 100px;
+}
+
+.portal-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 40%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portal-subtitle {
+  color: var(--text-muted);
+  margin-top: 12px;
+  font-size: 1.2rem;
+}
+
+/* GRID */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  padding: 20px;
+}
+
+.portal-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  padding: 40px 20px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(107,163,216,0.3);
+}
+
+.portal-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.portal-card h2 {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.portal-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.portal-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(107,163,216,0.25);
+  transition: all 0.3s ease;
+}
+
+.portal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(107,163,216,0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .portal-container {
+    padding: 120px 20px;
+  }
+  .portal-card {
+    padding: 30px 15px;
+  }
+}

@@ -1,0 +1,757 @@
+/* ===============================
+   BRASIL ULTRA PREMIUM THEME 🇧🇷
+   Diseño Tropical | Elegancia Vibrante
+   =============================== */
+
+:root {
+  /* Paleta sofisticada Brasil */
+  --primary: #00A84F;
+  --primary-dark: #008038;
+  --primary-light: #2DD881;
+  --accent: #FFD700;
+  --accent-dark: #FFC400;
+  --accent-light: #FFEB99;
+  --accent-blue: #003DA5;
+  
+  /* Backgrounds glassmorphism */
+  --bg-base: #0A1612;
+  --bg-elevated: #0F1E18;
+  --bg-glass: rgba(255, 255, 255, 0.02);
+  
+  /* Texto refinado */
+  --text-primary: #FFFFFF;
+  --text-secondary: #C8F2DC;
+  --text-muted: #8BC9AC;
+  
+  /* Sombras premium */
+  --shadow-sm: 0 2px 20px rgba(0, 168, 79, 0.08);
+  --shadow-md: 0 8px 40px rgba(0, 168, 79, 0.12);
+  --shadow-lg: 0 20px 70px rgba(0, 168, 79, 0.2);
+  --shadow-glow: 0 0 60px rgba(255, 215, 0, 0.15);
+}
+
+/* BRASIL ULTRA PREMIUM 🇧🇷
+   Estilo Vibrante - Samba, Sol y Alegría Tropical
+*/
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Nunito:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+}
+
+/* Títulos alegres y llenos de movimiento */
+.hero h1,
+.features h2,
+.games h2,
+.footer-section h2,
+.logo {
+  font-family: 'Satisfy', cursive;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-shadow: 0 3px 25px rgba(0, 168, 79, 0.3),
+               0 0 50px rgba(255, 215, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+/* Movimiento visual en hover */
+.hero h1:hover,
+.features h2:hover,
+.logo:hover {
+  transform: rotate(-1deg) scale(1.03);
+  text-shadow: 0 0 60px rgba(255, 215, 0, 0.5),
+               0 0 80px rgba(0, 168, 79, 0.4);
+}
+
+/* Subtítulos y frases poéticas */
+.hero-badge,
+.section-label,
+.footer-section p {
+  font-family: 'Satisfy', cursive;
+  color: var(--accent-light);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+/* Primer letra viva, como pincelada */
+.hero h1::first-letter {
+  font-size: 1.3em;
+  color: var(--accent);
+  font-weight: 700;
+  text-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+
+/* ===============================
+   NAVBAR - Minimalismo Tropical
+   =============================== */
+.navbar {
+  background: rgba(10, 22, 18, 0.6);
+  backdrop-filter: blur(30px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar:hover {
+  background: rgba(10, 22, 18, 0.8);
+  border-bottom-color: rgba(0, 168, 79, 0.2);
+}
+
+.logo {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--primary-light) 40%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  filter: drop-shadow(0 2px 15px rgba(0, 168, 79, 0.25));
+  transition: all 0.3s ease;
+}
+
+
+.logo:hover {
+  filter: drop-shadow(0 4px 25px rgba(255, 215, 0, 0.4));
+  transform: translateY(-1px);
+}
+
+.menu a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.menu a:hover {
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+.mode-btn {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.mode-btn:hover {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-color: transparent;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===============================
+   HERO - Energía Tropical Premium
+   =============================== */
+.hero {
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 168, 79, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 0% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(0, 61, 165, 0.08) 0%, transparent 50%),
+    var(--bg-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    conic-gradient(from 0deg at 50% 50%, 
+      transparent 0deg, 
+      rgba(0, 168, 79, 0.03) 90deg, 
+      rgba(255, 215, 0, 0.02) 180deg, 
+      rgba(0, 61, 165, 0.02) 270deg, 
+      transparent 360deg);
+  animation: rotate-tropical 35s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate-tropical {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-badge {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 12px 24px;
+  border-radius: 100px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-badge:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 168, 79, 0.3);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+.hero h1 {
+  background: linear-gradient(135deg, 
+    #FFFFFF 0%, 
+    var(--primary-light) 30%, 
+    var(--accent-light) 60%, 
+    var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  filter: drop-shadow(0 4px 30px rgba(0, 168, 79, 0.2));
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--accent) 100%);
+  color: var(--bg-base);
+  font-weight: 700;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 35px rgba(0, 168, 79, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.4), 
+    transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 20px 50px rgba(0, 168, 79, 0.4),
+    0 0 60px rgba(255, 215, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 168, 79, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Elementos flotantes tropicales */
+.floating-1, .floating-2 {
+  animation: float-samba 7s ease-in-out infinite;
+  filter: blur(80px);
+}
+
+.floating-1 {
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  opacity: 0.18;
+}
+
+.floating-2 {
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.15;
+  animation-delay: -3.5s;
+}
+
+@keyframes float-samba {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1) rotate(0deg); 
+  }
+  25% { 
+    transform: translate(40px, -30px) scale(1.15) rotate(5deg); 
+  }
+  50% { 
+    transform: translate(-20px, 20px) scale(0.95) rotate(-3deg); 
+  }
+  75% { 
+    transform: translate(30px, 40px) scale(1.1) rotate(3deg); 
+  }
+}
+
+/* ===============================
+   FEATURES - Cards Vibrantes
+   =============================== */
+.features {
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0, 168, 79, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255, 215, 0, 0.04) 0%, transparent 50%),
+    var(--bg-base);
+  position: relative;
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(180deg, transparent 0%, rgba(0, 168, 79, 0.02) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.section-label {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 8px 20px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.section-label:hover {
+  background: rgba(0, 168, 79, 0.08);
+  border-color: rgba(0, 168, 79, 0.2);
+  transform: translateY(-2px);
+}
+
+.features h2 {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 60%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 40px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--accent-blue) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center, rgba(0, 168, 79, 0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: all 0.6s ease;
+  border-radius: 50%;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 168, 79, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    var(--shadow-lg),
+    0 0 50px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* ===============================
+   GAMES - Energía Brasileña
+   =============================== */
+.games {
+  background: 
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 168, 79, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 0% 50%, rgba(0, 61, 165, 0.05) 0%, transparent 50%),
+    var(--bg-base);
+  position: relative;
+}
+
+.games::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(0deg, 
+      transparent, 
+      transparent 100px, 
+      rgba(255, 255, 255, 0.01) 100px, 
+      rgba(255, 255, 255, 0.01) 101px);
+  pointer-events: none;
+}
+
+.games h2 {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 40%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.game-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(0, 168, 79, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.08) 0%, transparent 40%);
+  opacity: 0;
+  transition: all 0.7s ease;
+  animation: pulse-tropical 4s ease-in-out infinite;
+}
+
+@keyframes pulse-tropical {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1) rotate(0deg); 
+    opacity: 0;
+  }
+  50% { 
+    transform: translate(20px, -20px) scale(1.2) rotate(180deg); 
+    opacity: 0.3;
+  }
+}
+
+.game-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    var(--primary) 0%, 
+    var(--accent) 50%, 
+    var(--accent-blue) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.game-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 168, 79, 0.3);
+  transform: translateY(-10px) scale(1.03) rotate(-1deg);
+  box-shadow: 
+    var(--shadow-lg),
+    var(--shadow-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.game-card:hover::before {
+  opacity: 1;
+}
+
+.game-card:hover::after {
+  opacity: 1;
+}
+
+/* ===============================
+   FOOTER - Elegância Tropical
+   =============================== */
+.footer-section {
+  background: 
+    linear-gradient(180deg, var(--bg-base) 0%, var(--bg-elevated) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 50%, rgba(0, 168, 79, 0.08) 0%, transparent 60%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--primary), 
+    var(--accent), 
+    var(--accent-blue), 
+    transparent);
+  opacity: 0.3;
+}
+
+.footer-section h2 {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--primary-light) 50%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  filter: drop-shadow(0 2px 20px rgba(255, 215, 0, 0.3));
+}
+
+.social-link {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--accent-blue) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.social-link:hover {
+  border-color: transparent;
+  color: var(--bg-base);
+  font-weight: 700;
+  transform: translateY(-4px) scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-md);
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+/* ===============================
+   SCROLLBAR - Tropical Refinado
+   =============================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: 10px;
+  border: 2px solid var(--bg-base);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--accent-dark) 100%);
+}
+
+/* ===============================
+   EFECTOS GLOBALES PREMIUM
+   =============================== */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 30% 40% at 15% 20%, rgba(0, 168, 79, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 25% 35% at 85% 80%, rgba(255, 215, 0, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 20% 30% at 50% 50%, rgba(0, 61, 165, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animación tropical vibrante */
+@keyframes tropical-shimmer {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 20px rgba(0, 168, 79, 0.1));
+  }
+  33% {
+    filter: brightness(1.15) drop-shadow(0 0 30px rgba(0, 168, 79, 0.2));
+  }
+  66% {
+    filter: brightness(1.05) drop-shadow(0 0 25px rgba(255, 215, 0, 0.15));
+  }
+}
+
+/* Micro-interacciones brasileñas */
+@keyframes fade-in-tropical {
+  from {
+    opacity: 0;
+    transform: translateY(20px) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.hero-badge,
+.section-label,
+.feature-card,
+.game-card {
+  animation: fade-in-tropical 0.8s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+
+.game-card:nth-child(1) { animation-delay: 0.1s; }
+.game-card:nth-child(2) { animation-delay: 0.2s; }
+.game-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Efecto de texto premium tropical */
+.text-premium-brasil {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 50%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* Efecto Samba en animaciones */
+@keyframes samba-rhythm {
+  0%, 100% { 
+    transform: translateX(0) scale(1); 
+  }
+  25% { 
+    transform: translateX(3px) scale(1.02) rotate(1deg); 
+  }
+  50% { 
+    transform: translateX(-3px) scale(0.98) rotate(-1deg); 
+  }
+  75% { 
+    transform: translateX(2px) scale(1.01) rotate(0.5deg); 
+  }
+}
+
+.btn-primary:hover,
+.game-card:hover {
+  animation: samba-rhythm 0.5s ease-in-out;
+}
+
+/* Estrelas da bandeira - efecto sutil */
+@keyframes estrela-pulse {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.15); 
+  }
+}
+
+.feature-icon,
+.game-emoji {
+  animation: estrela-pulse 3s ease-in-out infinite;
+}
+
+/* Resplandor dorado tropical */
+@keyframes golden-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(255, 215, 0, 0.2),
+      0 0 40px rgba(0, 168, 79, 0.15);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(255, 215, 0, 0.3),
+      0 0 60px rgba(0, 168, 79, 0.2);
+  }
+}
+
+.hero-badge:hover,
+.section-label:hover {
+  animation: golden-glow 2s ease-in-out infinite;
+}
+

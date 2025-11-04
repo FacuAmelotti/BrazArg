@@ -1,0 +1,35 @@
+{
+            "nav_back": "← Atras",
+  "title": "Unidad 1: Saludos y Presentaciones",
+  "subtitle": "Aprendé a saludar, presentarte y despedirte correctamente en contextos formales e informales.",
+  "sections": [
+    {
+      "title": "1️⃣ Saludos formales e informales",
+      "content": "<p>Los saludos son una de las primeras formas de comunicación. En español, pueden variar según el momento del día y el nivel de confianza entre las personas.</p><table><tr><th>Momento del día</th><th>Formal</th><th>Informal</th></tr><tr><td>Mañana</td><td>Buenos días</td><td>Buen día / Hola</td></tr><tr><td>Tarde</td><td>Buenas tardes</td><td>Hola / Qué tal</td></tr><tr><td>Noche</td><td>Buenas noches</td><td>Hola / Buenas</td></tr></table><p>También existen expresiones de saludo general como <strong>“Hola”</strong>, <strong>“Qué tal”</strong> o <strong>“Cómo estás”</strong>, que pueden usarse en casi cualquier momento.</p>"
+    },
+    {
+      "title": "2️⃣ Presentarse a uno mismo",
+      "content": "<p>Para presentarte, podés usar diferentes estructuras según el grado de formalidad:</p><ul><li><strong>Informal:</strong> “Hola, soy Ana.” / “Me llamo Ana.”</li><li><strong>Formal:</strong> “Mucho gusto, mi nombre es Ana González.”</li></ul><p>También podés agregar una frase de cortesía, como:</p><blockquote>“Es un placer conocerlo/a.”</blockquote>"
+    },
+    {
+      "title": "3️⃣ Presentar a otra persona",
+      "content": "<p>Cuando querés presentar a alguien, podés usar:</p><ul><li>“Te presento a mi amigo Carlos.” (informal)</li><li>“Le presento al señor López.” (formal)</li></ul><p>Y si sos la persona presentada, podés responder con:</p><ul><li>“Mucho gusto.”</li><li>“Encantado/a.”</li><li>“El placer es mío.”</li></ul>"
+    },
+    {
+      "title": "4️⃣ Despedidas",
+      "content": "<p>Existen muchas formas de despedirse en español. Algunas son más formales y otras más casuales:</p><table><tr><th>Situación</th><th>Formal</th><th>Informal</th></tr><tr><td>General</td><td>Hasta luego / Que tenga un buen día</td><td>Chau / Nos vemos</td></tr><tr><td>Antes de dormir</td><td>Buenas noches</td><td>Chau / Buenas</td></tr><tr><td>Fin de semana</td><td>Buen fin de semana</td><td>Nos vemos el finde</td></tr></table><p>Recordá que en español se puede usar <strong>“Adiós”</strong> o <strong>“Chau”</strong> según el contexto. “Chau” es más informal y frecuente.</p>"
+    },
+    {
+      "title": "5️⃣ Expresiones de cortesía básica",
+      "content": "<p>Son palabras y frases que muestran respeto y amabilidad en la comunicación:</p><table><tr><th>Expresión</th><th>Uso</th></tr><tr><td>Por favor</td><td>Para pedir algo educadamente.</td></tr><tr><td>Gracias / Muchas gracias</td><td>Para expresar gratitud.</td></tr><tr><td>De nada</td><td>Respuesta a 'gracias'.</td></tr><tr><td>Perdón / Disculpá</td><td>Para disculparse o llamar la atención.</td></tr><tr><td>Con permiso</td><td>Antes de pasar o retirarse de un lugar.</td></tr></table>"
+    },
+    {
+      "title": "6️⃣ Practicá lo aprendido",
+      "content": "<ul><li><strong>Ejercicio 1:</strong> Escribí tres saludos formales y tres informales.</li><li><strong>Ejercicio 2:</strong> Creá una breve presentación personal (nombre, profesión, país).</li><li><strong>Ejercicio 3:</strong> Anotá tres formas distintas de despedirte de un amigo y de un profesor.</li></ul>"
+    },
+    {
+      "title": "7️⃣ Curiosidades del idioma",
+      "content": "<p>La palabra <strong>“Chau”</strong> proviene del italiano <em>“Ciao”</em>, y fue adoptada por el español hace más de un siglo. Hoy se usa en casi todos los países hispanohablantes.</p><p>El saludo <strong>“Buenas”</strong> es una forma abreviada de 'buenos días / tardes / noches' y es común en la conversación cotidiana.</p>"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+          "nav_back": "← Atras",
+  "title": "Aprendiendo a comunicarnos",
+  "subtitle": "Aprendé el idioma de tus hermanos",
+  "units": [
+    {
+      "id": "unidad1",
+      "title": "Saludos y Presentaciones",
+      "description": "Aprendé a saludar, presentarte y despedirte correctamente en contextos formales e informales.",
+      "topics": ["Saludos", "Presentaciones", "Despedidas", "Cortesía básica"]
+    },
+    {
+      "id": "u2",
+      "title": "El Alfabeto y la Pronunciación",
+      "description": "Conocé el abecedario en portugués, su pronunciación y diferencias con el español.",
+      "topics": ["Letras y sonidos", "Acentos", "Ejemplos de pronunciación"]
+    },
+    {
+      "id": "u3",
+      "title": "Los Números y Fechas",
+      "description": "Aprendé a contar, decir la edad, hablar de fechas, días y meses.",
+      "topics": ["Números cardinales", "Fechas", "Días de la semana", "Meses del año"]
+    },
+    {
+      "id": "u4",
+      "title": "Familia y Personas",
+      "description": "Aprendé vocabulario básico sobre la familia, relaciones y personas.",
+      "topics": ["Familia", "Relaciones", "Amigos", "Profesiones comunes"]
+    },
+    {
+      "id": "u5",
+      "title": "Colores, Objetos y Animales",
+      "description": "Incorporá vocabulario esencial para describir el mundo que te rodea.",
+      "topics": ["Colores", "Objetos del hogar", "Animales", "Adjetivos simples"]
+    },
+    {
+      "id": "u6",
+      "title": "Gramática Básica",
+      "description": "Descubrí cómo se construyen las oraciones simples, artículos, sustantivos y adjetivos.",
+      "topics": ["Artículos", "Sustantivos", "Adjetivos", "Pronombres"]
+    },
+    {
+      "id": "u7",
+      "title": "Verbos y Tiempos Verbales",
+      "description": "Conocé los verbos más comunes y aprendé a conjugarlos en presente, pasado y futuro.",
+      "topics": ["Presente", "Pasado", "Futuro", "Verbos irregulares"]
+    },
+    {
+      "id": "u8",
+      "title": "El Cuerpo y la Salud",
+      "description": "Aprendé vocabulario útil para describir el cuerpo humano, sensaciones y situaciones médicas simples.",
+      "topics": ["Partes del cuerpo", "Síntomas comunes", "Ir al médico", "Salud y bienestar"]
+    },
+    {
+      "id": "u9",
+      "title": "La Casa y el Hogar",
+      "description": "Descubrí cómo hablar de tu casa, tus espacios y objetos cotidianos.",
+      "topics": ["Habitaciones", "Muebles", "Acciones del hogar", "Rutinas"]
+    },
+    {
+      "id": "u10",
+      "title": "Comidas y Bebidas",
+      "description": "Aprendé a hablar sobre alimentos, pedir en restaurantes y expresar gustos.",
+      "topics": ["Comidas", "Bebidas", "Restaurantes", "Gustos y preferencias"]
+    },
+    {
+      "id": "u11",
+      "title": "Ropa y Estilo",
+      "description": "Conocé el vocabulario de prendas, colores y expresiones para describir vestimenta.",
+      "topics": ["Prendas de vestir", "Materiales", "Descripciones", "Tamaños"]
+    },
+    {
+      "id": "u12",
+      "title": "El Clima y la Naturaleza",
+      "description": "Aprendé a describir el clima, las estaciones y elementos naturales.",
+      "topics": ["Clima", "Estaciones", "Fenómenos naturales", "Medio ambiente"]
+    },
+    {
+      "id": "u13",
+      "title": "En la Ciudad",
+      "description": "Descubrí cómo moverte y pedir indicaciones en distintos lugares urbanos.",
+      "topics": ["Direcciones", "Transporte", "Lugares públicos", "Preguntar ubicaciones"]
+    },
+    {
+      "id": "u14",
+      "title": "La Escuela y el Trabajo",
+      "description": "Aprendé a hablar sobre tus estudios, tu trabajo y tus responsabilidades.",
+      "topics": ["Materias", "Profesiones", "Horarios", "Actividades diarias"]
+    },
+    {
+      "id": "u15",
+      "title": "Tiempo y Rutinas",
+      "description": "Practicá cómo hablar del tiempo, rutinas diarias y horarios.",
+      "topics": ["Horas", "Rutinas", "Frecuencia", "Actividades diarias"]
+    },
+    {
+      "id": "u16",
+      "title": "Emociones y Estados de Ánimo",
+      "description": "Aprendé a expresar cómo te sentís y a preguntar por los demás.",
+      "topics": ["Emociones", "Sentimientos", "Reacciones", "Opiniones básicas"]
+    },
+    {
+      "id": "u17",
+      "title": "Viajes y Turismo",
+      "description": "Todo lo que necesitás para viajar, reservar y moverte en otro país.",
+      "topics": ["Aeropuerto", "Hoteles", "Turismo", "Conversaciones en viaje"]
+    },
+    {
+      "id": "u18",
+      "title": "Conversaciones Cotidianas",
+      "description": "Practicá frases comunes para conversaciones naturales en distintas situaciones.",
+      "topics": ["Charlas informales", "Expresiones comunes", "Conectores básicos"]
+    },
+    {
+      "id": "u19",
+      "title": "Cultura y Costumbres",
+      "description": "Conocé las diferencias culturales y costumbres entre Argentina y Brasil.",
+      "topics": ["Fiestas", "Tradiciones", "Modismos", "Gestos culturales"]
+    },
+    {
+      "id": "u20",
+      "title": "Comunicación Avanzada",
+      "description": "Aprendé a argumentar, opinar y expresar ideas más complejas en portugués.",
+      "topics": ["Opiniones", "Debates", "Acento y fluidez", "Expresiones idiomáticas"]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+body[data-mode="argentina"] {
+  --primary: #4ac0ff;
+  --accent: #ffd166;
+  background: radial-gradient(circle, #e0f7ff 0%, #cfeeff 100%);
+}
+
+body[data-mode="brasil"] {
+  --primary: #00b36f;
+  --accent: #ffd500;
+  background: radial-gradient(circle, #e6ffea 0%, #ccffd5 100%);
+}

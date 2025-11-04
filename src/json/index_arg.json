@@ -1,0 +1,37 @@
+{
+  "nav_inicio": "Inicio",
+  "nav_unidades": "Unidades",
+  "nav_juegos": "Juegos",
+  "nav_contacto": "Contacto",
+  
+  "title": "BrazArg - Aprendiendo entre hermanos",
+  "hero_badge": "✨ Aprendiendo entre hermanos",
+  "hero_title": "BrazArg",
+  "hero_text": "Un lugar donde la historia, la palabra y la curiosidad construyen puentes que ni el tiempo puede romper.\nEn este viaje, descubrirás que las fronteras son ilusiones, y que al mirar al otro lado, seguramente encontremos lo que somos... ¿Somos tan distintos? ¿O apenas somos el reflejo del mismo sol del sur?",
+  "hero_btn_start": "Comenzar",
+  "hero_btn_demo": "¿Hermanos?",
+  
+  "features_label": "Historias que nos unen",
+  "features_title": "Un pasado compartido",
+  "features_text": "Explorá los lazos entre Argentina y Brasil a través de la historia, la cultura, los acuerdos y las coincidencias que forjaron nuestra hermandad del sur.",
+  "features_items": [
+    { "icon": "📜", "title": "Historia viva", "text": "Conocé los hitos que unieron a nuestros pueblos y las historias que aún resuenan a ambos lados del río." },
+    { "icon": "🤝", "title": "Relaciones y alianzas", "text": "Descubrí cómo la cooperación política, deportiva y cultural ha tejido un lazo inquebrantable entre nuestras naciones." },
+    { "icon": "🎭", "title": "Cultura compartida", "text": "Del mate al samba, de Maradona a Pelé — celebrá nuestras diferencias que, en realidad, nos acercan más." }
+  ],
+
+  "games_label": "Iteraciones",
+  "games_title": "Aprendé jugando",
+  "games_text": "Descubrí desafíos, juegos y momentos que te conectan con el idioma y la cultura del otro lado. Aprender nunca fue tan divertido.",
+  "games_items": [
+    { "emoji": "🎵", "title": "Ritmo de palabras", "text": "Aprendé portugués con canciones que ya conocés — y algunas que vas a amar." },
+    { "emoji": "😂", "title": "Memes sin fronteras", "text": "Descubrí el humor del otro lado y reíte de cómo nos entendemos sin hablar igual." },
+    { "emoji": "⚡", "title": "Desafíos culturales", "text": "Poné a prueba tus conocimientos en duelos lingüísticos y curiosidades históricas." },
+    { "emoji": "🗣️", "title": "Diálogos reales", "text": "Simulá conversaciones cotidianas con hablantes nativos y mejorá sin darte cuenta." }
+  ],
+
+  "footer_title": "Una comunidad sin fronteras",
+  "footer_text": "Seguinos, compartí, participá — porque la hermandad se construye todos los días, con cada palabra, cada saludo y cada historia.",
+  "footer_btn": "Unirme a la comunidad",
+  "footer_copy": "© 2025 BrazArg — hecho con ❤️ en el Cono Sur."
+}

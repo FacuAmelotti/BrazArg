@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-key="title">BrazArg - Aprendiendo entre hermanos</title>
+  <link rel="stylesheet" href="./src/styles/index.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo" id="logoText">BrazArg</div>
+    <nav class="menu" id="navMenu">
+      <a href="#inicio" data-key="nav_inicio">Inicio</a>
+      <a href="#unidades" data-key="nav_unidades">Unidades</a>
+      <a href="#juegos" data-key="nav_juegos">Juegos</a>
+      <a href="#contacto" data-key="nav_contacto">Contacto</a>
+    </nav>
+    <button class="mode-btn" id="modeToggle">
+      <span>🌎</span>
+      <span id="modeLabel">Modo</span>
+    </button>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section class="panel hero" id="inicio">
+      <div class="floating-element floating-1"></div>
+      <div class="floating-element floating-2"></div>
+      
+      <div class="hero-content">
+
+        <h1 data-key="hero_title"></h1>
+                <div class="hero-badge" data-key="hero_badge"></div>
+        <p data-key="hero_text"></p>
+        
+        <div class="hero-buttons">
+
+           <a href="./pages/portal.html" class="btn-primary"> <span data-key="hero_btn_start"></span> →
+          </a>
+
+          <button class="btn btn-secondary">
+            <span data-key="hero_btn_demo"></span> ▶
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="panel features" id="unidades">
+      <div class="features-content">
+        <h2 data-key="features_title"></h2>
+                <span class="section-label" data-key="features_label"></span>
+        <p data-key="features_text"></p>
+        
+        <div class="features-grid" id="featuresGrid"></div>
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="panel games" id="juegos">
+      <div class="games-content">
+        <h2 data-key="games_title"></h2>
+                <span class="section-label" data-key="games_label"></span>
+        <p data-key="games_text"></p>
+        
+        <div class="games-showcase" id="gamesGrid"></div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="panel footer-section" id="contacto">
+      <div class="footer-content">
+        <h2 data-key="footer_title"></h2>
+        <p data-key="footer_text"></p>
+        
+        <div class="footer-cta">
+          <button class="btn btn-primary">
+            <span data-key="footer_btn"></span> 🚀
+          </button>
+        </div>
+        
+        <div class="social-links">
+          <a href="#" class="social-link">📱</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">💼</a>
+        </div>
+        
+        <div class="footer-bottom">
+          <p id="footerCopy"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./src/js/toggleMode.js"></script>
+
+</body>
+</html>

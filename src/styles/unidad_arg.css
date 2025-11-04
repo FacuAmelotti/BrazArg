@@ -1,0 +1,521 @@
+/* ===============================
+   UNIDAD ARGENTINA 🇦🇷
+   Tango Moderno | Elegancia Absoluta Premium
+   =============================== */
+
+:root {
+  --primary: #6BA3D8;
+  --primary-dark: #3B7FC4;
+  --primary-light: #B8D9F3;
+  --accent: #FFC857;
+  --accent-dark: #FFBA28;
+  --accent-light: #FFE5A8;
+  --bg-base: #0B1420;
+  --bg-elevated: #111B2B;
+  --bg-glass: rgba(255, 255, 255, 0.02);
+  --text-primary: #FFFFFF;
+  --text-secondary: #CAD9E8;
+  --text-muted: #8FA9C2;
+  --shadow-md: 0 8px 40px rgba(107, 163, 216, 0.12);
+  --shadow-glow: 0 0 60px rgba(255, 200, 87, 0.15);
+  --shadow-xl: 0 20px 60px rgba(107, 163, 216, 0.2);
+}
+
+/* ===============================
+   FONDO Y BASE
+   =============================== */
+body[data-mode="argentina"] {
+  background: radial-gradient(ellipse at 50% 0%, rgba(107, 163, 216, 0.08), transparent 70%) fixed,
+              radial-gradient(ellipse at 100% 100%, rgba(255, 200, 87, 0.04), transparent 60%) fixed,
+              var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* ===============================
+   TÍTULOS Y ENCABEZADOS
+   =============================== */
+#unidadTitle {
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 50%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  text-shadow: 0 3px 30px rgba(107, 163, 216, 0.2);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+#unidadSubtitle {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.85;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* ===============================
+   SECCIONES - DISEÑO PREMIUM
+   =============================== */
+.section {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(107, 163, 216, 0.02) 100%);
+  backdrop-filter: blur(25px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(107, 163, 216, 0.03) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.section:hover {
+  border-color: rgba(107, 163, 216, 0.25);
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+}
+
+.section:hover::before {
+  opacity: 1;
+}
+
+.section h2 {
+  color: var(--primary-light);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(107, 163, 216, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section p {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+}
+
+/* ===============================
+   TABLAS ELEGANTES
+   =============================== */
+.section table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 25px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.section table thead {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
+
+.section table th {
+  padding: 18px 20px;
+  text-align: left;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--accent);
+}
+
+.section table tbody tr {
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section table tbody tr:hover {
+  background: linear-gradient(90deg, rgba(107, 163, 216, 0.08), rgba(255, 200, 87, 0.05));
+  transform: scale(1.01);
+  box-shadow: inset 0 0 20px rgba(107, 163, 216, 0.1);
+}
+
+.section table td {
+  padding: 16px 20px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.section table tbody tr:hover td {
+  color: var(--text-primary);
+}
+
+.section table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* ===============================
+   LISTAS CON ESTILO
+   =============================== */
+.section ul, .section ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+.section ul li, .section ol li {
+  padding: 12px 20px 12px 50px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid var(--primary);
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.section ul li::before {
+  content: '◆';
+  position: absolute;
+  left: 20px;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.section ol {
+  counter-reset: item;
+}
+
+.section ol li::before {
+  counter-increment: item;
+  content: counter(item);
+  position: absolute;
+  left: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.section ul li:hover, .section ol li:hover {
+  background: rgba(107, 163, 216, 0.08);
+  border-left-color: var(--accent);
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(107, 163, 216, 0.15);
+}
+
+/* ===============================
+   BLOCKQUOTE ELEGANTE
+   =============================== */
+.section blockquote {
+  margin: 25px 0;
+  padding: 20px 30px 20px 25px;
+  background: linear-gradient(135deg, rgba(255, 200, 87, 0.08), rgba(107, 163, 216, 0.05));
+  border-left: 5px solid var(--accent);
+  border-radius: 12px;
+  font-style: italic;
+  color: var(--accent-light);
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(255, 200, 87, 0.1);
+  position: relative;
+}
+
+.section blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 4rem;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+/* ===============================
+   BOTÓN MARCAR COMO ESTUDIADO
+   =============================== */
+.mark-btn {
+  background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(255, 200, 87, 0.2);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.mark-btn:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 30px rgba(255, 200, 87, 0.4), 0 0 40px rgba(107, 163, 216, 0.3);
+}
+
+.mark-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===============================
+   SECCIÓN ESTUDIADA - EFECTO WOW
+   =============================== */
+/* ===============================
+   SECCIÓN ESTUDIADA - EFECTO DESTACADO ELEGANTE 💙🤍💙
+   =============================== */
+.section.studied {
+  position: relative;
+  border: 2px solid var(--accent);
+  background: linear-gradient(
+    135deg,
+    rgba(163, 159, 152, 0.12) 0%,
+    rgba(107, 163, 216, 0.40) 100%
+  );
+  box-shadow:
+    0 0 25px rgba(255, 200, 87, 0.3),
+    0 0 45px rgba(107, 163, 216, 0.25);
+  transform: translateY(-2px);
+  transition: all 0.4s ease;
+  animation: studiedSoftPulse 4s ease-in-out infinite;
+}
+
+.section.studied:hover {
+  box-shadow:
+    0 0 35px rgba(255, 200, 87, 0.4),
+    0 0 60px rgba(107, 163, 216, 0.3);
+  border-color: var(--accent-light);
+}
+
+/* ✨ Efecto de “latido suave” */
+@keyframes studiedSoftPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 25px rgba(255, 200, 87, 0.25),
+      0 0 40px rgba(107, 163, 216, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 35px rgba(255, 200, 87, 0.4),
+      0 0 60px rgba(107, 163, 216, 0.3);
+  }
+}
+
+/* ✓ Checkmark sutil y elegante */
+.section.studied::after {
+  content: '✓';
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-dark)
+  );
+  border-radius: 50%;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 12px rgba(255, 200, 87, 0.5),
+    0 0 25px rgba(107, 163, 216, 0.2);
+  animation: checkGlowSoft 3s ease-in-out infinite;
+}
+
+@keyframes checkGlowSoft {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.15);
+  }
+}
+
+/* ✅ Botón “estudiado” refinado */
+.section.studied .mark-btn {
+  background: linear-gradient(135deg, #43a047, #81c784);
+  color: #fff;
+  box-shadow:
+    0 0 12px rgba(67, 160, 71, 0.4),
+    0 0 25px rgba(255, 200, 87, 0.15);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.section.studied .mark-btn:hover {
+  background: linear-gradient(135deg, #4caf50, #a5d6a7);
+  transform: scale(1.08);
+  box-shadow:
+    0 0 20px rgba(67, 160, 71, 0.5),
+    0 0 35px rgba(255, 200, 87, 0.25);
+}
+
+
+/* ===============================
+   BARRA DE PROGRESO
+   =============================== */
+#studyProgressBar {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 18px 25px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-top: 40px;
+}
+
+.study-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0.2;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+}
+
+.study-progress-text {
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ===============================
+   STRONG Y ELEMENTOS DESTACADOS
+   =============================== */
+.section strong {
+  color: var(--accent-light);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 200, 87, 0.3);
+}
+
+.section em {
+  color: var(--primary-light);
+  font-style: italic;
+}
+
+/* ===============================
+   ANIMACIONES
+   =============================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes studiedPulse {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(255, 200, 87, 0.3), var(--shadow-xl);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255, 200, 87, 0.5), var(--shadow-xl);
+  }
+}
+
+@keyframes checkmarkBounce {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 20px;
+  }
+  
+  .section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .section table th,
+  .section table td {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .mark-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+
+.hover-bilingue {
+  cursor: pointer;
+background: linear-gradient(
+  90deg,
+  rgba(0, 156, 59, 0.6) 0%,      /* verde */
+  rgba(255, 223, 0, 0.6) 50%,    /* amarillo */
+  rgba(0, 156, 59, 0.6) 100%     /* verde */
+);
+
+
+  box-shadow: 0 0 10px rgba(253, 254, 255, 0.45);
+}

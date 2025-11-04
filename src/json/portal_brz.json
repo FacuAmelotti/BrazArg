@@ -1,0 +1,31 @@
+{
+  "title": "Explore, aprenda, conecte-se",
+  "subtitle": "Escolha a área que deseja descobrir hoje",
+      "nav_back": "← Voltar",
+  "areas": [
+    {
+      "title": "Aprenda Idiomas",
+      "description": "Domine o espanhol e conecte-se com seus irmãos da Argentina através da linguagem.",
+      "icon": "🗣️",
+      "link": "./temario_idiomas.html"
+    },
+    {
+      "title": "Aprenda História",
+      "description": "Descubra os eventos que uniram e separaram nossas nações.",
+      "icon": "📜",
+      "link": "./historia.html"
+    },
+    {
+      "title": "Aprenda Cultura",
+      "description": "Mergulhe nos costumes, tradições e valores do Brasil e da Argentina.",
+      "icon": "🎭",
+      "link": "./cultura.html"
+    },
+    {
+      "title": "Aprenda Gastronomia",
+      "description": "Conheça as receitas típicas, sabores e arte culinária de ambos os países.",
+      "icon": "🍲",
+      "link": "./gastronomia.html"
+    }
+  ]
+}

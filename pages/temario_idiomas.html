@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-key="title">BrazArg - Idiomas</title>
+  <link rel="icon" type="image/png" href="../src/img/logo.png">
+  <link rel="stylesheet" href="../src/styles/index.css">  
+</head>
+<body>
+  <!-- 🌎 Navbar -->
+  <header class="navbar">
+    <div class="logo"><a style="text-decoration: none;" href="../index.html">BrazArg</a></div>
+    <nav class="menu">
+      <a href="./portal.html" data-key="nav-back">a</a>
+
+    </nav>
+    <button class="mode-btn" id="modeToggle">
+      <span>🌎</span>
+      <span id="modeLabel">🇦🇷 ARG</span>
+    </button>
+  </header>
+
+  <!-- 🌈 Fondo animado -->
+  <div class="animated-bg"></div>
+
+  <!-- =============================
+       📘 TEMARIO DE IDIOMAS
+  ============================== -->
+  <main class="temario-container" id="temario">
+    <div class="temario-header">
+      <h1 class="temario-title">Temario de Español ↔ Portugués</h1>
+      <p class="temario-subtitle">Aprendé el idioma de tus hermanos</p>
+    </div>
+
+    <div class="chapters-grid" id="chaptersGrid">
+      <!-- 🔹 Las unidades se cargan dinámicamente desde temario.js -->
+    </div>
+  </main>
+
+  <!-- =============================
+       📜 SCRIPTS
+  ============================== -->
+  <script src="../src/js/toggleMode.js"></script>
+  <script src="../src/js/temario.js"></script>
+</body>
+</html>

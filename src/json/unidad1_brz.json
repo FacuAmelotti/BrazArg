@@ -1,0 +1,35 @@
+{
+          "nav_back": "← Voltar",
+  "title": "Unidade 1: Saudações e Apresentações",
+  "subtitle": "Aprenda a cumprimentar, se apresentar e se despedir corretamente em contextos formais e informais.",
+  "sections": [
+    {
+      "title": "1️⃣ Saudações formais e informais",
+      "content": "<p>As saudações são uma das primeiras formas de comunicação. Em português, elas podem variar conforme o momento do dia e o grau de confiança entre as pessoas.</p><table><tr><th>Momento do dia</th><th>Formal</th><th>Informal</th></tr><tr><td>Manhã</td><td>Bom dia</td><td>Oi / Olá</td></tr><tr><td>Tarde</td><td>Boa tarde</td><td>Oi / Tudo bem</td></tr><tr><td>Noite</td><td>Boa noite</td><td>Oi / E aí</td></tr></table><p>Também existem expressões gerais como <strong>“Oi”</strong>, <strong>“Olá”</strong> e <strong>“Tudo bem?”</strong>, que podem ser usadas em quase qualquer situação.</p>"
+    },
+    {
+      "title": "2️⃣ Apresentando-se",
+      "content": "<p>Você pode se apresentar de várias maneiras, dependendo da formalidade:</p><ul><li><strong>Informal:</strong> “Oi, eu sou a Ana.” / “Meu nome é Ana.”</li><li><strong>Formal:</strong> “Muito prazer, meu nome é Ana González.”</li></ul><p>Também é possível adicionar uma frase de cortesia, como:</p><blockquote>“É um prazer conhecê-lo(a).”</blockquote>"
+    },
+    {
+      "title": "3️⃣ Apresentando outra pessoa",
+      "content": "<p>Para apresentar alguém, use:</p><ul><li>“Quero te apresentar meu amigo Carlos.” (informal)</li><li>“Gostaria de lhe apresentar o senhor Lopes.” (formal)</li></ul><p>Se você for a pessoa apresentada, pode responder com:</p><ul><li>“Muito prazer.”</li><li>“Encantado(a).”</li><li>“O prazer é meu.”</li></ul>"
+    },
+    {
+      "title": "4️⃣ Despedidas",
+      "content": "<p>Há várias formas de se despedir em português. Algumas são mais formais e outras mais casuais:</p><table><tr><th>Situação</th><th>Formal</th><th>Informal</th></tr><tr><td>Geral</td><td>Até logo / Tenha um bom dia</td><td>Tchau / Até mais</td></tr><tr><td>Antes de dormir</td><td>Boa noite</td><td>Tchau / Boa</td></tr><tr><td>Fim de semana</td><td>Bom fim de semana</td><td>Nos vemos no fim de semana</td></tr></table><p>Lembre-se de que em português <strong>“Tchau”</strong> é uma despedida comum e informal, usada em todo o país.</p>"
+    },
+    {
+      "title": "5️⃣ Expressões de cortesia básica",
+      "content": "<p>São palavras e frases que demonstram respeito e gentileza na comunicação:</p><table><tr><th>Expressão</th><th>Uso</th></tr><tr><td>Por favor</td><td>Para pedir algo educadamente.</td></tr><tr><td>Obrigado(a) / Muito obrigado(a)</td><td>Para expressar gratidão.</td></tr><tr><td>De nada</td><td>Resposta a 'obrigado'.</td></tr><tr><td>Desculpe / Com licença</td><td>Para pedir desculpas ou chamar a atenção.</td></tr><tr><td>Com licença</td><td>Antes de passar ou se retirar de um lugar.</td></tr></table>"
+    },
+    {
+      "title": "6️⃣ Pratique o que aprendeu",
+      "content": "<ul><li><strong>Exercício 1:</strong> Escreva três saudações formais e três informais.</li><li><strong>Exercício 2:</strong> Crie uma breve apresentação pessoal (nome, profissão, país).</li><li><strong>Exercício 3:</strong> Anote três formas diferentes de se despedir de um amigo e de um professor.</li></ul>"
+    },
+    {
+      "title": "7️⃣ Curiosidades da língua",
+      "content": "<p>A palavra <strong>“Tchau”</strong> vem do italiano <em>“Ciao”</em>, e foi incorporada ao português há mais de um século. Hoje é usada em praticamente todo o mundo lusófono.</p><p>A saudação <strong>“Oi”</strong> é uma das mais universais no Brasil, podendo ser usada tanto em situações formais quanto informais, dependendo do tom de voz.</p>"
+    }
+  ]
+}

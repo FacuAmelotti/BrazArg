@@ -1,0 +1,127 @@
+{
+  "title": "Aprendendo a nos comunicar",
+  "subtitle": "Aprenda o idioma dos seus irmãos",
+        "nav_back": "← Voltar",
+  "units": [
+    {
+      "id": "unidad1",
+      "title": "Saudações e Apresentações",
+      "description": "Aprenda a cumprimentar, se apresentar e se despedir corretamente em contextos formais e informais.",
+      "topics": ["Saudações", "Apresentações", "Despedidas", "Cortesia básica"]
+    },
+    {
+      "id": "u2",
+      "title": "O Alfabeto e a Pronúncia",
+      "description": "Conheça o alfabeto em espanhol, sua pronúncia e diferenças com o português.",
+      "topics": ["Letras e sons", "Acentos", "Exemplos de pronúncia"]
+    },
+    {
+      "id": "u3",
+      "title": "Números e Datas",
+      "description": "Aprenda a contar, dizer a idade e falar sobre datas, dias e meses.",
+      "topics": ["Números cardinais", "Datas", "Dias da semana", "Meses do ano"]
+    },
+    {
+      "id": "u4",
+      "title": "Família e Pessoas",
+      "description": "Aprenda vocabulário básico sobre a família, relações e pessoas.",
+      "topics": ["Família", "Relações", "Amigos", "Profissões comuns"]
+    },
+    {
+      "id": "u5",
+      "title": "Cores, Objetos e Animais",
+      "description": "Aprenda vocabulário essencial para descrever o mundo ao seu redor.",
+      "topics": ["Cores", "Objetos da casa", "Animais", "Adjetivos simples"]
+    },
+    {
+      "id": "u6",
+      "title": "Gramática Básica",
+      "description": "Descubra como construir frases simples, usar artigos, substantivos e adjetivos.",
+      "topics": ["Artigos", "Substantivos", "Adjetivos", "Pronomes"]
+    },
+    {
+      "id": "u7",
+      "title": "Verbos e Tempos Verbais",
+      "description": "Conheça os verbos mais comuns e aprenda a conjugá-los no presente, passado e futuro.",
+      "topics": ["Presente", "Passado", "Futuro", "Verbos irregulares"]
+    },
+    {
+      "id": "u8",
+      "title": "O Corpo e a Saúde",
+      "description": "Aprenda vocabulário útil para descrever o corpo humano, sensações e situações médicas simples.",
+      "topics": ["Partes do corpo", "Sintomas comuns", "Ir ao médico", "Saúde e bem-estar"]
+    },
+    {
+      "id": "u9",
+      "title": "A Casa e o Lar",
+      "description": "Descubra como falar da sua casa, dos cômodos e objetos do dia a dia.",
+      "topics": ["Cômodos", "Móveis", "Ações do lar", "Rotinas"]
+    },
+    {
+      "id": "u10",
+      "title": "Comidas e Bebidas",
+      "description": "Aprenda a falar sobre alimentos, pedir em restaurantes e expressar preferências.",
+      "topics": ["Comidas", "Bebidas", "Restaurantes", "Preferências"]
+    },
+    {
+      "id": "u11",
+      "title": "Roupas e Estilo",
+      "description": "Conheça o vocabulário de roupas, cores e expressões para descrever vestimentas.",
+      "topics": ["Roupas", "Materiais", "Descrições", "Tamanhos"]
+    },
+    {
+      "id": "u12",
+      "title": "O Clima e a Natureza",
+      "description": "Aprenda a descrever o clima, as estações e elementos da natureza.",
+      "topics": ["Clima", "Estações", "Fenômenos naturais", "Meio ambiente"]
+    },
+    {
+      "id": "u13",
+      "title": "Na Cidade",
+      "description": "Aprenda como se locomover e pedir informações em diferentes lugares urbanos.",
+      "topics": ["Direções", "Transporte", "Locais públicos", "Pedir informações"]
+    },
+    {
+      "id": "u14",
+      "title": "Escola e Trabalho",
+      "description": "Aprenda a falar sobre estudos, trabalho e responsabilidades.",
+      "topics": ["Matérias", "Profissões", "Horários", "Atividades diárias"]
+    },
+    {
+      "id": "u15",
+      "title": "Tempo e Rotinas",
+      "description": "Pratique como falar sobre o tempo, rotinas diárias e horários.",
+      "topics": ["Horas", "Rotinas", "Frequência", "Atividades do dia a dia"]
+    },
+    {
+      "id": "u16",
+      "title": "Emoções e Sentimentos",
+      "description": "Aprenda a expressar como se sente e perguntar sobre os outros.",
+      "topics": ["Emoções", "Sentimentos", "Reações", "Opiniões básicas"]
+    },
+    {
+      "id": "u17",
+      "title": "Viagens e Turismo",
+      "description": "Tudo o que você precisa para viajar, reservar e se mover em outro país.",
+      "topics": ["Aeroporto", "Hotéis", "Turismo", "Conversas de viagem"]
+    },
+    {
+      "id": "u18",
+      "title": "Conversas do Dia a Dia",
+      "description": "Pratique frases comuns para conversas naturais em diferentes situações.",
+      "topics": ["Conversas informais", "Expressões comuns", "Conectores básicos"]
+    },
+    {
+      "id": "u19",
+      "title": "Cultura e Costumes",
+      "description": "Conheça as diferenças culturais e os costumes entre Argentina e Brasil.",
+      "topics": ["Festas", "Tradições", "Gírias", "Gestos culturais"]
+    },
+    {
+      "id": "u20",
+      "title": "Comunicação Avançada",
+      "description": "Aprenda a argumentar, opinar e expressar ideias mais complexas em espanhol.",
+      "topics": ["Opiniões", "Debates", "Acento e fluência", "Expressões idiomáticas"]
+    }
+  ]
+}

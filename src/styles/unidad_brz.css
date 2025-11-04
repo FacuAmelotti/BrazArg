@@ -1,0 +1,450 @@
+/* ===============================
+   UNIDAD BRASIL 🇧🇷
+   Samba Elegante | Energía Tropical Premium
+   =============================== */
+
+:root {
+  --primary: #00A84F;
+  --primary-dark: #008038;
+  --primary-light: #2DD881;
+  --accent: #FFD700;
+  --accent-dark: #FFC400;
+  --accent-light: #FFF1A3;
+  --accent-blue: #003DA5;
+  --bg-base: #0A1612;
+  --bg-elevated: #0F1E18;
+  --text-primary: #FFFFFF;
+  --text-secondary: #C8F2DC;
+  --text-muted: #8BC9AC;
+  --shadow-md: 0 8px 40px rgba(0, 168, 79, 0.12);
+  --shadow-glow: 0 0 60px rgba(255, 215, 0, 0.15);
+  --shadow-xl: 0 20px 60px rgba(0, 168, 79, 0.2);
+}
+
+/* ===============================
+   FONDO TROPICAL
+   =============================== */
+body[data-mode="brasil"] {
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 168, 79, 0.1), transparent 70%) fixed,
+              radial-gradient(ellipse at 100% 100%, rgba(255, 215, 0, 0.05), transparent 60%) fixed,
+              var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* ===============================
+   TÍTULOS CARNAVALEROS
+   =============================== */
+#unidadTitle {
+  font-family: 'Satisfy', cursive;
+  color: var(--accent);
+  text-shadow: 0 4px 30px rgba(255, 215, 0, 0.4),
+               0 0 60px rgba(0, 168, 79, 0.4),
+               0 2px 5px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.03em;
+  animation: sambaSwing 3s ease-in-out infinite;
+}
+
+#unidadSubtitle {
+  color: var(--accent-light);
+  font-family: 'Satisfy', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 15px rgba(255, 215, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* ===============================
+   SECCIONES - ESTILO TROPICAL
+   =============================== */
+.section {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(0, 168, 79, 0.03) 100%);
+  backdrop-filter: blur(25px) saturate(170%);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  animation: rotateGlow 15s linear infinite;
+}
+
+.section:hover {
+  border-color: rgba(0, 168, 79, 0.3);
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+}
+
+.section:hover::before {
+  opacity: 1;
+}
+
+.section h2 {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid rgba(255, 215, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Satisfy', cursive;
+  text-shadow: 0 2px 15px rgba(255, 215, 0, 0.3);
+}
+
+.section p {
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* ===============================
+   TABLAS CARNAVALERAS
+   =============================== */
+.section table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 30px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 168, 79, 0.03);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.section table thead {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--accent-dark));
+  position: relative;
+}
+
+.section table thead::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark), var(--accent));
+}
+
+.section table th {
+  padding: 20px 22px;
+  text-align: left;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.section table tbody tr {
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section table tbody tr:hover {
+  background: linear-gradient(90deg, rgba(0, 168, 79, 0.12), rgba(255, 215, 0, 0.08));
+  transform: scale(1.02) translateX(5px);
+  box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.15);
+  border-left: 4px solid var(--accent);
+}
+
+.section table td {
+  padding: 18px 22px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+.section table tbody tr:hover td {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.section table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* ===============================
+   LISTAS CON RITMO
+   =============================== */
+.section ul, .section ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 25px 0;
+}
+
+.section ul li, .section ol li {
+  padding: 14px 22px 14px 55px;
+  margin-bottom: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 4px solid var(--primary);
+  border-radius: 14px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: var(--text-secondary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section ul li::before {
+  content: '★';
+  position: absolute;
+  left: 22px;
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  animation: starPulse 2s ease-in-out infinite;
+}
+
+.section ol {
+  counter-reset: item;
+}
+
+.section ol li::before {
+  counter-increment: item;
+  content: counter(item);
+  position: absolute;
+  left: 20px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--bg-base);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 900;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.section ul li:hover, .section ol li:hover {
+  background: rgba(0, 168, 79, 0.1);
+  border-left-color: var(--accent);
+  transform: translateX(12px) rotate(0.5deg);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.25);
+}
+
+/* ===============================
+   BLOCKQUOTE TROPICAL
+   =============================== */
+.section blockquote {
+  margin: 30px 0;
+  padding: 25px 35px 25px 30px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 168, 79, 0.08));
+  border-left: 6px solid var(--accent);
+  border-radius: 16px;
+  font-style: italic;
+  color: var(--accent-light);
+  font-size: 1.15rem;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.15);
+  position: relative;
+}
+
+.section blockquote::before {
+  content: '❝';
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  font-size: 5rem;
+  color: var(--accent);
+  opacity: 0.4;
+  font-family: Georgia, serif;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.section blockquote::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+/* ===============================
+   BOTÓN MARCAR - ESTILO SAMBA
+   =============================== */
+.mark-btn {
+  background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary-light));
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 14px;
+  color: var(--bg-base);
+  font-weight: 800;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  animation: gradientShift 3s ease infinite;
+}
+
+.mark-btn:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5), 0 0 50px rgba(0, 168, 79, 0.3);
+  animation-play-state: paused;
+}
+
+.mark-btn:active {
+  transform: scale(0.95) rotate(-1deg);
+}
+
+/* ===============================
+   SECCIÓN ESTUDIADA - FESTA!
+   =============================== */
+.section.studied {
+  border: 3px solid var(--accent);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 168, 79, 0.1) 100%);
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.4), var(--shadow-xl);
+  animation: studiedCelebrate 2.5s ease-in-out infinite;
+}
+
+.section.studied::after {
+  content: '✓';
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--bg-base);
+  font-weight: 900;
+  box-shadow: 0 10px 35px rgba(255, 215, 0, 0.6);
+  animation: checkmarkSamba 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 3px solid var(--primary);
+}
+
+.section.studied .mark-btn {
+  background: linear-gradient(135deg, #4CAF50, #8BC34A, #CDDC39);
+  background-size: 200% 200%;
+  animation: gradientShift 2s ease infinite;
+}
+
+/* ===============================
+   BARRA DE PROGRESO TROPICAL
+   =============================== */
+#studyProgressBar {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  border-radius: 24px;
+  padding: 20px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-top: 40px;
+}
+
+.study-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary-light));
+  background-size: 200% 200%;
+  opacity: 0.25;
+  transition: width 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 24px;
+  animation: gradientShift 3s ease infinite;
+}
+
+.study-progress-text {
+  position: relative;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent-light);
+  font-size: 1.15rem;
+  font-family: 'Satisfy', cursive;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* ===============================
+   ELEMENTOS DESTACADOS
+   =============================== */
+.section strong {
+  color: var(--accent-light);
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.section em {
+  color: var(--primary-light);
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(0, 168, 79, 0.3);
+}
+
+/* ===============================
+   ANIMACIONES TROPICALES
+   =============================== */
+
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 22px;
+  }
+  
+  .section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .section table th,
+  .section table td {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  
+  .mark-btn {
+    padding: 9px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .section.studied::after {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+}
+
+.hover-bilingue {
+  cursor: pointer;
+background: linear-gradient(
+  90deg,
+  rgba(38, 143, 241, 0.26) 0%,      /* celeste */
+  rgba(255, 255, 255, 0.36) 50%,    /* blanco */
+  rgba(38, 143, 241, 0.26) 100%     /* celeste */
+);
+
+  box-shadow: 0 0 10px rgba(32, 77, 192, 0.45);
+}

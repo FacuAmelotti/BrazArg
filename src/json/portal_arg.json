@@ -1,0 +1,31 @@
+{
+  "title": "Explorá, aprendé, conectá",
+  "subtitle": "Elegí el área que querés descubrir hoy",
+    "nav_back": "← Atras",
+  "areas": [
+    {
+      "title": "Aprendé Idiomas",
+      "description": "Dominá el portugués y conectate con tus hermanos de Brasil a través del lenguaje.",
+      "icon": "🗣️",
+      "link": "./temario_idiomas.html"
+    },
+    {
+      "title": "Aprendé Historia",
+      "description": "Descubrí los eventos que unieron y separaron a nuestras naciones.",
+      "icon": "📜",
+      "link": "./historia.html"
+    },
+    {
+      "title": "Aprendé Cultura",
+      "description": "Sumergite en las costumbres, tradiciones y valores de Argentina y Brasil.",
+      "icon": "🎭",
+      "link": "./cultura.html"
+    },
+    {
+      "title": "Aprendé Gastronomía",
+      "description": "Conocé las recetas típicas, los sabores y el arte culinario de ambos países.",
+      "icon": "🍲",
+      "link": "./gastronomia.html"
+    }
+  ]
+}

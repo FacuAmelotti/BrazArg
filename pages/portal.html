@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-key="title">BrazArg - Portal de Aprendizaje</title>
+  <link rel="icon" type="image/png" href="../src/img/logo.png">
+  <link rel="stylesheet" href="../src/styles/index.css">
+  <!-- El sistema agrega automáticamente los CSS temáticos -->
+</head>
+<body>
+  <!-- 🌎 NAVBAR -->
+  <header class="navbar">
+    <div class="logo"> <a href="../index.html" style="text-decoration: none;">BrazArg</a></div>
+    <nav class="menu">
+      <a href="../index.html" data-key="nav-back"></a>
+    </nav>
+    <button class="mode-btn" id="modeToggle">
+      <span>🌎</span>
+      <span id="modeLabel">🇦🇷 ARG</span>
+    </button>
+  </header>
+
+  <!-- 🌈 FONDO ANIMADO -->
+  <div class="animated-bg"></div>
+
+  <!-- ===========================
+       PORTAL DE APRENDIZAJE
+  ============================ -->
+  <main class="portal-container" id="areas">
+        <div class="portal-header">
+        <h1 class="portal-title">Explorá, aprendé, conectá</h1>
+        <p class="portal-subtitle">Elegí el área que querés descubrir hoy</p>
+        </div>
+
+    <section class="portal-grid" id="portalGrid">
+      <!-- Las tarjetas se generan dinámicamente -->
+    </section>
+  </main>
+
+  <!-- ===========================
+       SCRIPTS
+  ============================ -->
+  <script src="../src/js/toggleMode.js"></script>
+  <script src="../src/js/portal.js"></script>
+</body>
+</html>

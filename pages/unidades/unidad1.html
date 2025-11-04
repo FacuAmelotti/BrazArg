@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrazArg - Unidad 1</title>
+  <link rel="icon" type="image/png" href="../src/img/logo.png">
+  <link rel="stylesheet" href="../../src/styles/index.css">
+  <link rel="stylesheet" href="../../src/styles/unidad.css">
+</head>
+
+<body>
+  <!-- 🌎 Navbar -->
+  <header class="navbar">
+    <div class="logo"><a style="text-decoration:none;" href="../../index.html">BrazArg</a></div>
+    <nav class="menu">
+      <a href="../temario_idiomas.html" id="navBack" data-key="nav-back">Volver al Temario</a>
+    </nav>
+    <button class="mode-btn" id="modeToggle">
+      <span>🌎</span>
+      <span id="modeLabel">🇦🇷 ARG</span>
+    </button>
+  </header>
+
+  <!-- 🌈 Fondo animado -->
+  <div class="animated-bg"></div>
+
+  <!-- 📈 Progreso -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- 🧠 Contenido dinámico -->
+  <main class="unidad-container">
+    <div class="unidad-header">
+      <h1 id="unidadTitle"></h1>
+      <p id="unidadSubtitle"></p>
+    </div>
+
+    <div class="unidad-content" id="unidadContent">
+      <!-- Secciones cargadas dinámicamente -->
+    </div>
+  </main>
+
+  <!-- 📜 Scripts -->
+     <script src="../../src/js/unidad.js"></script>
+  <script src="../../src/js/toggleMode.js"></script>
+</body>
+</html>
