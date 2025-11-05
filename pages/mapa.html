@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Argentina</title>
+    <link rel="stylesheet" href="../src/styles/argMapa.css">
+    <link rel="icon" href="./src/img/arg.png" type="image/png">
+    <style>
+  /* =========================================================
+   🎵 Panel de Música - Argentina
+   ========================================================= */
+.music-panel {
+  position: fixed;
+  top: 28px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 14px;
+  border-radius: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+  z-index: 999;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.music-panel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.music-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.2));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.music-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+}
+
+.music-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 46px;
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #6ec9ff, #ffffff);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  margin-left: 2px;
+}
+
+.music-slider:hover {
+  box-shadow: 0 0 8px rgba(110, 201, 255, 0.5);
+}
+
+/* Handle del slider */
+.music-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #6ec9ff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.music-slider::-webkit-slider-thumb:hover {
+  background: #6ec9ff;
+}
+
+#nombre {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+#music-light {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(117,170,219,0.5) 0%, rgba(249,215,28,0.25) 40%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1; /* debajo del nav, pero visible */
+  mix-blend-mode: screen;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+  .flag-underline::after {
+  width: 86%;
+  top: -12px;
+  margin-bottom: 18px;
+}
+
+/* Evita que el overlay bloquee clics sobre el panel de música */
+.music-panel {
+  position: fixed;
+  z-index: 10000; /* por encima del overlay (9999) */
+  pointer-events: auto !important;
+}
+
+</style>
+
+</head>
+<body>
+  <button class="mode-btn" id="modeToggle" style="
+  position: fixed;
+  top: 32px;
+  right: 160px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #e5e5e5;
+  padding: 8px 14px;
+  border-radius: 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  transition: all 0.3s ease;">
+  <span style="pointer-events: none;">🌎</span>
+  <span style="pointer-events: none;" id="modeLabel">🇦🇷 ARG</span>
+</button>
+
+    <!-- Partículas -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Cursor personalizado -->
+    <div class="cursor" id="cursor"></div>
+  <div id="back"></div>
+
+                        <div class="music-panel">
+  <img id="music-toggle" src="../src/img/sound_on.png" alt="Music Control" class="music-icon">
+  <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.4" class="music-slider">
+  <audio id="bg-music" loop autoplay>
+    <source src="../src/audio/main.mp3" type="audio/mpeg">
+  </audio>
+            </div>
+
+    <div class="container">
+     <button data-key="nav-back" class="back-btn" id="backBtn" onclick="window.location.href='./portal.html'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 19-7-7 7-7"/>
+                <path d="M19 12H5"/>
+            </svg>
+            <span>Volver</span>
+        </button>
+        <div class="subtitle" data-key="subtitle">Explorando el país</div>
+            <p class="title" data-key="title">
+            Explorando <img src="../src/img/arg.png" alt="Argentina" class="flag-inline">
+            </p>
+        
+        <div class="map-container" id="mapContainer">
+            <!--
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDQwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMDAgNTBMMzUwIDUwTDM4MCAyMDBMMzIwIDM1MEwzNTAgNTAwTDI4MCA1NDBMMjAwIDUyMEwxNTAgNDgwTDEwMCA0MDBMODAgMzAwTDkwIDIwMEwxMDAgNTBaIiBzdHJva2U9IiNhMGEwYTAiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0icmdiYSgxNjAsIDE2MCwgMTYwLCAwLjEpIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjYTBhMGEwIiBmb250LWZhbWlseT0iSW50ZXIiIGZvbnQtc2l6ZT0iMTgiPkFyZ2VudGluYTwvdGV4dD4KPC9zdmc+" 
+                 alt="Mapa de Argentina" 
+                 class="map-image" 
+                 id="mapImage"> -->
+                  <img src="../src/img/ArgMap.png" 
+                 alt="Mapa de Argentina" 
+                 class="map-image" 
+                 id="mapImage">
+        </div>
+    </div>
+
+    <!-- Panel de fotos -->
+    <div class="photo-panel" id="photoPanel">
+        <div class="panel-content">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <h2 class="location-title" id="locationTitle">Título del Lugar</h2>
+            <div class="photo-gallery" id="photoGallery">
+                <!-- Las fotos se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../src/js/argMap.js"></script>
+
+     <script>
+  const music = document.getElementById('bg-music');
+const toggle = document.getElementById('music-toggle');
+const slider = document.getElementById('music-volume');
+
+// 🔹 Cargar volumen guardado o usar valor inicial
+const savedVolume = localStorage.getItem('musicVolume');
+const initialVolume = savedVolume !== null ? parseFloat(savedVolume) : parseFloat(slider.value);
+music.volume = initialVolume;
+slider.value = initialVolume;
+let lastVolume = initialVolume || 0.4;
+
+// 🔹 Actualizar ícono según volumen
+function updateIcon() {
+  if (music.volume === 0) {
+    toggle.src = '../src/img/sound_off.png';
+  } else {
+    toggle.src = '../src/img/sound_on.png';
+  }
+}
+
+// 🔹 Guardar el volumen cada vez que se cambia
+slider.addEventListener('input', () => {
+  music.volume = parseFloat(slider.value);
+  if (music.volume === 0) {
+    toggle.src = '../src/img/sound_off.png';
+  } else {
+    toggle.src = '../src/img/sound_on.png';
+    lastVolume = music.volume;
+  }
+  localStorage.setItem('musicVolume', music.volume);
+});
+
+// 🔹 Botón mute / unmute
+toggle.addEventListener('click', () => {
+  if (music.volume > 0) {
+    lastVolume = music.volume;
+    music.volume = 0;
+    slider.value = 0;
+  } else {
+    music.volume = lastVolume || 0.4;
+    slider.value = music.volume;
+  }
+  updateIcon();
+  localStorage.setItem('musicVolume', music.volume);
+});
+
+// 🔹 Ajustar icono al cargar
+window.addEventListener('DOMContentLoaded', updateIcon);
+
+// 🔹 Autoplay (requiere interacción)
+document.addEventListener('click', () => {
+  if (music.paused) music.play().catch(() => {});
+}, { once: true });
+
+// 🔹 Luz reactiva
+const light = document.getElementById("music-light");
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const source = audioCtx.createMediaElementSource(music);
+const analyser = audioCtx.createAnalyser();
+analyser.fftSize = 256;
+const dataArray = new Uint8Array(analyser.frequencyBinCount);
+source.connect(analyser);
+analyser.connect(audioCtx.destination);
+
+function animateLight() {
+  analyser.getByteFrequencyData(dataArray);
+  const avg = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+  const intensity = avg / 255;
+  const scale = 1 + intensity * 1.2;
+  const opacity = 0.15 + intensity * 0.85;
+  light.style.transform = `translateX(-50%) scale(${scale})`;
+  light.style.opacity = opacity;
+  requestAnimationFrame(animateLight);
+}
+
+document.addEventListener('click', async () => {
+  if (audioCtx.state === 'suspended') await audioCtx.resume();
+  if (music.paused) await music.play().catch(() => {});
+  animateLight();
+}, { once: true });
+
+window.addEventListener('load', () => {
+  if (!music.paused) animateLight();
+});
+
+</script>
+
+<script src="../src/js/mapMode.js"></script>
+    <script src="../src/js/flag-back-scroll.js"></script>
+</body>
+</html>

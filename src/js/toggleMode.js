@@ -130,6 +130,7 @@ const next = current === "argentina" ? "brasil" : "argentina";
   else {
     await loadContent(next);
   }
+  
 }
 
 // ===============================

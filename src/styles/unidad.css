@@ -8,6 +8,7 @@
   padding: 140px 20px 80px;
   position: relative;
   color: #fff;
+  align-items: center;
 }
 
 .unidad-header {
@@ -140,4 +141,23 @@
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(255,255,255,0.15);
   transition: 0.25s;
+}
+
+/* ==============================
+   BARRA DE PROGRESO DE SCROLL
+   ============================== */
+/* Asegurate de que el header sea el contenedor de referencia */
+
+.scroll-progress {
+  position: fixed;
+  top: 80px; /* ajustá según la altura real del nav */
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary, #00a8ff), var(--accent, #ffd700));
+  z-index: 9999;
+  transition: width 0.05s ease-out;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+  pointer-events: none;
 }

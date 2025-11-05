@@ -1,0 +1,556 @@
+/* ===========================
+   RESPONSIVE GAME STYLES
+   =========================== */
+
+/* ===========================
+   TABLETS Y PANTALLAS MEDIANAS (768px - 1024px)
+   =========================== */
+@media (max-width: 1024px) {
+  .game-container {
+    grid-template-columns: 1fr 240px;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .battlefield {
+    padding: 12px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .event-display-inline {
+    min-width: 220px;
+  }
+
+  .event-icon-inline {
+    width: 32px;
+    height: 32px;
+  }
+
+  .event-name-inline {
+    font-size: 0.85rem;
+  }
+
+  .event-desc-inline {
+    font-size: 0.7rem;
+  }
+
+  /* Ajustes del castillo */
+  .castle {
+    padding: 10px;
+    width: 90%;
+    height: 90%;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .name {
+    font-size: 0.85rem;
+  }
+
+  .role-tag {
+    font-size: 0.75rem;
+  }
+
+  .points {
+    font-size: 0.75rem;
+  }
+
+  .lifes {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+
+  .thinking {
+    font-size: 0.58rem;
+  }
+}
+
+/* ===========================
+   MÓVILES Y TABLETS PEQUEÑAS (481px - 768px)
+   =========================== */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    padding: 10px 16px;
+    height: 50px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .logo img {
+    height: 26px;
+  }
+
+  .nav-menu {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .music-panel-inline {
+    display: none;
+  }
+
+  /* Contenedor principal */
+  .game-container {
+    top: 50px;
+    bottom: 100px; /* 🔹 MÁS ALTO para panel de acciones */
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  /* Battlefield */
+  .battlefield {
+    padding: 10px;
+  }
+
+  .battlefield-header-inline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .event-display-inline {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Grid de batalla */
+  .battle-grid {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  /* Castillos más compactos */
+  .castle {
+    padding: 6px;
+    width: 90%;
+    height: 90%;
+  }
+
+  .castle-info {
+    gap: 6px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    margin-left: 0;
+  }
+
+  .name-block {
+    margin-top: 2px;
+  }
+
+  .name {
+    font-size: 0.75rem;
+    margin: 0 6px;
+  }
+
+  .role {
+    font-size: 0.65rem;
+  }
+
+  .points {
+    font-size: 0.65rem;
+  }
+
+  /* 💚 Corazones más compactos */
+  .lifes {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .thinking {
+    font-size: 0.55rem;
+    bottom: 4px;
+  }
+
+  /* Sidebar HUD */
+  .side-hud {
+    max-height: 35vh;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .hud-block {
+    padding: 10px;
+  }
+
+  .hud-block h3 {
+    font-size: 0.85rem;
+  }
+
+  .log {
+    max-height: 150px;
+    font-size: 0.8rem;
+  }
+
+  /* 🔹 Panel inferior MÁS ALTO */
+  .player-hud {
+    height: 100px; /* 🔥 Aumentado de 66px a 100px */
+    padding: 10px 16px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Grupo de acciones con wrap */
+  .action-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 60px; /* 🔹 Permite dos filas */
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .action-group::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .action-group::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+  }
+
+  /* Botones más compactos */
+  .btn-ghost {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* Target box con scroll */
+  .targets {
+    max-height: 40px;
+    overflow-y: auto;
+    flex-wrap: wrap;
+    scrollbar-width: thin;
+  }
+
+  .targets::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  /* 💚 Corazones del jugador */
+  .player-hud .hearts-lg {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    position: static;
+    transform: none;
+    margin-top: 6px;
+  }
+
+  /* Modal */
+  .modal-card {
+    padding: 16px;
+    max-height: 85vh;
+  }
+
+  .q-title {
+    font-size: 1.2rem;
+  }
+
+  .opt {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  /* Overlays */
+  .start-card,
+  .end-card {
+    padding: 20px;
+  }
+
+  .infotext-box {
+    padding: 12px;
+  }
+
+  .infotext-box li {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===========================
+   MÓVILES PEQUEÑOS (320px - 480px)
+   =========================== */
+@media (max-width: 480px) {
+  /* Navbar ultra compacto */
+  .navbar {
+    padding: 8px 12px;
+    height: 46px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .logo img {
+    height: 22px;
+  }
+
+  .nav-menu {
+    gap: 8px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+  }
+
+  /* Contenedor principal */
+  .game-container {
+    top: 46px;
+    bottom: 110px; /* 🔹 Panel aún más alto en móviles pequeños */
+    padding: 8px;
+    gap: 8px;
+  }
+
+  /* Battlefield */
+  .battlefield {
+    padding: 8px;
+  }
+
+  .section-title {
+    font-size: 1rem;
+  }
+
+  .event-display-inline {
+    padding: 6px 8px;
+    gap: 8px;
+  }
+
+  .event-icon-inline {
+    width: 28px;
+    height: 28px;
+  }
+
+  .event-name-inline {
+    font-size: 0.75rem;
+  }
+
+  .event-desc-inline {
+    font-size: 0.65rem;
+  }
+
+  /* Grid batalla ultra compacto */
+  .battle-grid {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  /* Castillos mini */
+  .castle {
+    padding: 4px;
+    width: 92%;
+    height: 92%;
+  }
+
+  .castle-info {
+    gap: 4px;
+  }
+
+  .avatar {
+    width: 26px;
+    height: 26px;
+  }
+
+  .name {
+    font-size: 0.65rem;
+    margin: 0 4px;
+  }
+
+  .role {
+    font-size: 0.6rem;
+  }
+
+  .points {
+    font-size: 0.6rem;
+  }
+
+  /* 💚 Corazones mini */
+  .lifes {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+
+  .thinking {
+    font-size: 0.5rem;
+    bottom: 2px;
+  }
+
+  /* Sidebar */
+  .side-hud {
+    max-height: 30vh;
+    padding: 10px;
+  }
+
+  .hud-block {
+    padding: 8px;
+  }
+
+  .hud-block h3 {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .small {
+    font-size: 0.75rem;
+  }
+
+  /* 🔹 Panel inferior expandido */
+  .player-hud {
+    height: 110px; /* 🔥 Más espacio en móviles pequeños */
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .action-group {
+    max-height: 70px;
+    gap: 5px;
+  }
+
+  .btn-ghost {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+  }
+
+  .targets {
+    max-height: 50px;
+    gap: 4px;
+  }
+
+  /* 💚 Corazones jugador */
+  .player-hud .hearts-lg {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* Modal */
+  .modal-card {
+    padding: 14px;
+  }
+
+  .q-topic {
+    font-size: 0.75rem;
+  }
+
+  .q-title {
+    font-size: 1rem;
+  }
+
+  .opt {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  /* Overlays */
+  .start-card,
+  .end-card {
+    padding: 16px;
+  }
+
+  .infotext-box {
+    padding: 10px;
+  }
+
+  .infotext-box h4 {
+    font-size: 0.9rem;
+  }
+
+  .infotext-box li {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
+
+/* ===========================
+   LANDSCAPE MÓVIL (altura < 500px)
+   =========================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .game-container {
+    bottom: 80px;
+  }
+
+  .player-hud {
+    height: 80px;
+  }
+
+  .action-group {
+    max-height: 50px;
+  }
+
+  .side-hud {
+    max-height: 200px;
+  }
+
+  .modal-card {
+    max-height: 80vh;
+  }
+}
+
+/* ===========================
+   OPTIMIZACIONES EXTRA
+   =========================== */
+
+/* Mejorar taps en móvil */
+@media (hover: none) and (pointer: coarse) {
+  .btn-ghost,
+  .opt,
+  .btn {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .castle {
+    cursor: default;
+  }
+}
+
+/* Evitar zoom en inputs iOS */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Smooth scroll para el log */
+.log {
+  scroll-behavior: smooth;
+}
+
+/* Transiciones más fluidas en móvil */
+@media (max-width: 768px) {
+  .castle,
+  .cell,
+  .btn-ghost {
+    transition-duration: 0.2s;
+  }
+}

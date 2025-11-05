@@ -1,25 +1,167 @@
 [
-  {
-    "topic": "Personajes",
-    "q": "¿Quién escribió 'El Aleph' y es uno de los máximos exponentes de la literatura argentina?",
-    "options": ["Borges", "Cortázar", "Hernández", "Echeverría"],
-    "correct": 0,
-    "explain": "Jorge Luis Borges es considerado uno de los escritores más importantes del siglo XX, autor de 'El Aleph' y 'Ficciones'."
-  },
-  {
-    "topic": "Personajes",
-    "q": "¿Quién escribió la novela 'Rayuela'?",
-    "img": "../src/img/arg.jpg",
-    "options": ["Sábato", "Cortázar", "Borges", "Hernández"],
-    "correct": 1,
-    "explain": "Julio Cortázar fue un escritor argentino y autor de 'Rayuela', una obra fundamental del boom latinoamericano."
-  },
-  {
-    "topic": "Personajes",
-    "q": "¿Quién escribió el poema épico 'Martín Fierro'?",
-    "img": "../src/img/arg.jpg",
-    "options": ["Echeverría", "Borges", "Hernández", "Lugones"],
-    "correct": 2,
-    "explain": "José Hernández escribió 'El gaucho Martín Fierro', obra cumbre de la literatura gauchesca argentina."
-  }
+ {
+  "topic_arg": "Cultura",
+  "q_arg": "¿Qué bebida tradicional es compartida por argentinos, uruguayos y también es muy popular en el sur de Brasil?",
+  "options_arg": ["Café", "Mate", "Té verde", "Tereré"],
+  "correct_arg": 1,
+  "explain_arg": "El mate es una infusión preparada con hojas de yerba mate, muy popular en Argentina, Uruguay, Paraguay y el sur de Brasil.",
+
+  "topic_brz": "Cultura",
+  "q_brz": "Qual bebida tradicional é compartilhada por argentinos, uruguaios e também é muito popular no sul do Brasil?",
+  "options_brz": ["Café", "Chimarrão", "Chá verde", "Tererê"],
+  "correct_brz": 1,
+  "explain_brz": "O chimarrão (mate) é uma infusão feita com folhas de erva-mate, muito popular na Argentina, Uruguai, Paraguai e no sul do Brasil."
+},
+{
+  "topic_arg": "Cultura",
+  "q_arg": "¿Qué estilo de música y danza tradicional es símbolo cultural tanto en el Río de la Plata (Argentina y Uruguay) como en el sur de Brasil?",
+  "options_arg": ["Samba", "Tango", "Forró", "Chacarera"],
+  "correct_arg": 1,
+  "explain_arg": "El tango nació en el Río de la Plata, especialmente en Buenos Aires y Montevideo, y también tiene fuerte presencia cultural en el sur de Brasil, donde se aprecia su música y danza.",
+
+  "topic_brz": "Cultura",
+  "q_brz": "Qual estilo de música e dança tradicional é símbolo cultural tanto no Rio da Prata (Argentina e Uruguai) quanto no sul do Brasil?",
+  "options_brz": ["Samba", "Tango", "Forró", "Chacarera"],
+  "correct_brz": 1,
+  "explain_brz": "O tango nasceu no Rio da Prata, especialmente em Buenos Aires e Montevidéu, e também tem forte presença cultural no sul do Brasil, onde sua música e dança são muito apreciadas."
+},
+{
+  "topic_arg": "Cultura",
+  "q_arg": "¿Qué baile tradicional se originó en el Río de la Plata y es símbolo cultural compartido por Argentina y Uruguay, con presencia también en el sur de Brasil?",
+  "options_arg": ["Samba", "Tango", "Milonga", "Cumbia"],
+  "correct_arg": 1,
+  "explain_arg": "El tango nació en el Río de la Plata, especialmente en Buenos Aires y Montevideo, y también tiene influencia en el sur de Brasil, donde se aprecia su música y danza.",
+
+  "topic_brz": "Cultura",
+  "q_brz": "Qual dança tradicional surgiu no Rio da Prata e é símbolo cultural compartilhado pela Argentina e Uruguai, também presente no sul do Brasil?",
+  "options_brz": ["Samba", "Tango", "Milonga", "Cumbia"],
+  "correct_brz": 1,
+  "explain_brz": "O tango nasceu no Rio da Prata, especialmente em Buenos Aires e Montevidéu, e também influenciou o sul do Brasil, onde sua música e dança são apreciadas."
+},
+{
+  "topic_arg": "Cultura",
+  "q_arg": "¿Qué bebida a base de yerba mate se toma caliente en Argentina y sur de Brasil?",
+  "options_arg": ["Café", "Té verde", "Mate", "Tereré"],
+  "correct_arg": 2,
+  "explain_arg": "El mate (chimarrão en portugués) es una infusión tradicional preparada con yerba mate. Se bebe caliente y es símbolo de amistad en Argentina, Uruguay y sur de Brasil.",
+
+  "topic_brz": "Cultura",
+  "q_brz": "Qual bebida à base de erva-mate é tomada quente na Argentina e no sul do Brasil?",
+  "options_brz": ["Café", "Chá verde", "Chimarrão", "Tererê"],
+  "correct_brz": 2,
+  "explain_brz": "O chimarrão (mate em espanhol) é uma infusão tradicional feita com erva-mate. É símbolo de amizade na Argentina, Uruguai e sul do Brasil."
+},
+{
+  "topic_arg": "Cultura",
+  "q_arg": "¿Qué famosa festividad de música y color celebra Brasil con desfiles y bailes cada año antes de la Cuaresma?",
+  "options_arg": ["Carnaval", "Festa Junina", "Navidad", "Año Nuevo"],
+  "correct_arg": 0,
+  "explain_arg": "El Carnaval de Brasil es una de las fiestas más grandes del mundo, con desfiles de samba y millones de personas celebrando en ciudades como Río de Janeiro y Salvador.",
+
+  "topic_brz": "Cultura",
+  "q_brz": "Qual famosa festividade de música e cor celebra o Brasil com desfiles e danças todos os anos antes da Quaresma?",
+  "options_brz": ["Carnaval", "Festa Junina", "Natal", "Ano Novo"],
+  "correct_brz": 0,
+  "explain_brz": "O Carnaval do Brasil é uma das maiores festas do mundo, com desfiles de samba e milhões de pessoas comemorando em cidades como Rio de Janeiro e Salvador."
+},
+{
+  "topic_arg": "Cultura",
+  "q_arg": "¿Qué plato típico argentino consiste en carne asada a las brasas y es similar al churrasco brasileño?",
+  "options_arg": ["Asado", "Empanadas", "Milanesa", "Locro"],
+  "correct_arg": 0,
+  "explain_arg": "El asado argentino es una tradición social y gastronómica. En Brasil se conoce una versión similar llamada churrasco.",
+
+  "topic_brz": "Cultura",
+  "q_brz": "Qual prato típico argentino consiste em carne assada na brasa e é semelhante ao churrasco brasileiro?",
+  "options_brz": ["Asado", "Empanadas", "Milanesa", "Locro"],
+  "correct_brz": 0,
+  "explain_brz": "O asado argentino é uma tradição social e gastronômica. No Brasil, há uma versão semelhante chamada churrasco."
+},
+{
+  "topic_arg": "Cultura",
+  "q_arg": "¿Qué famosa canción popular brasileña fue interpretada en todo el mundo y representa la bossa nova?",
+  "options_arg": ["Garota de Ipanema", "Aquarela do Brasil", "Mas que Nada", "Trem das Onze"],
+  "correct_arg": 0,
+  "explain_arg": "‘Garota de Ipanema’, compuesta por Tom Jobim y Vinícius de Moraes, es uno de los mayores clásicos de la bossa nova y símbolo musical de Brasil.",
+
+  "topic_brz": "Cultura",
+  "q_brz": "Qual famosa canção popular brasileira foi interpretada em todo o mundo e representa a bossa nova?",
+  "options_brz": ["Garota de Ipanema", "Aquarela do Brasil", "Mas que Nada", "Trem das Onze"],
+  "correct_brz": 0,
+  "explain_brz": "‘Garota de Ipanema’, composta por Tom Jobim e Vinícius de Moraes, é um dos maiores clássicos da bossa nova e símbolo musical do Brasil."
+},
+
+
+
+
+{
+  "topic_arg": "Fútbol",
+  "q_arg": "¿Qué jugador argentino es considerado uno de los mejores de la historia y ganó la Copa del Mundo 2022?",
+  "options_arg": ["Diego Maradona", "Lionel Messi", "Mario Kempes", "Ángel Di María"],
+  "correct_arg": 1,
+  "explain_arg": "Lionel Messi es considerado uno de los mejores futbolistas de todos los tiempos. Lideró a Argentina a ganar la Copa del Mundo 2022 en Qatar.",
+
+  "topic_brz": "Futebol",
+  "q_brz": "Qual jogador argentino é considerado um dos melhores da história e ganhou a Copa do Mundo de 2022?",
+  "options_brz": ["Diego Maradona", "Lionel Messi", "Mario Kempes", "Ángel Di María"],
+  "correct_brz": 1,
+  "explain_brz": "Lionel Messi é considerado um dos maiores jogadores de todos os tempos. Ele liderou a Argentina na conquista da Copa do Mundo de 2022 no Catar."
+},
+{
+  "topic_arg": "Fútbol",
+  "q_arg": "¿Qué legendario futbolista brasileño es conocido como 'O Rei'?",
+  "options_arg": ["Pelé", "Ronaldo", "Ronaldinho", "Zico"],
+  "correct_arg": 0,
+  "explain_arg": "Pelé, apodado 'O Rei', es considerado uno de los más grandes jugadores de la historia. Ganó tres Copas del Mundo con Brasil (1958, 1962 y 1970).",
+
+  "topic_brz": "Futebol",
+  "q_brz": "Qual lendário jogador brasileiro é conhecido como 'O Rei'?",
+  "options_brz": ["Pelé", "Ronaldo", "Ronaldinho", "Zico"],
+  "correct_brz": 0,
+  "explain_brz": "Pelé, apelidado de 'O Rei', é considerado um dos maiores jogadores da história. Venceu três Copas do Mundo com o Brasil (1958, 1962 e 1970)."
+},
+{
+  "topic_arg": "Fútbol",
+  "q_arg": "¿En qué estadio brasileño se jugó la final del Mundial 2014?",
+  "options_arg": ["Maracaná", "Mineirão", "Morumbi", "Beira-Rio"],
+  "correct_arg": 0,
+  "explain_arg": "La final del Mundial 2014 se jugó en el Estadio Maracaná, en Río de Janeiro, donde Alemania venció a Argentina 1-0.",
+
+  "topic_brz": "Futebol",
+  "q_brz": "Em qual estádio brasileiro foi disputada a final da Copa do Mundo de 2014?",
+  "options_brz": ["Maracanã", "Mineirão", "Morumbi", "Beira-Rio"],
+  "correct_brz": 0,
+  "explain_brz": "A final da Copa do Mundo de 2014 foi disputada no Estádio do Maracanã, no Rio de Janeiro, onde a Alemanha venceu a Argentina por 1 a 0."
+},
+{
+  "topic_arg": "Fútbol",
+  "q_arg": "¿Qué selección ganó más Copas del Mundo hasta 2022?",
+  "options_arg": ["Brasil", "Alemania", "Argentina", "Italia"],
+  "correct_arg": 0,
+  "explain_arg": "Brasil es la selección más ganadora de la historia del fútbol, con 5 Copas del Mundo (1958, 1962, 1970, 1994 y 2002).",
+
+  "topic_brz": "Futebol",
+  "q_brz": "Qual seleção ganhou mais Copas do Mundo até 2022?",
+  "options_brz": ["Brasil", "Alemanha", "Argentina", "Itália"],
+  "correct_brz": 0,
+  "explain_brz": "O Brasil é a seleção mais vitoriosa da história do futebol, com 5 Copas do Mundo (1958, 1962, 1970, 1994 e 2002)."
+},
+{
+  "topic_arg": "Fútbol",
+  "q_arg": "¿Qué famoso estadio argentino es conocido como 'La Bombonera'?",
+  "options_arg": ["Monumental", "La Bombonera", "Libertadores de América", "Cilindro de Avellaneda"],
+  "correct_arg": 1,
+  "explain_arg": "La Bombonera es el estadio del Club Boca Juniors, ubicado en Buenos Aires, famoso por su ambiente único y su acústica impresionante.",
+
+  "topic_brz": "Futebol",
+  "q_brz": "Qual famoso estádio argentino é conhecido como 'La Bombonera'?",
+  "options_brz": ["Monumental", "La Bombonera", "Libertadores de América", "Cilindro de Avellaneda"],
+  "correct_brz": 1,
+  "explain_brz": "La Bombonera é o estádio do Club Boca Juniors, localizado em Buenos Aires, famoso por sua atmosfera única e acústica impressionante."
+}
+
+
+
+
+
 ]

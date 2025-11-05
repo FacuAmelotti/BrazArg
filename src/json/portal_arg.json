@@ -13,13 +13,13 @@
       "title": "Aprendé Historia",
       "description": "Descubrí los eventos que unieron y separaron a nuestras naciones.",
       "icon": "📜",
-      "link": "./historia.html"
+      "link": "#"
     },
     {
-      "title": "Aprendé Cultura",
-      "description": "Sumergite en las costumbres, tradiciones y valores de Argentina y Brasil.",
-      "icon": "🎭",
-      "link": "./cultura.html"
+      "title": "Aprendé Geografía",
+      "description": "Explorá un mapa interactivo donde podrás ver todas las provincias y estados de Argentina y Brasil.",
+      "icon": "🗺️",
+      "link": "./mapa.html"
     },
     {
       "title": "BrazArg Debate",

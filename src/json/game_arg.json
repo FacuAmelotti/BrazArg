@@ -1,0 +1,27 @@
+{
+  "ui": {
+    "start_button": "Comenzar Juego",
+    "restart_button": "Reiniciar",
+    "attack_button": "Atacar",
+    "fortify_button": "Fortificar",
+    "heal_button": "Curarse",
+    "help_button": "Ayuda",
+    "round_label": "Ronda",
+    "score_label": "Puntaje",
+    "turn_label": "Turno de",
+    "time_label": "Tiempo restante",
+    "game_over": "Fin del juego",
+    "you_won": "¡Ganaste!",
+    "you_lost": "Perdiste",
+    "new_record": "¡Nuevo récord!",
+    "survive_round": "💫 Todos ganan +100 puntos por sobrevivir a la ronda.",
+    "choose_target": "⚔️ Elegí a quién atacar.",
+    "close_question": "Cerrar pregunta",
+    "change_question": "Cambiar pregunta",
+    "correct": "✅ Correcto",
+    "wrong": "❌ Incorrecto",
+    "rounds": "Rondas",
+    "alive": "Vivos",
+    "tutorial": "📖 ¡Debate BrazArg!\n\nOBJETIVO: Sobrevivir eliminando a los rivales.\n\nACCIONES:\n⚔️ Atacar: Responde una pregunta. Éxito = -2 HP al rival. Fallo = -1 HP tuyo.\n🛡️ Fortificar: Responde una pregunta. Éxito = +3 HP.\n💊 Curarse: +1 HP instantáneo.\n\nTenés 20 segundos por turno. Si no actuás, perdés 1 vida.\n\n¡Buena suerte!"
+  }
+}

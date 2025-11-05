@@ -1,0 +1,318 @@
+{
+  "provincias": [
+    {
+      "id": "malvinas",
+      "name": "Islas Malvinas",
+      "desc": "Las Islas Malvinas, situadas en el Atlántico Sur, son un símbolo profundo de la historia y la identidad argentina. Con paisajes fríos y ventosos, representan la memoria de quienes defendieron la soberanía nacional y el anhelo permanente de recuperar un territorio que forma parte del corazón del país.",
+      "x": 53,
+      "y": 87,
+      "photos": [
+        {
+          "src": "../src/img/arg.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "ushuaia",
+      "name": "Ushuaia",
+      "desc": "Ushuaia es la ciudad más austral del mundo, donde las montañas tocan el mar y los paisajes parecen de otro planeta.",
+      "x": 42,
+      "y": 96,
+      "photos": [
+        {
+          "src": "../src/img/arg.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+  "id": "santacruz",
+  "name": "Santa Cruz",
+  "desc": "Santa Cruz es una tierra inmensa y silenciosa, donde la Patagonia muestra su lado más salvaje. Entre glaciares eternos, montañas, ríos y vientos que no descansan, se esconden paisajes que conmueven. Es la puerta al majestuoso Glaciar Perito Moreno y hogar de pueblos que resisten al frío con el calor de su gente.",
+  "x": 38,
+  "y": 80,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+    },
+    {
+  "id": "chubut",
+  "name": "Chubut",
+  "desc": "Chubut es una provincia de contrastes: desde las costas donde las ballenas juegan en Península Valdés hasta las montañas nevadas de la cordillera. Es viento, estepa, mar y bosque. En sus pueblos se mezcla la herencia galesa, el espíritu patagónico y la inmensidad que solo el sur argentino puede ofrecer.",
+  "x": 40,
+  "y": 68,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "rionegro",
+  "name": "Río Negro",
+  "desc": "Río Negro es una tierra de lagos, montañas y valles fértiles. Desde el azul profundo del Nahuel Huapi hasta los viñedos del Alto Valle, combina naturaleza salvaje con tradición y trabajo. Es el puente entre la Patagonia andina y la atlántica, donde el agua, la tierra y el viento se encuentran en armonía.",
+  "x": 44,
+  "y": 59,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},{
+  "id": "neuquen",
+  "name": "Neuquén",
+  "desc": "Neuquén es una provincia de montañas, ríos y volcanes que invitan a la aventura. Entre bosques de pehuenes, lagos cristalinos y caminos serpenteantes, guarda algunos de los paisajes más imponentes de la Patagonia. Es también tierra de energía, vino y tradición mapuche, donde la naturaleza y la cultura conviven en equilibrio.",
+  "x": 37,
+  "y": 56,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "lapampa",
+  "name": "La Pampa",
+  "desc": "La Pampa es una inmensidad de horizontes y atardeceres dorados. En su llanura infinita nacen historias de trabajo, tradición y naturaleza pura. Entre caldenes, estancias y cielos abiertos, es el corazón tranquilo del país, donde la calma del campo argentino se siente en cada rincón.",
+  "x": 47,
+  "y": 50,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "buenosaires",
+  "name": "Buenos Aires",
+  "desc": "Buenos Aires es una provincia de diversidad y energía. Desde la inmensidad de la llanura pampeana hasta el movimiento constante del conurbano y la capital, combina campo, historia y modernidad. Es tango, mate y fútbol; es puerto y tierra fértil, el punto donde el país late con más fuerza.",
+  "x": 58,
+  "y": 45,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "mendoza",
+  "name": "Mendoza",
+  "desc": "Mendoza es tierra de sol, montañas y buen vino. A los pies de la Cordillera de los Andes, sus viñedos pintan el paisaje con tonos de oro y verde. Es cuna del Malbec y punto de partida hacia el imponente Aconcagua. Entre acequias, bodegas y tradición, invita a disfrutar la vida con calma y sabor.",
+  "x": 37,
+  "y": 45,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "sanluis",
+  "name": "San Luis",
+  "desc": "San Luis es una provincia donde la naturaleza y la serenidad se dan la mano. Entre sierras, lagos y valles verdes, ofrece paisajes que invitan al descanso y la aventura. Con historia, arte y modernidad, conserva el alma de pueblo y la tranquilidad que solo el interior argentino puede brindar.",
+  "x": 43,
+  "y": 39,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "sanjuan",
+  "name": "San Juan",
+  "desc": "San Juan es una tierra de sol intenso y montañas majestuosas. Entre valles áridos y oasis fértiles, florecen viñedos, tradiciones y paisajes únicos. Es cuna de grandes figuras históricas y guardiana de la esencia cuyana, donde la calidez de su gente y la fuerza de la tierra se sienten en cada rincón.",
+  "x": 38,
+  "y": 30,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "cordoba",
+  "name": "Córdoba",
+  "desc": "Córdoba es alegría serrana y tonada que enamora. Entre ríos, sierras y caminos que se pierden entre el verde, guarda historia, arte y juventud. Es el corazón del país, donde lo colonial se mezcla con lo moderno, y la calidez de su gente convierte cada rincón en un abrazo argentino.",
+  "x": 48,
+  "y": 36,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+}
+,
+{
+  "id": "santafe",
+  "name": "Santa Fe",
+  "desc": "Santa Fe es una provincia atravesada por ríos y tradición. Desde el Paraná hasta el corazón de la llanura, su historia está ligada al trabajo, la fe y la unión. Es cuna de la Constitución Nacional y tierra de pesca, mate y horizontes infinitos, donde el agua y la vida conviven en armonía.",
+  "x": 52,
+  "y": 30,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "entrerios",
+  "name": "Entre Ríos",
+  "desc": "Entre Ríos es una tierra de agua y verde eterno. Rodeada por los ríos Paraná y Uruguay, respira naturaleza, historia y descanso. Sus playas, termas y pueblos tranquilos reflejan la esencia del litoral argentino, donde la vida fluye al ritmo del río y la calidez de su gente.",
+  "x": 56,
+  "y": 37,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "corrientes",
+  "name": "Corrientes",
+  "desc": "Corrientes es tierra de chamamé, río y tradición. Entre esteros, palmares y aguas cálidas, se respira historia y devoción. Es alegría del litoral, con fiestas, música y naturaleza que desborda vida. Cada rincón invita a celebrar la identidad correntina con alma y corazón.",
+  "x": 59,
+  "y": 25,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "misiones",
+  "name": "Misiones",
+  "desc": "Misiones es selva, agua y color. Entre la tierra roja y el verde infinito, guarda maravillas como las Cataratas del Iguazú y las huellas vivas de las misiones jesuíticas. Es una provincia llena de vida, donde la naturaleza se mezcla con la historia y la hospitalidad de su gente.",
+  "x": 65,
+  "y": 20,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "chaco",
+  "name": "Chaco",
+  "desc": "Chaco es tierra de monte, ríos y cultura ancestral. En sus paisajes se mezclan la fuerza del trabajo rural, la riqueza artesanal y la voz de los pueblos originarios. Es una provincia cálida y diversa, donde la naturaleza y la historia se entrelazan bajo el sol del norte argentino.",
+  "x": 53,
+  "y": 20,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "formosa",
+  "name": "Formosa",
+  "desc": "Formosa es una provincia de calor, río y monte. A orillas del Paraguay, su paisaje combina naturaleza exuberante, tradiciones guaraníes y una tranquilidad única. Es un lugar donde el sol brilla fuerte, la tierra es fértil y la hospitalidad de su gente deja huella en cada visitante.",
+  "x": 55,
+  "y": 15,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "santiagodelestero",
+  "name": "Santiago del Estero",
+  "desc": "Santiago del Estero es cuna de tradiciones, historia y música. Entre montes, ríos y caminos antiguos, se respira chacarera y hospitalidad. Es una tierra de calor y fe, donde las raíces del país laten fuerte y la cultura se mantiene viva en cada guitarra, mate y encuentro.",
+  "x": 48,
+  "y": 24,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "tucuman",
+  "name": "Tucumán",
+  "desc": "Tucumán es historia viva: cuna de la Independencia argentina y corazón del norte. Entre montañas, cañaverales y ciudades vibrantes, guarda el espíritu de un pueblo que marcó el rumbo del país. Es tradición, sabor y cultura, con un paisaje que combina lo colonial con lo natural.",
+  "x": 44,
+  "y": 23,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "catamarca",
+  "name": "Catamarca",
+  "desc": "Catamarca es una provincia de montañas majestuosas y paisajes que quitan el aliento. Entre valles, volcanes y desiertos coloridos, guarda pueblos con historia, artesanías y fe. Es tierra de silencio y belleza natural, donde la calma del norte se mezcla con la grandeza de los Andes.",
+  "x": 40,
+  "y": 20,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "salta",
+  "name": "Salta",
+  "desc": "Salta es un encuentro de historia, montaña y tradición. Sus cerros rojizos, valles fértiles y pueblos coloniales guardan el alma del norte argentino. Es música, fe y cultura viva, donde cada paisaje parece una obra de arte y cada sonrisa refleja la calidez de su gente.",
+  "x": 48,
+  "y": 15,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+},
+{
+  "id": "jujuy",
+  "name": "Jujuy",
+  "desc": "Jujuy es color, altura y espíritu ancestral. Entre quebradas, montañas multicolores y tradiciones vivas, late el corazón andino del país. Es un territorio donde la naturaleza y la cultura se funden en armonía, y donde el cielo parece tocar la tierra.",
+  "x": 45,
+  "y": 10,
+  "photos": [
+    {
+          "src": "../src/img/arg.jpg",
+      "description": ""
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ]
+}

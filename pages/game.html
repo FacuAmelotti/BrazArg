@@ -1260,6 +1260,22 @@ html, body {
   color: #f9f9f9;
 }
 
+.nav-lang {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.nav-lang:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.4);
+}
+
 /* ===========================
    ANIMATED BACKGROUND — CELESTE ARG
    =========================== */
@@ -1697,7 +1713,7 @@ html, body {
 
   </style>
 
-<link rel="stylesheet" href="../pages/css/responsiveGame.css">
+<link rel="stylesheet" href="../src/styles/responsivegame.css">
 </head>
 <body>
   <!-- Fondo animado -->
@@ -1711,25 +1727,32 @@ html, body {
   </div>
 
   <!-- NAV -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">
-        <span>Debate BrazArg</span>
-      </a>
-      <ul class="nav-menu">
-  <li><a class="nav-link" href="#" id="btnHelp">Ayuda</a></li>
-  <li><a class="nav-link" href="#" id="btnRestart">Reiniciar</a></li>
-  <li><a class="nav-link" href="./portal.html" id="btnExit">Salir</a></li>
+ <nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <span>Debate BrazArg</span>
+    </a>
 
-  <!-- 🎵 Panel de música -->
-  <div class="music-panel-inline">
-    <button id="btnPlayMusic">⏯️</button>
-    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.45">
+    <ul class="nav-menu">
+      <li><a class="nav-link" href="#" id="btnHelp" data-key="help_button">Ayuda</a></li>
+      <li><a class="nav-link" href="#" id="btnRestart" data-key="restart_button">Reiniciar</a></li>
+      <li><a class="nav-link" href="./portal.html" id="btnExit" data-key="exit_button">Salir</a></li>
+
+      <!-- 🌎 Botón cambio de idioma -->
+      <li>
+        <button id="langToggle" class="nav-lang">
+          <span id="langLabel">🇦🇷 ARG</span>
+        </button>
+      </li>
+
+      <!-- 🎵 Panel de música -->
+      <div class="music-panel-inline">
+        <button id="btnPlayMusic">⏯️</button>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.45">
+      </div>
+    </ul>
   </div>
-</ul>
-
-    </div>
-  </nav>
+</nav>
 
   <!-- CONTENIDO PRINCIPAL -->
   <div class="game-container">
@@ -1765,7 +1788,7 @@ html, body {
     <!-- HUD lateral -->
     <aside class="side-hud">
       <div class="hud-block">
-        <h3>Estado</h3>
+        <h3 >Estado</h3>
         <p class="small">Ronda: <b id="round">1</b></p>
         <p class="small">Turno: <b id="turnName">—</b></p>
         <div class="timerbar mt-1"><div id="timerFill"></div></div>
@@ -1806,6 +1829,7 @@ html, body {
       <div class="explain" id="qExplain"></div>
       <div class="chips">
 <div class="mt-2" style="text-align:right;">
+  <button id="btnToggleLang" class="btn-ghost small">🌐 Cambiar idioma</button>
   <button id="btnCloseQuestion" class="btn-ghost small">❌ Cerrar</button>
 </div>
 
@@ -1819,7 +1843,7 @@ html, body {
     <div class="start-card">
       <h2 class="section-title" style="margin-bottom:12px;">Debate BrazArg</h2>
       <p class="mb-2">¡Sobrevive y gana a los rivales resolviendo preguntas!</p>
-      <div class="infotext-box">
+      <div  class="infotext-box">
         <h4>¿Cómo se juega?</h4>
         <p>1) Turnos de <b>20s</b>. Si no actuás, perdés el turno y <b>-1 vida</b>.</p>
         <p>2) Acciones:</p>
@@ -1830,7 +1854,7 @@ html, body {
         </ul>
       </div>
       <div class="mt-2">
-        <label class="small">Tu nombre: </label>
+        <label class="small" data-key="player_name_label">Tu nombre: </label>
         <input id="playerNameInput" class="btn-ghost" style="padding:8px 12px;" placeholder="Jugador" />
       </div>
 <div class="mt-2">
@@ -1848,7 +1872,7 @@ html, body {
 </div>
 
 
-      <button class="btn btn-primary mt-2" id="btnStart">Comenzar</button>
+      <button class="btn btn-primary mt-2" id="btnStart"  data-key="start_button">Comenzar</button>
     </div>
   </div>
 
@@ -1864,7 +1888,7 @@ html, body {
 
     <script>
         // ============================================
-    // BATALLA DE PROBABILIDAD - Script Completo Corregido
+    //
     // ============================================
 
     // Utilidades básicas
@@ -2501,69 +2525,91 @@ if (state.order[state.turnIdx] === 0) {
 
 
 
-    // ============================================
-    // SISTEMA DE PREGUNTAS
-    // ============================================
 // ============================================
-// CERRAR PREGUNTA Y REANUDAR CON TIEMPO RESTANTE
+// 🌎 SISTEMA DE PREGUNTAS BILINGÜE
 // ============================================
+// ============================================
+// 🌎 SISTEMA DE PREGUNTAS BILINGÜE
+// ============================================
+
+// Estado temporal
 let savedTimer = null;
+let currentLanguage = "arg"; // idioma actual ("arg" o "brz")
+let currentQuestion = null;
+let currentKind = null;
+let currentShuffled = []; // orden mezclado fijo por pregunta
 
 function askQuestion(kind) {
   savedTimer = state.timer;
   state.awaitingAnswer = true;
+  currentKind = kind;
 
   $("#qModal").classList.add("active");
-  // 🔹 Botón de cambiar pregunta
-// 🔹 Crear botón “Cambiar (3)” junto al botón Cerrar
-let changeBtn = document.getElementById("changeQuestionBtn");
-if (!changeBtn) {
-  changeBtn = document.createElement("button");
-  changeBtn.id = "changeQuestionBtn";
-changeBtn.className = "btn-ghost small";
-changeBtn.style.marginRight = "8px"; // 🔹 separación visual
 
+  // 🔹 Elegir pregunta
+  const q = state.order[state.turnIdx] === 0 && state.fixedQuestion
+    ? state.fixedQuestion
+    : rnd(QUESTIONS);
+  currentQuestion = q;
+
+  // 🔹 Crear botón “Cambiar pregunta (3)” si no existe
+  let changeBtn = document.getElementById("changeQuestionBtn");
+  if (!changeBtn) {
+    changeBtn = document.createElement("button");
+    changeBtn.id = "changeQuestionBtn";
+    changeBtn.className = "btn-ghost small";
+    changeBtn.style.marginRight = "8px";
+    const closeBtn = document.getElementById("btnCloseQuestion");
+    closeBtn.parentNode.insertBefore(changeBtn, closeBtn);
+  }
   changeBtn.textContent = `Cambiar pregunta (${state.remainingChanges})`;
   changeBtn.onclick = () => changeQuestion(kind);
+  changeBtn.style.display = "inline-block";
+  changeBtn.disabled = state.remainingChanges <= 0;
 
-  // 📍 Insertar justo ANTES del botón cerrar
-  const closeBtn = document.getElementById("btnCloseQuestion");
-  closeBtn.parentNode.insertBefore(changeBtn, closeBtn);
-} else {
-  changeBtn.textContent = `Cambiar pregunta (${state.remainingChanges})`;
+  // 🔹 Mezclamos opciones una sola vez y guardamos el orden
+  const opts = q.options_arg || q.options || [];
+  currentShuffled = opts.map((_, i) => i).sort(() => Math.random() - 0.5);
+
+  renderQuestion(q, currentLanguage);
 }
-changeBtn.style.display = "inline-block";
-changeBtn.disabled = state.remainingChanges <= 0;
 
-changeBtn.textContent = `Cambiar pregunta (${state.remainingChanges})`;
+// ============================================
+// 🔁 CAMBIAR IDIOMA EN VIVO
+// ============================================
+$("#btnToggleLang").onclick = () => {
+  if (!currentQuestion) return;
+  currentLanguage = currentLanguage === "arg" ? "brz" : "arg";
+  renderQuestion(currentQuestion, currentLanguage);
+};
 
+// ============================================
+// 🔹 FUNCIÓN CENTRAL DE RENDERIZADO
+// ============================================
+function renderQuestion(q, lang = "arg") {
+  const prefix = lang === "brz" ? "_brz" : "_arg";
 
-const q = state.order[state.turnIdx] === 0 && state.fixedQuestion
-  ? state.fixedQuestion
-  : rnd(QUESTIONS);
-
-
-  $("#qTopic").textContent = q.topic;
-  $("#qTitle").textContent = q.q;
+  $("#qTopic").textContent = q[`topic${prefix}`] || "—";
+  $("#qTitle").textContent = q[`q${prefix}`] || "—";
   $("#qExplain").style.display = "none";
   $("#qExplain").innerHTML = "";
 
-  // ✅ Mostrar imagen si existe
+  // ✅ Imagen
   const imgBox = document.getElementById("qImage");
   if (q.img) {
     if (!imgBox) {
       const imgEl = document.createElement("img");
       imgEl.id = "qImage";
       imgEl.src = q.img;
-    imgEl.style = `
-  width: 100%;
-  max-height: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  opacity: 0.95;
-`;
-  $("#qTitle").insertAdjacentElement("beforebegin", imgEl);
+      imgEl.style = `
+        width: 100%;
+        max-height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        opacity: 0.95;
+      `;
+      $("#qTitle").insertAdjacentElement("beforebegin", imgEl);
     } else {
       imgBox.src = q.img;
       imgBox.style.display = "block";
@@ -2572,19 +2618,50 @@ const q = state.order[state.turnIdx] === 0 && state.fixedQuestion
     imgBox.style.display = "none";
   }
 
+  // ✅ Opciones (mismo orden en ambos idiomas)
   const optBox = $("#qOptions");
   optBox.innerHTML = "";
-  const shuffled = q.options.map((text, i) => ({ text, i })).sort(() => Math.random() - 0.5);
-  shuffled.forEach(opt => {
+  currentShuffled.forEach((originalIndex) => {
     const btn = document.createElement("button");
     btn.className = "opt";
-    btn.textContent = opt.text;
-    btn.onclick = () => resolveQuestion(q, opt.i, kind);
+    btn.textContent = q[`options${prefix}`][originalIndex];
+    btn.onclick = () => resolveQuestion(q, originalIndex, currentKind);
     optBox.appendChild(btn);
   });
+
+  // ✅ Texto del botón idioma
+  $("#btnToggleLang").textContent =
+    lang === "arg" ? "🇧🇷 Ver en Portugués" : "🇦🇷 Ver en Español";
 }
 
-// ✅ el correcto
+// ============================================
+// 🔁 CAMBIAR PREGUNTA (botón Cambiar)
+// ============================================
+function changeQuestion(kind) {
+  if (state.remainingChanges > 0) {
+    state.remainingChanges--;
+    const newQ = rnd(QUESTIONS);
+    state.fixedQuestion = newQ;
+    currentQuestion = newQ;
+
+    // Nueva mezcla
+    const opts = newQ.options_arg || newQ.options || [];
+    currentShuffled = opts.map((_, i) => i).sort(() => Math.random() - 0.5);
+
+    renderQuestion(newQ, currentLanguage);
+
+    // Actualizar botón
+    const btn = document.getElementById("changeQuestionBtn");
+    if (btn) {
+      btn.textContent = `Cambiar pregunta (${state.remainingChanges})`;
+      if (state.remainingChanges <= 0) btn.disabled = true;
+    }
+  }
+}
+
+// ============================================
+// 🔒 CERRAR PREGUNTA
+// ============================================
 $("#btnCloseQuestion").onclick = () => {
   $("#qModal").classList.remove("active");
   state.awaitingAnswer = false;
@@ -2608,52 +2685,34 @@ $("#btnCloseQuestion").onclick = () => {
   }
 };
 
-function changeQuestion(kind) {
-  if (state.remainingChanges > 0) {
-    state.remainingChanges--;
-
-    // Genera una nueva pregunta aleatoria
-    const newQ = rnd(QUESTIONS);
-    state.fixedQuestion = newQ;
-
-    // Vuelve a mostrar la pregunta actualizada
-    askQuestion(kind);
-
-    // Actualiza el texto del botón
-    const btn = document.getElementById("changeQuestionBtn");
-    if (btn) {
-      btn.textContent = `Cambiar (${state.remainingChanges})`;
-      if (state.remainingChanges <= 0) btn.disabled = true;
-    }
-  }
-}
-
+// ============================================
+// ✅ EVALUAR RESPUESTA
+// ============================================
 function resolveQuestion(q, idx, kind) {
   if (!state.awaitingAnswer) return;
   state.awaitingAnswer = false;
 
-  // 🔒 Ocultar el botón cerrar inmediatamente
   $("#btnCloseQuestion").style.display = "none";
-  // 🔹 Ocultar el botón de cambiar pregunta cuando ya se respondió
   const changeBtn = document.getElementById("changeQuestionBtn");
   if (changeBtn) changeBtn.style.display = "none";
 
-  const correct = (idx === q.correct);
+  const correctIdx = q.correct_arg ?? q.correct ?? 0;
+  const correct = idx === correctIdx;
+
+  const prefix = currentLanguage === "brz" ? "_brz" : "_arg";
   const explainBox = $("#qExplain");
   explainBox.style.display = "block";
-  
-  explainBox.innerHTML = correct 
-      ? "<div class='right'>✅ Correcto</div>" 
-      : "<div class='wrong'>❌ Incorrecto</div>";
-  explainBox.innerHTML += "<p class='mt-1'>" + q.explain + "</p>";
+  explainBox.innerHTML = correct
+    ? "<div class='right'>✅ Correcto</div>"
+    : "<div class='wrong'>❌ Incorrecto</div>";
+  explainBox.innerHTML +=
+    "<p class='mt-1'>" + (q[`explain${prefix}`] || "") + "</p>";
 
-  // Deshabilitar opciones
   $$(".opt").forEach(btn => btn.style.pointerEvents = "none");
 
-  // 🔁 Esperar y cerrar
   setTimeout(() => {
     $("#qModal").classList.remove("active");
-    $("#btnCloseQuestion").style.display = "inline-block"; // 🔙 volver a mostrar para la próxima pregunta
+    $("#btnCloseQuestion").style.display = "inline-block";
     applyQuestionOutcome(correct, kind);
   }, 2500);
 }
@@ -3365,6 +3424,59 @@ if (initialVol === 0) updateMusicButton();
 });
 
     }
+
+
+// ===============================
+// 🌎 CAMBIO DE IDIOMA GLOBAL UI (bidireccional)
+// ===============================
+async function loadGameLanguage(lang = "arg") {
+  try {
+    const response = await fetch(`../src/json/game_${lang}.json`);
+    if (!response.ok) throw new Error(`Archivo game_${lang}.json no encontrado`);
+    const data = await response.json();
+    const ui = data.ui || {};
+
+    // 🔹 Recorre los elementos que tengan data-key (sin borrarlos)
+    document.querySelectorAll("[data-key]").forEach(el => {
+      const key = el.getAttribute("data-key");
+      if (ui[key]) {
+        // 🔸 Actualiza el texto (usa textContent o placeholder según el elemento)
+        if (el.tagName === "INPUT" && el.placeholder !== undefined) {
+          el.placeholder = ui[key];
+        } else {
+          el.textContent = ui[key];
+        }
+      }
+    });
+
+    // 🔹 Actualizar bandera del botón
+    const label = document.getElementById("langLabel");
+    if (label) label.textContent = lang === "arg" ? "🇦🇷 ARG" : "🇧🇷 BR";
+
+    // 🔹 Guardar idioma actual
+    localStorage.setItem("uiLang", lang);
+  } catch (err) {
+    console.error("❌ Error cargando idioma:", err);
+  }
+}
+
+// 🎯 Alternar idioma (ARG ↔ BRZ)
+const langBtn = document.getElementById("langToggle");
+if (langBtn) {
+  langBtn.addEventListener("click", async () => {
+    const current = localStorage.getItem("uiLang") || "arg";
+    const next = current === "arg" ? "brz" : "arg";
+    await loadGameLanguage(next);
+  });
+}
+
+// 🧩 Carga inicial
+document.addEventListener("DOMContentLoaded", async () => {
+  const saved = localStorage.getItem("uiLang") || "arg";
+  await loadGameLanguage(saved);
+});
+
+
     </script>
 
 </body> 
