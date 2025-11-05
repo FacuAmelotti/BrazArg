@@ -142,7 +142,7 @@
       width: 100%;
       height: 100vh;
       overflow-y: scroll;
-      scroll-snap-type: y mandatory;
+
       scroll-behavior: smooth;
     }
     
@@ -674,3 +674,4 @@
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(0, 255, 198, 0.5);
     }
+

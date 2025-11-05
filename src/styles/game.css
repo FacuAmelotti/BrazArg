@@ -1,0 +1,308 @@
+/* =========================================================
+   🎯 BRAZARG GAME - ESTRUCTURA GENERAL (sin colores ni tema)
+   ========================================================= */
+
+/* ====== RESET BÁSICO ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ====== CONTENEDORES PRINCIPALES ====== */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR SUPERIOR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(1300px, 95%);
+}
+
+.nav-container .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+}
+
+.music-panel-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ====== MAIN GAME LAYOUT ====== */
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  padding: 120px 30px 100px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ====== CAMPO DE BATALLA ====== */
+.battlefield {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.battlefield-header-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-display-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.event-icon-inline {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.event-info-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ====== GRID DE BATALLA ====== */
+.battle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent; /* solo estructural */
+  position: relative;
+}
+
+/* ====== PANEL LATERAL ====== */
+.side-hud {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.hud-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ====== BARRA DE TIEMPO ====== */
+.timerbar {
+  width: 100%;
+  height: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#timerFill {
+  width: 0%;
+  height: 100%;
+  transition: width 0.2s ease;
+}
+
+/* ====== FOOTER (HUD DEL JUGADOR) ====== */
+.player-hud {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ====== BOTONES Y ELEMENTOS ====== */
+.btn-ghost {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* ====== MODALES ====== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  z-index: 100;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-card {
+  width: min(600px, 90%);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.q-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.explain {
+  margin-top: 8px;
+  display: none;
+}
+
+.chips {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ====== OVERLAYS ====== */
+.overlay-center {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  z-index: 90;
+}
+
+.overlay-center.active {
+  display: flex;
+}
+
+.start-card,
+.end-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: min(500px, 90%);
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.infotext-box {
+  text-align: left;
+  width: 100%;
+}
+
+.infotext-box ul {
+  padding-left: 18px;
+  margin-top: 6px;
+}
+
+/* ====== CLASES DE UTILIDAD ====== */
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mb-2 { margin-bottom: 16px; }
+.small { font-size: 0.9rem; }
+.muted { opacity: 0.6; }
+.section-title { font-size: 1.6rem; font-weight: 600; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .game-container {
+    grid-template-columns: 1fr;
+    padding: 100px 20px 120px;
+    overflow-y: auto;
+  }
+
+  .side-hud {
+    order: -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .player-hud {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .battle-grid {
+    max-width: 90%;
+  }
+}

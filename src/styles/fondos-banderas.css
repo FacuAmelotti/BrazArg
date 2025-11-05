@@ -1,0 +1,36 @@
+/* ===============================
+   🌎 DIV DE FONDO BRAZARG
+   =============================== */
+#back {
+  position: fixed;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.36;
+  filter: blur(56px) brightness(0.86);
+  z-index: 0; /* debajo de todo tu contenido */
+  transition: background-image 0.8s ease, opacity 0.5s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* 🇦🇷 ARG */
+body[data-mode="argentina"] #back {
+  background-image: url("../img/arg.jpg");
+}
+
+/* 🇧🇷 BR */
+body[data-mode="brasil"] #back {
+  background-image: url("../img/brz.jpg");
+}
+
+/* Movimiento sutil con scroll */
+@keyframes moveBackground {
+  from { background-position: center 0; }
+  to { background-position: center 150px; }
+}
+
+body.scrolling #back {
+  animation: moveBackground 8s ease-in-out infinite alternate;
+}

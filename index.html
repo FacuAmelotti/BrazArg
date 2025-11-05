@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-key="title">BrazArg - Aprendiendo entre hermanos</title>
   <link rel="stylesheet" href="./src/styles/index.css">
+    <link rel="stylesheet" href="./src/styles/fondos-banderas.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -13,7 +14,6 @@
     <nav class="menu" id="navMenu">
       <a href="#inicio" data-key="nav_inicio">Inicio</a>
       <a href="#unidades" data-key="nav_unidades">Unidades</a>
-      <a href="#juegos" data-key="nav_juegos">Juegos</a>
       <a href="#contacto" data-key="nav_contacto">Contacto</a>
     </nav>
     <button class="mode-btn" id="modeToggle">
@@ -21,6 +21,8 @@
       <span id="modeLabel">Modo</span>
     </button>
   </header>
+
+  <div id="back"></div>
 
   <!-- Main Content -->
   <main id="mainContent">
@@ -58,17 +60,6 @@
       </div>
     </section>
 
-    <!-- Games Section -->
-    <section class="panel games" id="juegos">
-      <div class="games-content">
-        <h2 data-key="games_title"></h2>
-                <span class="section-label" data-key="games_label"></span>
-        <p data-key="games_text"></p>
-        
-        <div class="games-showcase" id="gamesGrid"></div>
-      </div>
-    </section>
-
     <!-- Footer Section -->
     <section class="panel footer-section" id="contacto">
       <div class="footer-content">
@@ -77,6 +68,7 @@
         
         <div class="footer-cta">
           <button class="btn btn-primary">
+            
             <span data-key="footer_btn"></span> 🚀
           </button>
         </div>
@@ -95,7 +87,9 @@
     </section>
   </main>
 
+  
   <script src="./src/js/toggleMode.js"></script>
 
+  <script src="./src/js/flag-back-scroll.js"></script>
 </body>
 </html>

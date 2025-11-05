@@ -1,0 +1,3372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Debate BrazArg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===========================
+       RESET & BASE
+       =========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Manrope', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+    }
+
+    /* ===========================
+       ANIMATED BACKGROUND
+       =========================== */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.08) 0%, transparent 50%);
+      animation: breathe 8s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+
+    .floating-elements {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .floating-dot {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+    }
+
+    .floating-dot:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .floating-dot:nth-child(2) { top: 20%; left: 80%; animation-delay: 2s; }
+    .floating-dot:nth-child(3) { top: 60%; left: 20%; animation-delay: 4s; }
+    .floating-dot:nth-child(4) { top: 80%; left: 70%; animation-delay: 6s; }
+    .floating-dot:nth-child(5) { top: 40%; left: 90%; animation-delay: 8s; }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translate(-100vw, -20px) scale(0.5); opacity: 0; }
+    }
+
+    /* ===========================
+       NAVIGATION
+       =========================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 12px 24px;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      height: 56px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, #a0a0a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo img {
+      height: 32px;
+      width: auto;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.2));
+      border-radius: 50%;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+    }
+
+    /* ===========================
+       LAYOUT PRINCIPAL
+       =========================== */
+    .game-container {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 72px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 16px;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    /* ===========================
+       BATTLEFIELD
+       =========================== */
+    .battlefield {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .battlefield-header {
+      margin-bottom: 12px;
+    }
+
+    /* ===========================
+   EVENTO EN LÍNEA CON TÍTULO
+   =========================== */
+.battlefield-header-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.event-display-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(47, 0, 255, 0.08);
+  transition: all 0.4s ease;
+  min-width: 260px;
+}
+
+.event-icon-inline {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(89, 0, 255, 0.25);
+}
+
+.event-info-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.1em;
+}
+
+.event-name-inline {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #cbc5d2;
+}
+
+.event-desc-inline {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  color: #ccc;
+}
+
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 300;
+      background: linear-gradient(135deg, #ffffff, #a0a0a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .cell {
+      border: 1px dashed rgba(255,255,255,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: rgba(255,255,255,0.02);
+      min-height: 0;
+      
+    }
+
+
+.name-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+
+}
+
+.name {
+  font-weight: 500;
+}
+
+.role-tag {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  color: #ccc;
+}
+
+.points {
+  font-size: 0.8rem;
+  color: #ffd166;
+  opacity: 0.9;
+}
+.castle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 85%;
+  height: 85%;
+  border-radius: 12px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+  position: relative; /* 🔹 necesario para posicionar el texto dentro */
+}
+
+.lifes {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: 2px;
+}
+
+/* 🔹 Nuevo: bloque fijo debajo de las vidas */
+.thinking {
+  position: absolute;
+  bottom: 6px;                /* 🔹 justo debajo del bloque interno */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.62rem;
+  color: #66ff99;
+  opacity: 0.8;
+  animation: fadeThinking 0.3s ease;
+  pointer-events: none;       /* no interfiere con clics */
+}
+
+@keyframes fadeThinking {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 0.8; transform: translateY(0); }
+}
+
+
+
+    .tag {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      font-size: 11px;
+      opacity: 0.5;
+    }
+
+    .active-turn {
+      outline: 2px solid #00ff99;
+      box-shadow: 0 0 20px rgba(0,255,153,0.2);
+    }
+
+    /* ===========================
+       SIDEBAR HUD
+       =========================== */
+    .side-hud {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.2) transparent;
+    }
+
+    .side-hud::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .side-hud::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+    }
+
+    .hud-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .hud-block h3 {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      opacity: 0.8;
+    }
+
+    .small {
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    .muted {
+      opacity: 0.6;
+    }
+
+    .timerbar {
+      height: 8px;
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .timerbar > div {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #0084d0, #9ce3ff);
+      transition: width 0.2s linear;
+    }
+
+    .log {
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 0.85rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.2) transparent;
+    }
+
+    .log::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .log::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+    }
+
+    .log p {
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    /* ===========================
+       PLAYER HUD (INFERIOR)
+       =========================== */
+    .player-hud {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+      z-index: 900;
+    }
+
+    .action-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-danger {
+      border-color: rgba(255, 99, 132, 0.6);
+    }
+
+    .btn-good {
+      border-color: rgba(0, 255, 153, 0.6);
+    }
+
+    .disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .targets {
+      display: none;
+      gap: 6px;
+    }
+
+    .targets.active {
+      display: flex;
+    }
+
+    .hearts-lg {
+      font-size: 18px;
+      letter-spacing: 3px;
+    }
+/* ===========================================
+   📍 Fijar las vidas SIEMPRE al borde derecho
+   =========================================== */
+
+
+.player-hud .hearts-lg {
+  position: absolute;
+  right: 24px;  /* pegado al borde derecho */
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  white-space: nowrap;
+}
+
+    /* ===========================
+       MODAL
+       =========================== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(680px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      background: rgb(16, 16, 16);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .q-topic {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-bottom: 8px;
+      color: #9AFF9A;
+    }
+
+    .q-title {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .options {
+      display: grid;
+      gap: 8px;
+    }
+
+    .opt {
+      text-align: left;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+      color: #9177c9;
+    }
+
+    .opt:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .explain {
+      margin-top: 12px;
+      display: none;
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .chip {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .right {
+      color: #00ff99;
+    }
+
+    .wrong {
+      color: #ff6b6b;
+    }
+
+    /* ===========================
+       OVERLAYS
+       =========================== */
+    .overlay-center {
+      position: fixed;
+      inset: 0;
+      z-index: 1300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0);
+      padding: 20px;
+    }
+
+    .overlay-center.active {
+      display: flex;
+    }
+
+    .start-card,
+    .end-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 24px;
+      width: min(680px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    .infotext-box {
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+      border-radius: 10px;
+      margin: 16px 0;
+      text-align: left;
+    }
+
+    .infotext-box h4 {
+      margin-bottom: 8px;
+      color: #00ff99;
+    }
+
+    .infotext-box ul {
+      padding-left: 20px;
+    }
+
+    .infotext-box li {
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffffff, #e0e0e0);
+      color: #000000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .mt-1 { margin-top: 8px; }
+    .mt-2 { margin-top: 16px; }
+    .mb-2 { margin-bottom: 16px; }
+
+.castle-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  margin-left: 12px;
+}
+
+.avatar.dead {
+  filter: grayscale(100%) brightness(0.5);
+  opacity: 0.6;
+}
+
+/* Efecto de turno activo en HUD inferior */
+.player-hud.active-turn {
+  background: linear-gradient(180deg, rgba(0,255,153,0.15), rgba(0,255,153,0.05));
+  border-top: 1px solid rgba(49, 174, 86, 0.4);
+  box-shadow: 0 0 25px rgba(61, 167, 66, 0.25);
+  transition: all 0.4s ease;
+}
+
+
+/* ===========================
+   MUSIC PANEL (INLINE NAV)
+   =========================== */
+.music-panel-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.15);
+}
+
+#btnPlayMusic {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+#btnPlayMusic:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+#volumeControl {
+  width: 80px;
+  height: 4px;
+  accent-color: #0099ff;
+  cursor: pointer;
+}
+
+/* ===========================
+   BATTLE GRID - TABLA NORMAL
+   =========================== */
+.battle-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Casilla base */
+.cell {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+
+.cell:hover {
+  background: rgba(255,255,255,0.05);
+  transform: scale(1.02);
+}
+
+.castle .name {
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.castle .lifes {
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.castle {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInCastle 0.6s ease forwards;
+}
+.name-block {
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.2em;
+}
+
+.name {
+  margin: 0px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.role {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.points {
+  font-size: 0.8rem;
+  color: #ffd166;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+
+
+/* ===========================
+   TURNOS Y EFECTO ACTIVO
+   =========================== */
+.cell.active-turn .castle {
+  border: 1px solid rgba(0,255,153,0.8);
+  box-shadow: 0 0 20px rgba(0,255,153,0.4);
+  transform: scale(1.05);
+  transition: 0.25s;
+}
+
+@keyframes pulseTurn {
+  0%, 100% { box-shadow: 0 0 12px rgba(0,255,153,0.3); }
+  50% { box-shadow: 0 0 24px rgba(0,255,153,0.6); }
+}
+
+.cell.active-turn .castle {
+  border: 1px solid rgba(0,255,153,0.8);
+  animation: pulseTurn 1.8s ease-in-out infinite;
+  transform: scale(1.05);
+}
+
+.cell.flash-green {
+  animation: flashGreen 1.2s ease;
+}
+.cell.flash-red {
+  animation: flashRed 1.2s ease;
+}
+.cell.flash-violet {
+  animation: flashViolet 1.2s ease;
+}
+
+@keyframes flashGreen {
+  0%   { box-shadow: 0 0 25px rgba(0,255,153,0.8); background: rgba(0,255,153,0.15); }
+  100% { box-shadow: none; background: rgba(255,255,255,0.02); }
+}
+
+@keyframes flashRed {
+  0%   { box-shadow: 0 0 25px rgba(255,80,80,0.8); background: rgba(255,80,80,0.15); }
+  100% { box-shadow: none; background: rgba(255,255,255,0.02); }
+}
+
+@keyframes flashViolet {
+  0%   { box-shadow: 0 0 25px rgba(150,80,255,0.8); background: rgba(150,80,255,0.15); }
+  100% { box-shadow: none; background: rgba(255,255,255,0.02); }
+}
+
+/* ✨ Efecto flotante de puntos (⭐ +100) */
+.points-float {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffd166;
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+  animation: floatPoints 1.2s ease-out forwards;
+  pointer-events: none;
+  z-index: 4000;
+}
+
+@keyframes floatPoints {
+  0%   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  50%  { opacity: 1; transform: translate(-50%, -25px) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, -50px) scale(1); }
+}
+
+.damage-float.heal { transform: translate(-70%, -50%) scale(1); }
+.points-float { transform: translate(-30%, -50%) scale(1); }
+
+
+/* ===========================
+   DISTRIBUCIÓN NORMAL (4 rivales)
+   =========================== */
+.battle-grid.normal #p1 { grid-area: 1 / 2; }
+.battle-grid.normal #p2 { grid-area: 2 / 1; }
+.battle-grid.normal #p3 { grid-area: 2 / 3; }
+.battle-grid.normal #p4 { grid-area: 3 / 2; }
+.battle-grid.normal #player { grid-area: 3 / 2; }
+
+.battle-grid.full #p1 { grid-area: 1 / 1; }
+.battle-grid.full #p2 { grid-area: 1 / 2; }
+.battle-grid.full #p3 { grid-area: 1 / 3; }
+.battle-grid.full #p4 { grid-area: 2 / 1; }
+.battle-grid.full #p5 { grid-area: 2 / 3; }
+.battle-grid.full #p6 { grid-area: 3 / 1; }
+.battle-grid.full #p7 { grid-area: 3 / 3; }
+.battle-grid.full #player { grid-area: 3 / 2; }
+
+/* ===========================
+   DISTRIBUCIÓN FULL (8 rivales)
+   =========================== */
+/* ===========================
+   DISTRIBUCIÓN FULL (8 rivales)
+   =========================== */
+.battle-grid.full #p1 { grid-area: 1 / 1; }
+.battle-grid.full #p2 { grid-area: 1 / 2; }
+.battle-grid.full #p3 { grid-area: 1 / 3; }
+.battle-grid.full #p4 { grid-area: 2 / 1; }
+.battle-grid.full #p5 { grid-area: 2 / 3; }
+.battle-grid.full #p6 { grid-area: 3 / 1; }
+.battle-grid.full #p7 { grid-area: 3 / 3; }
+.battle-grid.full #p8 { grid-area: 2 / 2; display: none; } /* centro vacío */
+.battle-grid.full #player { grid-area: 3 / 2; } /* jugador abajo centro */
+
+/* ===========================
+   EFECTO DE PROYECTIL
+   =========================== */
+/* ===========================
+   EFECTO DE PROYECTIL RÁPIDO (VIOLETA)
+   =========================== */
+.projectile {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #d28bff 0%, #8a2be2 60%, #4b0082 100%);
+  pointer-events: none;
+  z-index: 3000;
+  box-shadow: 0 0 25px rgba(190, 80, 255, 0.9);
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.95;
+  transition: transform 0.35s ease-in, opacity 0.25s ease-out;
+}
+
+
+#targetBox.attack-mode .btn-ghost {
+  border-color: rgba(255, 80, 80, 0.7);
+  color: #ff8080;
+  background-color: rgb(58, 22, 22);
+}
+
+#targetBox.attack-mode .btn-ghost:hover {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ffb3b3;
+}
+
+/* =====================================================
+   EFECTOS VISUALES EXTRA
+   ===================================================== */
+
+/* 💚 Curación (heal) */
+.effect-heal {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00ff99 0%, #008f5a 80%);
+  box-shadow: 0 0 30px rgba(0,255,153,0.7);
+  z-index: 3000;
+  opacity: 0.9;
+  animation: healEffect 0.8s ease-out forwards;
+}
+
+@keyframes healEffect {
+  0% { transform: scale(0.8); opacity: 1; }
+  60% { transform: scale(1.5); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* 💙 Fortificar (shield) */
+.effect-shield {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00ccff 0%, #0066ff 80%);
+  box-shadow: 0 0 25px rgba(0,180,255,0.8);
+  z-index: 3000;
+  opacity: 0.95;
+  animation: shieldEffect 1s ease-out forwards;
+}
+
+@keyframes shieldEffect {
+  0% { transform: scale(0.7); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.9; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* 💔 Fallo (miss/fail) */
+.effect-fail {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff4444 0%, #990000 80%);
+  box-shadow: 0 0 25px rgba(255,80,80,0.9);
+  z-index: 3000;
+  opacity: 0.9;
+  animation: failEffect 0.7s ease-out forwards;
+}
+
+/* 🔹 Oculta completamente el grupo de acciones cuando no es turno del jugador */
+.player-hud .action-group.hidden {
+  display: none;
+}
+
+
+/* ===========================
+   EVENTO DE RONDA
+   =========================== */
+.event-display {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,255,153,0.1);
+  transition: all 0.4s ease;
+}
+
+.event-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0, 255, 153, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.event-display:hover .event-icon {
+  transform: scale(1.05);
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.event-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #00ff99;
+}
+
+.event-desc {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  color: #cccccc;
+}
+
+/* ✨ Parpadeo cuando aparece un nuevo evento */
+.flashEvent {
+  box-shadow: 0 0 25px rgba(0,255,255,0.4), 0 0 8px rgba(0,255,255,0.2) inset;
+  transform: scale(1.05);
+  transition: all 0.4s ease;
+}
+
+/* ✨ Texto flotante de puntos */
+.floating-points {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  color: #00ffcc;
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 0 0 6px rgba(0,255,255,0.6);
+  animation: floatUp 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ===========================
+   EFECTO DE DAÑO / CURACIÓN (CORAZÓN FLOTANTE)
+   =========================== */
+.damage-float {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 1.1rem;
+  font-weight: 600;
+  pointer-events: none;
+  animation: floatUp 1.2s ease-out forwards;
+  z-index: 4000;
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.damage-float.damage {
+  color: #ff6b6b;
+  text-shadow: 0 0 8px rgba(255,80,80,0.6);
+}
+
+.damage-float.heal {
+  color: #00ff99;
+  text-shadow: 0 0 8px rgba(0,255,153,0.6);
+}
+
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  50%  { opacity: 1; transform: translate(-50%, -25px) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, -50px) scale(1); }
+}
+
+
+
+@keyframes failEffect {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.8; }
+  100% { transform: scale(2.3); opacity: 0; }
+}
+
+
+@media (max-width: 768px) {
+  .music-panel-inline {
+    display: none; /* ocultar en pantallas pequeñas si querés */
+  }
+}
+
+
+@keyframes flashGreen {
+  0%   { box-shadow: 0 0 20px rgba(0,255,153,0.8); background: rgba(0,255,153,0.1); }
+  100% { box-shadow: none; background: rgba(255,255,255,0.02); }
+}
+
+@keyframes flashRed {
+  0%   { box-shadow: 0 0 20px rgba(255,80,80,0.8); background: rgba(255,80,80,0.1); }
+  100% { box-shadow: none; background: rgba(255,255,255,0.02); }
+}
+
+@keyframes flashViolet {
+  0%   { box-shadow: 0 0 20px rgba(150,80,255,0.8); background: rgba(150,80,255,0.1); }
+  100% { box-shadow: none; background: rgba(255,255,255,0.02); }
+}
+
+    /* ===========================
+       RESPONSIVE
+       =========================== */
+    @media (max-width: 1024px) {
+      .game-container {
+        grid-template-columns: 1fr 240px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 16px;
+        height: 50px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .logo img {
+        height: 28px;
+      }
+
+      .nav-menu {
+        gap: 12px;
+      }
+
+      .nav-link {
+        font-size: 13px;
+      }
+
+      .game-container {
+        top: 50px;
+        bottom: 66px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        padding: 12px;
+        gap: 12px;
+      }
+
+      .side-hud {
+        max-height: 30vh;
+      }
+
+      .player-hud {
+        height: 66px;
+        padding: 10px 16px;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .action-group {
+        gap: 6px;
+      }
+
+      .btn-ghost {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+      }
+
+      .hearts-lg {
+        font-size: 16px;
+        letter-spacing: 2px;
+      }
+
+      .castle {
+        padding: 8px;
+      }
+
+      .castle .name {
+        font-size: 0.85rem;
+      }
+
+      .lifes {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid-3 {
+        gap: 8px;
+      }
+
+      .section-title {
+        font-size: 1.2rem;
+      }
+
+      .hud-block h3 {
+        font-size: 0.85rem;
+      }
+
+      .btn-ghost {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+      }
+    }
+
+    
+  </style>
+
+  <style>
+/* ===========================
+   RESET & BASE
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Manrope', sans-serif;
+  background: linear-gradient(180deg, #0a0a0a 0%, #00121f 100%);
+  color: #f9f9f9;
+}
+
+/* ===========================
+   ANIMATED BACKGROUND — CELESTE ARG
+   =========================== */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 50%, rgba(0, 191, 255, 0.1) 0%, transparent 60%),
+              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+              radial-gradient(circle at 40% 80%, rgba(135, 206, 250, 0.08) 0%, transparent 60%);
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* ===========================
+   FLOTANTES SUAVES (CELESTE)
+   =========================== */
+.floating-elements {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floating-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(0, 191, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+  animation: float 18s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(-100vw, -20px) scale(0.6); opacity: 0; }
+}
+
+/* ===========================
+   NAVBAR — ESTILO CELESTE Y BLANCO
+   =========================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 12px 24px;
+  background: rgba(0, 25, 48, 0.9);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  height: 56px;
+  box-shadow: 0 2px 12px rgba(0, 191, 255, 0.1);
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #a8d8ff 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(173,216,230,0.3));
+  border-radius: 50%;
+}
+
+.nav-link {
+  color: rgba(230, 245, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00bfff;
+  text-shadow: 0 0 8px rgba(0,191,255,0.6);
+}
+
+/* ===========================
+   BATTLEFIELD — MODERNO ARG
+   =========================== */
+.battlefield {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,191,255,0.15);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: inset 0 0 25px rgba(0,191,255,0.04);
+}
+
+/* Marcos de castillos */
+.castle {
+  background: linear-gradient(180deg, rgba(0,191,255,0.07), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: inset 0 0 15px rgba(0,191,255,0.1);
+}
+
+.castle.active-turn {
+  border: 1px solid rgba(0,191,255,0.8);
+  box-shadow: 0 0 20px rgba(0,191,255,0.5);
+}
+
+/* ===========================
+   PLAYER HUD
+   =========================== */
+.player-hud {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(0, 30, 50, 0.92);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(173,216,230,0.25);
+  box-shadow: 0 -2px 20px rgba(0,191,255,0.15);
+  transition: all 0.4s ease;
+}
+
+.player-hud.active-turn {
+  background: linear-gradient(180deg, rgba(0,191,255,0.2), rgba(0,70,120,0.1));
+  box-shadow: 0 0 25px rgba(0,191,255,0.25);
+}
+
+/* ===========================
+   BOTONES — CELESTE & DORADO
+   =========================== */
+.btn-ghost {
+  background: transparent;
+  color: #e0f8ff;
+  border: 1px solid rgba(0,191,255,0.4);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 0.9rem;
+}
+
+.btn-ghost:hover {
+  background: rgba(0,191,255,0.15);
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(0,191,255,0.3);
+}
+
+.btn-good {
+  border-color: rgba(255,215,0,0.7);
+  color: #ffe;
+}
+.btn-good:hover {
+  background: rgba(255,215,0,0.15);
+  box-shadow: 0 0 10px rgba(255,215,0,0.25);
+}
+
+.btn-danger {
+  border-color: rgba(255,80,80,0.6);
+  color: #ffbfbf;
+}
+.btn-danger:hover {
+  background: rgba(255,80,80,0.15);
+}
+
+/* ===========================
+   TEXTOS — SUTIL ARG
+   =========================== */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  background: linear-gradient(90deg, #ffffff 0%, #00bfff 60%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role-tag {
+  color: #b8eaff;
+}
+
+.points {
+  color: #ffd166;
+}
+
+
+/* 🔹 Posiciona correctamente el botón Cambiar */
+#changeQuestionBtn {
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2000;
+}
+#changeQuestionBtn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ===========================
+   EFECTOS — REIMAGINADOS
+   =========================== */
+.effect-heal {
+  background: radial-gradient(circle, #00ffcc 0%, #0099aa 90%);
+  box-shadow: 0 0 30px rgba(0,255,204,0.6);
+}
+
+.effect-shield {
+  background: radial-gradient(circle, #00bfff 0%, #0066ff 80%);
+  box-shadow: 0 0 30px rgba(0,191,255,0.8);
+}
+
+.effect-fail {
+  background: radial-gradient(circle, #ff5555 0%, #990000 80%);
+}
+
+/* ===========================
+   EVENTOS DE RONDA
+   =========================== */
+.event-display {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,191,255,0.15);
+  box-shadow: 0 0 15px rgba(0,191,255,0.1);
+}
+.event-name {
+  color: #00bfff;
+}
+.event-icon {
+  box-shadow: 0 0 10px rgba(0,191,255,0.3);
+}
+
+/* ===========================
+   MODAL — CLARO Y MODERNO
+   =========================== */
+.modal-card {
+  background: rgba(0,20,35,0.96);
+  border: 1px solid rgba(0,191,255,0.2);
+  box-shadow: 0 20px 50px rgba(0,191,255,0.25);
+  border-radius: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffffff, #00bfff);
+  color: #001;
+}
+.btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(0,191,255,0.3);
+}
+
+/* ===========================
+   MUSIC PANEL INLINE
+   =========================== */
+.music-panel-inline {
+  border-left: 1px solid rgba(0,191,255,0.25);
+}
+#btnPlayMusic {
+  border: 1px solid rgba(0,191,255,0.5);
+}
+#btnPlayMusic:hover {
+  background: rgba(0,191,255,0.15);
+}
+#volumeControl {
+  accent-color: #00bfff;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .navbar {
+    background: rgba(0, 25, 48, 0.95);
+  }
+  .player-hud {
+    background: rgba(0,25,48,0.95);
+  }
+}
+
+/* 🇦🇷 ===========================
+   EFECTO DE TURNO ACTIVO — ESTILO ARGENTINO
+   =========================== */
+
+/* 🔹 Panel inferior (cuando es tu turno) */
+.player-hud.active-turn {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 191, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 40%,
+    rgba(0, 191, 255, 0.25) 100%
+  );
+  border-top: 1px solid rgba(173, 216, 230, 0.6);
+  box-shadow:
+    0 0 25px rgba(23, 106, 134, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.2),
+    inset 0 0 30px rgba(0, 191, 255, 0.2);
+  transition: all 0.5s ease;
+  animation: flagWave 2.2s ease-in-out infinite;
+}
+
+/* 🔹 Castillo del jugador cuando está activo */
+.cell.active-turn .castle {
+  border: 1px solid rgba(0, 191, 255, 0.9);
+  box-shadow:
+    0 0 18px rgba(0, 191, 255, 0.8),
+    0 0 32px rgba(255, 255, 255, 0.4),
+    0 0 50px rgba(255, 215, 0, 0.25);
+  transform: scale(1.06);
+  animation: argPulse 1.8s ease-in-out infinite;
+}
+
+/* ✨ Ondulación tipo “bandera” */
+@keyframes flagWave {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ✨ Pulso patriótico (celeste-blanco-dorado) */
+@keyframes argPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 16px rgba(0,191,255,0.6),
+      0 0 32px rgba(255,255,255,0.3),
+      0 0 48px rgba(255,215,0,0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 26px rgba(0,191,255,0.9),
+      0 0 40px rgba(255,255,255,0.6),
+      0 0 70px rgba(255,215,0,0.3);
+  }
+}
+/* ===========================
+   EFECTO DE TURNO ACTIVO — SOBRIO Y PATRIÓTICO
+   =========================== */
+
+.player-hud.active-turn {
+  background: linear-gradient(180deg, rgba(0,118,182,0.25), rgba(255,255,255,0.08));
+  border-top: 1px solid rgba(200,230,255,0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 0 15px rgba(0,118,182,0.2);
+  transition: all 0.4s ease;
+}
+
+/* 🔹 Castillo del jugador durante su turno */
+.cell.active-turn .castle {
+  border: 1px solid rgba(0,118,182,0.7);
+  box-shadow:
+    0 0 10px rgba(0,118,182,0.3),
+    inset 0 0 6px rgba(255,255,255,0.08);
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
+/* ===========================
+   BOTONES PATRIÓTICOS SOBRIOS
+   =========================== */
+
+.btn-ghost {
+  background: rgba(255,255,255,0.05);
+  color: #e6f4ff;
+  border: 1px solid rgba(0,118,182,0.4);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(0,118,182,0.15);
+  border-color: rgba(255,255,255,0.3);
+  color: #ffffff;
+}
+
+/* 🔹 Botón positivo (curar, confirmar) */
+.btn-good {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,215,0,0.5);
+  color: #fff8e1;
+}
+.btn-good:hover {
+  background: linear-gradient(180deg, rgba(255,215,0,0.25), rgba(255,255,255,0.05));
+  color: #fffdf3;
+}
+
+/* 🔹 Botón de acción (neutral o estándar) */
+.btn-primary {
+  background: linear-gradient(180deg, rgba(0,118,182,0.8), rgba(0,90,139,0.8));
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px 22px;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, rgba(0,136,204,0.9), rgba(0,100,160,0.9));
+  box-shadow: 0 0 10px rgba(0,118,182,0.3);
+}
+
+/* 🔹 Botón de peligro */
+.btn-danger {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(220,70,70,0.5);
+  color: #ffdddd;
+}
+.btn-danger:hover {
+  background: rgba(220,70,70,0.15);
+  border-color: rgba(255,200,200,0.5);
+  color: #fff;
+}
+
+  </style>
+
+<link rel="stylesheet" href="../pages/css/responsiveGame.css">
+</head>
+<body>
+  <!-- Fondo animado -->
+  <div class="animated-bg"></div>
+  <div class="floating-elements">
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+    <div class="floating-dot"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span>Debate BrazArg</span>
+      </a>
+      <ul class="nav-menu">
+  <li><a class="nav-link" href="#" id="btnHelp">Ayuda</a></li>
+  <li><a class="nav-link" href="#" id="btnRestart">Reiniciar</a></li>
+  <li><a class="nav-link" href="./portal.html" id="btnExit">Salir</a></li>
+
+  <!-- 🎵 Panel de música -->
+  <div class="music-panel-inline">
+    <button id="btnPlayMusic">⏯️</button>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.45">
+  </div>
+</ul>
+
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="game-container">
+    <!-- Campo de batalla -->
+  <section class="battlefield">
+  <div class="battlefield-header-inline">
+    <h2 class="section-title">Debate BrazArg</h2>
+    <div id="eventDisplay" class="event-display-inline">
+      <img id="eventIcon" src="../src/img/eventos/none.png" alt="Evento" class="event-icon-inline">
+      <div class="event-info-inline">
+        <div class="event-name-inline" id="eventName">Sin evento</div>
+        <div class="event-desc-inline" id="eventDesc">—</div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="battle-grid" id="grid">
+  <div class="cell" id="p1"></div>
+  <div class="cell" id="p2"></div>
+  <div class="cell" id="p3"></div>
+  <div class="cell" id="p4"></div>
+  <div class="cell" id="p5"></div>
+  <div class="cell" id="p6"></div>
+  <div class="cell" id="p7"></div>
+  <div class="cell" id="p8"></div>
+  <div class="cell" id="player"></div>
+</div>
+
+
+</section>
+
+    <!-- HUD lateral -->
+    <aside class="side-hud">
+      <div class="hud-block">
+        <h3>Estado</h3>
+        <p class="small">Ronda: <b id="round">1</b></p>
+        <p class="small">Turno: <b id="turnName">—</b></p>
+        <div class="timerbar mt-1"><div id="timerFill"></div></div>
+        <p class="small mt-1">Tiempo: <b id="timeLeft">20s</b></p>
+      </div>
+      <div class="hud-block">
+        <h3>Puntaje</h3>
+        <p>Actual: <b id="score">0</b></p>
+        <p class="muted small">Máximo: <b id="best">0</b></p>
+      </div>
+      <div class="hud-block">
+        <h3>Log</h3>
+        <div class="log" id="log"></div>
+      </div>
+     
+    </aside>
+  </div>
+
+  <!-- PlayerHUD -->
+  <div class="player-hud">
+    <div class="action-group">
+      <button class="btn-ghost btn-danger" id="btnAttack">⚔️ Atacar</button>
+      <button class="btn-ghost btn-good" id="btnFortify">🛡️ Fortificar</button>
+      <button class="btn-ghost" id="btnRepair">❤️ Curar</button>
+      <div class="targets" id="targetBox"></div>
+    </div>
+    <div>
+      <span class="hearts-lg" id="playerHearts">❤️❤️❤️❤️❤️</span>
+    </div>
+  </div>
+
+  <!-- Modal preguntas -->
+  <div class="modal" id="qModal">
+    <div class="modal-card">
+      <div class="q-topic" id="qTopic">Tema</div>
+      <div class="q-title" id="qTitle">Pregunta</div>
+      <div class="options" id="qOptions"></div>
+      <div class="explain" id="qExplain"></div>
+      <div class="chips">
+<div class="mt-2" style="text-align:right;">
+  <button id="btnCloseQuestion" class="btn-ghost small">❌ Cerrar</button>
+</div>
+
+        <span class="chip" id="chipBonus" style="display:none;">🎯 +15% bonus</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay Inicio -->
+  <div class="overlay-center active" id="startOverlay">
+    <div class="start-card">
+      <h2 class="section-title" style="margin-bottom:12px;">Debate BrazArg</h2>
+      <p class="mb-2">¡Sobrevive y gana a los rivales resolviendo preguntas!</p>
+      <div class="infotext-box">
+        <h4>¿Cómo se juega?</h4>
+        <p>1) Turnos de <b>20s</b>. Si no actuás, perdés el turno y <b>-1 vida</b>.</p>
+        <p>2) Acciones:</p>
+        <ul>
+          <li><b>Atacar</b>: Ataca a un rival y si aciertas le restaras <b>-2 vidas</b> <br>Si fallas, perderas <b>-1 vida</b>.</li>
+          <li><b>Fortificar</b>: Si aciertas, recuperas <b>+3 vidas</b>.</li>
+          <li><b>Curar</b>: Automaticamente ganas <b>+1 vida</b>.</li>
+        </ul>
+      </div>
+      <div class="mt-2">
+        <label class="small">Tu nombre: </label>
+        <input id="playerNameInput" class="btn-ghost" style="padding:8px 12px;" placeholder="Jugador" />
+      </div>
+<div class="mt-2">
+  <label class="small">Modo de juego:</label>
+  <div class="btn-ghost" style="display:flex; flex-direction:column; gap:6px; align-items:flex-start; padding:8px 12px;">
+    <label for="modeNormal" style="display:flex; gap:6px; align-items:center; cursor:pointer;">
+      <input type="radio" name="gameMode" id="modeNormal" value="normal">
+      Normal (4 jugadores)
+    </label>
+    <label for="modeFull" style="display:flex; gap:6px; align-items:center; cursor:pointer;">
+      <input type="radio" name="gameMode" id="modeFull" value="full" checked>
+      Casa llena (8 jugadores)
+    </label>
+  </div>
+</div>
+
+
+      <button class="btn btn-primary mt-2" id="btnStart">Comenzar</button>
+    </div>
+  </div>
+
+  <!-- Overlay Game Over -->
+  <div class="overlay-center" id="endOverlay">
+    <div class="end-card">
+      <h2 class="section-title" id="endTitle">Fin de la partida</h2>
+      <p id="endStats" class="mb-2"></p>
+      <button class="btn btn-primary" id="btnPlayAgain">Jugar de nuevo</button>
+    </div>
+  </div>
+
+
+    <script>
+        // ============================================
+    // BATALLA DE PROBABILIDAD - Script Completo Corregido
+    // ============================================
+
+    // Utilidades básicas
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => document.querySelectorAll(sel);
+    const logBox = $("#log");
+
+    function addLog(text) {
+    const p = document.createElement("p");
+    p.innerHTML = text;
+    logBox.prepend(p);
+    // Auto-scroll y limitar historial
+    while (logBox.children.length > 20) {
+        logBox.removeChild(logBox.lastChild);
+    }
+    }
+
+    function clamp(n, a, b) { 
+    return Math.max(a, Math.min(b, n)); 
+    }
+
+    function hearts(n) { 
+    return "❤️".repeat(Math.max(0, n)) + "🤍".repeat(Math.max(0, 6-n)); 
+    }
+
+    function rnd(arr) { 
+    return arr[Math.floor(Math.random() * arr.length)]; 
+    }
+
+    // ============================================
+    // BANCO DE PREGUNTAS
+    // ============================================
+ let QUESTIONS = [];
+
+async function loadQuestions() {
+  try {
+    const res = await fetch("../src/json/preguntas.json"); // 🔹 ajustá la ruta según tu estructura
+    if (!res.ok) throw new Error("Error al cargar preguntas");
+    QUESTIONS = await res.json();
+    console.log("✅ Preguntas cargadas:", QUESTIONS.length);
+  } catch (err) {
+    console.error("❌ No se pudieron cargar las preguntas:", err);
+    alert("Error al cargar las preguntas. Ver consola.");
+  }
+}
+
+    // ============================================
+    // CONSTANTES Y ESTADO GLOBAL
+    // ============================================
+    const MAX_HP = 6;
+    const INIT_HP = 5;
+    const TURN_TIME = 20;
+
+    let state = null;
+    let gameEnded = false;
+
+    const baseTips = [
+    ""
+    ];
+
+    // ============================================
+    // INICIALIZACIÓN DEL JUEGO
+    // ============================================
+function randomizeGridPositions(mode) {
+  const grid = document.getElementById("grid");
+  grid.classList.remove("normal", "full");
+  grid.classList.add(mode);
+
+  // 🧹 Limpiar núcleo anterior si existe
+  const oldCore = grid.querySelector(".center-core");
+  if (oldCore) oldCore.remove();
+
+  // 🎯 Posiciones disponibles para modo normal (forma de cruz)
+  const normalPositions = [
+    { id: "p1", area: "1 / 2" }, // arriba
+    { id: "p2", area: "2 / 1" }, // izquierda
+    { id: "p3", area: "2 / 3" }, // derecha
+    { id: "p4", area: "3 / 1" }, // abajo-izquierda (extra si hay 4 bots)
+  ];
+
+  // 🔀 Barajamos las posiciones solo para los NPCs
+  const shuffledNormal = normalPositions.sort(() => Math.random() - 0.5);
+
+  // 🎯 Posiciones para modo full (ya conocidas)
+  const fullPositions = [
+    { id: "p1", area: "1 / 1" },
+    { id: "p2", area: "1 / 2" },
+    { id: "p3", area: "1 / 3" },
+    { id: "p4", area: "2 / 1" },
+    { id: "p5", area: "2 / 3" },
+    { id: "p6", area: "3 / 1" },
+    { id: "p7", area: "3 / 3" },
+  ];
+
+  const positions = mode === "full" ? fullPositions : shuffledNormal;
+
+  // 🧍‍♂️ Aplicar a las celdas
+  positions.forEach((slot, i) => {
+    const el = document.getElementById(slot.id);
+    if (el) el.style.gridArea = slot.area;
+  });
+
+  // 👤 Jugador fijo en la parte inferior central
+  const player = document.getElementById("player");
+  if (player) player.style.gridArea = "3 / 2";
+
+  // ⚡ Si es modo FULL, agregamos el núcleo visual (vacío)
+  if (mode === "full") {
+    const center = document.createElement("div");
+    center.className = "cell center-core";
+    center.style.gridArea = "2 / 2";
+    center.innerHTML = "<div class='core-energy'></div>";
+    grid.appendChild(center);
+  }
+}
+
+function newGame(playerName = "Jugador", mode = "normal") {
+  const best = Number(localStorage.getItem("bp_best") || 0);
+  $("#best").textContent = best;
+  gameEnded = false;
+
+  const players = buildPlayers(playerName, mode);
+
+  state = {
+    round: 1,
+    turnIdx: 0,
+    score: 0,
+    timer: TURN_TIME,
+    interval: null,
+    awaitingAnswer: false,
+    chosenAction: null,
+    chosenTarget: null,
+    players,
+order: generarOrdenHorario(players.length),
+
+  };
+
+  // 🧹 Reset de eventos activos
+state.currentEvent = null;
+state.eventMultiplier = 1;
+state.eventAccuracyPenalty = 0;
+state.eventExtraDamage = 0;
+
+// 🔄 Actualizar visualmente el área de evento
+$("#eventName").textContent = "Silencio de la Bandera";
+$("#eventDesc").textContent = "Un instante de calma. No hay eventos activos este turno.";
+$("#eventIcon").src = "../src/img/arg.jpg";
+$("#eventDisplay").style.boxShadow = "0 0 15px rgba(255,255,255,0.1)";
+
+
+  randomizeGridPositions(mode);
+
+
+  logBox.innerHTML = "";
+  $("#score").textContent = state.score;
+  $("#round").textContent = state.round;
+
+  renderAll();
+  highlightTurn();
+  startTurnTimer();
+
+  
+  addLog("🎮 <b>¡Nueva partida iniciada!</b>");
+  if (music.paused) {
+    music.play();
+    $("#btnPlayMusic").textContent = "⏸️";
+  }
+}
+
+    // ============================================
+    // RENDERIZADO
+    // ============================================
+    function renderAll() {
+
+// Render dinámico según existan jugadores
+for (let i = 0; i < state.players.length; i++) {
+  renderCastle(idFromIndex(i), state.players[i]);
+}
+
+
+
+
+    ["#dummy1", "#dummy2", "#dummy3", "#dummy4"].forEach(sel => {
+        const box = $(sel);
+        if (box) box.innerHTML = "";
+    });
+
+    // Vidas del jugador en HUD inferior
+    $("#playerHearts").textContent = hearts(state.players[0].hp);
+
+    // Habilitar/deshabilitar controles según turno
+    const myTurn = state.order[state.turnIdx] === 0 && !state.awaitingAnswer;
+    togglePlayerControls(myTurn);
+    }
+
+    // ============================================
+// EVENTOS ESPECIALES CON IMÁGENES
+// ============================================
+const ROUND_EVENTS = [
+  {
+    name: "Revolución de Mayo",
+    desc: "El espíritu patriótico se enciende: todas las acciones exitosas otorgan el doble de puntos.",
+    icon: "../src/img/arg.jpg",
+    effect: state => state.eventMultiplier = 2
+  },
+  {
+    name: "Renacer de la Patria",
+    desc: "Todos los héroes vivos recuperan +1 vida en nombre de la Nación.",
+    icon: "../src/img/brz.jpg",
+    effect: state => {
+      state.players.forEach((p, idx) => {
+        if (!p.alive) return;
+
+        if (p.hp < MAX_HP) {
+          // 💚 Cura +1 vida
+          p.hp = clamp(p.hp + 1, 0, MAX_HP);
+          showDamageFloat(idFromIndex(idx), 1, "heal");
+          launchEffect(idFromIndex(idx), "heal");
+          sfx.heal.play();
+        } else {
+          // ⭐ Si ya está al máximo → gana puntos de mérito
+          const bonus = 100;
+          p.score = (p.score || 0) + bonus;
+          if (idx === 0) {
+            state.score += bonus;
+            $("#score").textContent = state.score;
+          }
+          showPointsFloat(idFromIndex(idx), bonus);
+          sfx.event_double.play(); // sonido tipo "bonus patriótico"
+        }
+      });
+      renderAll();
+    }
+  },
+  {
+    name: "Fervor Nacional",
+    desc: "La pasión argentina arde en el campo de batalla: el daño aumenta +1.",
+    icon: "../src/img/arg.jpg",
+    effect: state => state.eventExtraDamage = 1
+  },
+  {
+    name: "Silencio de la Bandera",
+    desc: "Un instante de calma. No hay eventos activos este turno.",
+    icon: "../src/img/brz.jpg",
+    effect: state => {
+      state.eventMultiplier = 0;
+      state.eventAccuracyPenalty = 0;
+      state.eventExtraDamage = 0;
+    }
+  }
+];
+
+// ======================================================
+// ORDEN DE TURNOS EN CÍRCULO ANTIHORARIO (TRUCO INVERTIDO 😎)
+// ======================================================
+function generarOrdenHorario(totalPlayers) {
+  if (totalPlayers === 4) {
+    // player (abajo) → izquierda (p2) → arriba (p1) → derecha (p3)
+    return [0, 3, 1, 2];
+  }
+
+  if (totalPlayers === 8) {
+    // player → p7 → p5 → p3 → p2 → p1 → p4 → p6
+    return [0, 7, 5, 3, 2, 1, 4, 6];
+  }
+
+  return Array.from({ length: totalPlayers }, (_, i) => i);
+}
+
+
+function applyRoundEvent() {
+  const event = rnd(ROUND_EVENTS);
+  state.currentEvent = event;
+
+  // Reiniciar efectos previos
+  state.eventMultiplier = 1;
+  state.eventAccuracyPenalty = 0;
+  state.eventExtraDamage = 0;
+  event.effect(state);
+
+  // Actualizar interfaz
+  $("#eventName").textContent = event.name;
+  $("#eventDesc").textContent = event.desc;
+  $("#eventIcon").src = event.icon;
+
+  // 💫 Parpadeo y color
+  const eventBox = $("#eventDisplay");
+  eventBox.classList.add("flashEvent");
+  setTimeout(() => eventBox.classList.remove("flashEvent"), 800);
+
+  eventBox.style.boxShadow =
+    event.name.includes("Doble") ? "0 0 15px rgba(255,215,0,0.4)" :
+    event.name.includes("Curación") ? "0 0 15px rgba(0,255,153,0.4)" :
+    event.name.includes("Furia") ? "0 0 15px rgba(255,80,80,0.4)" :
+    "0 0 15px rgba(255,255,255,0.1)";
+
+  // 🔊 Reproducir sonido según el evento
+  switch (event.name) {
+    case "Evento de Doble Puntos": sfx.event_double.play(); break;
+    case "Curación Global": sfx.event_heal.play(); break;
+    case "Furia": sfx.event_fury.play(); break;
+    default: sfx.event_none.play(); break;
+  }
+
+  addLog(`🌀 <b>${event.name}</b>: ${event.desc}`);
+}
+
+
+    const SCORE_VALUES = {
+  ATTACK_SUCCESS: 80,
+  FORTIFY_SUCCESS: 80,
+  KILL_BONUS: 200,
+  REPAIR: 0,
+  FAIL: 0
+};
+
+function renderCastle(sel, p) {
+  const box = $(sel);
+  if (!box) return;
+  if (!p) return (box.innerHTML = "");
+
+  // ⚰️ Si está muerto
+  if (!p.alive) {
+    box.innerHTML = `
+      <div class="castle-info">
+        <div class="avatar dead"></div>
+        <div class="name muted">${p.name}</div>
+      </div>
+      <div class="points">⭐ ${p.score || 0}</div>
+      <div class="lifes">✖︎</div>
+    `;
+    return;
+  }
+
+  // 🧱 Personaje vivo
+box.innerHTML = `
+  <div class="castle-info">
+    <div class="avatar" style="background-image:url('${p.img || 'img/default.png'}');"></div>
+  </div>
+
+  <div class="name-block">
+    <div class="name">${p.name}</div>
+    <div class="role small muted">${p.type === 'bot' ? 'Bot' : 'Jugador'}</div>
+    <div class="points">⭐ ${p.score || 0}</div>
+  </div>
+
+  <div class="lifes">${hearts(p.hp)}</div>
+  ${p.type === "bot" && p.thinking ? `<div class="thinking">${p.thinking}</div>` : ""}
+`;
+
+}
+
+const THOUGHTS = [
+  "{name} recuerda la Revolución de Mayo…",
+  "{name} planea una estrategia libertadora…",
+  "{name} piensa en su próximo discurso…",
+  "{name} escucha el murmullo del pueblo…",
+  "{name} consulta la Constitución…",
+  "{name} analiza la situación del país…",
+  "{name} evoca a los héroes patrios…",
+  "{name} defiende la educación pública…",
+  "{name} busca inspiración en el tango…",
+  "{name} calcula la táctica de San Lorenzo…",
+  "{name} afina su guitarra criolla…",
+  "{name} ondea la bandera celeste y blanca…",
+  "{name} piensa cómo unir al pueblo…",
+  "{name} recuerda a los caídos por la patria…",
+  "{name} prepara su próxima revolución…",
+    "{name} mira el horizonte y sueña con libertad…",
+  "{name} traza un plan digno de un prócer…",
+  "{name} piensa en el futuro de la patria…",
+  "{name} escucha el eco de la historia…",
+  "{name} recuerda las voces del pueblo…",
+  "{name} levanta su copa por la independencia…",
+  "{name} afila su pluma para escribir historia…",
+  "{name} siente el peso del deber argentino…",
+  "{name} respira hondo y sigue la causa…",
+  "{name} honra la bandera con el alma…",
+  "{name} recuerda a los que nunca se rindieron…",
+  "{name} enciende el fuego de una nueva era…",
+  "{name} escucha marchas en su memoria…",
+  "{name} siente el pulso de la revolución…",
+  "{name} defiende sus ideales con pasión…",
+  "{name} contempla el cielo celeste y blanco…",
+  "{name} guarda silencio, pero planea acción…",
+  "{name} sonríe ante el destino de su nación…",
+  "{name} jura no olvidar jamás la historia…"
+];
+
+
+// Muestra el mensaje debajo de las vidas por un rato
+function botSay(idx, text, ms = 1200) {
+  const p = state.players[idx];
+  if (!p || !p.alive) return;
+  p.thinking = text;
+  renderAll();
+  setTimeout(() => {
+    // si sigue vivo, limpiamos el mensaje
+    if (p.alive) {
+      p.thinking = "";
+      renderAll();
+    }
+  }, ms);
+}
+
+
+function buildPlayers(playerName, mode) {
+  const allBots = [
+    { id: "1", name: "Maradona",   type: "bot", hp: INIT_HP, acc: 0.75, alive: true, img: "../src/img/arg.jpg" },
+    { id: "2", name: "Pele",     type: "bot", hp: INIT_HP, acc: 0.8,  alive: true, img: "../src/img/brz.jpg" },
+    { id: "3", name: "Messi",        type: "bot", hp: INIT_HP, acc: 0.65, alive: true, img: "../src/img/arg.jpg" },
+    { id: "4", name: "Neymar",        type: "bot", hp: INIT_HP, acc: 0.68, alive: true, img: "../src/img/brz.jpg" },
+    { id: "5", name: "Di Maria",        type: "bot", hp: INIT_HP, acc: 0.72, alive: true, img: "../src/img/arg.jpg" },
+    { id: "6", name: "Ronaldo",       type: "bot", hp: INIT_HP, acc: 0.7,  alive: true, img: "../src/img/brz.jpg" },
+    { id: "7", name: "Dibu",     type: "bot", hp: INIT_HP, acc: 0.68, alive: true, img: "../src/img/arg.jpg" },
+    { id: "8", name: "Alisson",        type: "bot", hp: INIT_HP, acc: 0.65, alive: true, img: "../src/img/brz.jpg" },    
+    ];
+  const human = { id: "H", name: playerName, type: "human", hp: INIT_HP, acc: 0.75, alive: true, img: "../src/img/visuales/pj_1.jpg" };
+
+  // 🧠 Barajamos todo el conjunto de bots
+  const shuffled = allBots.sort(() => Math.random() - 0.5);
+
+  // 🎯 Selección aleatoria según modo
+  const numBots = mode === "full" ? 7 : 3;
+  const selectedBots = shuffled.slice(0, numBots);
+
+  // 🧩 Devolvemos el jugador + bots seleccionados
+  return [human, ...selectedBots];
+}
+
+
+
+
+// ============================================
+// CONTROL VISUAL DE BOTONES DEL JUGADOR
+// ============================================
+function togglePlayerControls(enabled) {
+  const actionGroup = document.querySelector(".player-hud .action-group");
+  const targetBox = $("#targetBox");
+
+  // 🔹 Mostrar u ocultar el grupo completo
+  if (enabled) {
+    actionGroup.classList.remove("hidden");
+  } else {
+    actionGroup.classList.add("hidden");
+  }
+
+  // 🔹 Limpiar objetivos
+  targetBox.innerHTML = "";
+  targetBox.classList.remove("active", "attack-mode");
+
+  // 🔹 Si es tu turno (enabled), generar los botones de objetivo
+  if (enabled) {
+    state.players.forEach((p, idx) => {
+      if (idx > 0 && p.alive) {
+        const btn = document.createElement("button");
+        btn.className = "btn-ghost";
+        btn.textContent = p.name;
+        btn.onclick = () => selectTarget(idx);
+        targetBox.appendChild(btn);
+      }
+    });
+  }
+}
+
+
+function highlightTurn() {
+  const idx = state.order[state.turnIdx];
+  const p = state.players[idx];
+
+  $("#turnName").textContent = p ? p.name : "—";
+
+  // Limpiar resaltado
+  $$(".cell").forEach(c => c.classList.remove("active-turn"));
+
+  const idMap = { 
+    0: "#player", 1: "#p1", 2: "#p2", 3: "#p3",
+    4: "#p4", 5: "#p5", 6: "#p6", 7: "#p7", 8: "#p8"
+  };
+
+  const sel = idMap[idx];
+  if (sel) {
+    const cell = $(sel);
+    if (cell) cell.classList.add("active-turn");
+  }
+
+  // Efecto en HUD inferior si es turno del jugador
+  const playerHUD = document.querySelector(".player-hud");
+  playerHUD.classList.toggle("active-turn", state.order[state.turnIdx] === 0);
+
+  // 💭 Si es turno de un bot vivo → mostrar mensaje "pensando..."
+// 💭 Si es turno de un bot vivo → mostrar mensaje solo desde la segunda ronda
+if (p && p.type === "bot" && p.alive && state.round > 1) {
+  const msg = rnd(THOUGHTS).replace("{name}", p.name);
+  p.thinking = msg;
+  renderAll();
+
+  // Borrar el mensaje luego de 1.3s aprox
+  setTimeout(() => {
+    if (p.alive && state.players[state.order[state.turnIdx]] === p) {
+      p.thinking = "";
+      renderAll();
+    }
+  }, 1300);
+}
+
+}
+
+    function current() {
+    return state.players[state.order[state.turnIdx]];
+    }
+
+    // ============================================
+    // TEMPORIZADOR DE TURNO
+    // ============================================
+function startTurnTimer() {
+  clearInterval(state.interval);
+  state.timer = TURN_TIME;
+  state.awaitingAnswer = false; // ✅ Reiniciamos flag cada nuevo turno
+
+  // 🔹 Elegir una pregunta fija al comenzar el turno del jugador
+if (state.order[state.turnIdx] === 0) {
+  state.fixedQuestion = rnd(QUESTIONS);
+    state.remainingChanges = 3;
+}
+
+
+  updateTimerUI();
+
+  state.interval = setInterval(() => {
+    if (gameEnded || state.awaitingAnswer) return;
+
+    state.timer -= 1;
+    updateTimerUI();
+
+    if (state.timer <= 0) {
+      clearInterval(state.interval);
+      onTimeOut();
+    }
+  }, 1000);
+}
+
+    function updateTimerUI() {
+    $("#timeLeft").textContent = state.timer + "s";
+    const pct = Math.max(0, (state.timer / TURN_TIME) * 100);
+    const fill = $("#timerFill");
+    fill.style.width = pct + "%";
+
+    // Cambiar color según tiempo restante
+    if (state.timer > 10) {
+        fill.style.background = "linear-gradient(90deg, #00d084, #9cffac)";
+    } else if (state.timer > 5) {
+        fill.style.background = "linear-gradient(90deg, #ffd166, #ffe29a)";
+    } else {
+        fill.style.background = "linear-gradient(90deg, #ff6b6b, #ffa3a3)";
+    }
+    }
+
+    function onTimeOut() {
+    if (gameEnded) return;
+    
+    const actorIdx = state.order[state.turnIdx];
+    const actor = state.players[actorIdx];
+
+    if (!actor || !actor.alive) {
+        endTurn();
+        return;
+    }
+
+    if (actor.type === "human") {
+        actor.hp = clamp(actor.hp - 1, 0, MAX_HP);
+        addLog("⏱️ <b>Se acabó tu tiempo</b>: perdés 1 vida.");
+        checkDeath(actorIdx);
+        renderAll();
+    } else {
+        addLog(`⏱️ <b>${actor.name}</b> pensó demasiado y perdió el turno.`);
+    }
+
+    endTurn();
+    }
+
+    // ============================================
+    // ACCIONES DEL JUGADOR
+    // ============================================
+    function isMyTurn() {
+    return state.order[state.turnIdx] === 0 && !gameEnded;
+    }
+
+  $("#btnAttack").onclick = () => {
+    if (!isMyTurn() || state.awaitingAnswer) return;
+    state.chosenAction = "attack";
+    const targetBox = $("#targetBox");
+    targetBox.classList.add("active", "attack-mode"); // 🔴 activamos modo ataque visual
+    addLog("⚔️ Elegí a quién atacar.");
+  };
+
+
+    function selectTarget(idx) {
+    if (!isMyTurn() || state.awaitingAnswer) return;
+    
+    if (!state.players[idx] || !state.players[idx].alive) {
+        addLog("⚠️ Ese objetivo ya no está disponible.");
+        return;
+    }
+    
+    state.chosenTarget = idx;
+    
+    if (state.chosenAction === "attack") {
+        $("#targetBox").classList.remove("active");
+        clearInterval(state.interval); // Pausar timer durante pregunta
+        askQuestion("attack");
+    }
+    }
+
+    $("#btnFortify").onclick = () => {
+    if (!isMyTurn() || state.awaitingAnswer) return;
+    state.chosenAction = "fortify";
+    clearInterval(state.interval); // Pausar timer durante pregunta
+    askQuestion("fortify");
+    };
+
+    $("#btnRepair").onclick = () => {
+    if (!isMyTurn() || state.awaitingAnswer) return;
+    const me = state.players[0];
+    me.hp = clamp(me.hp + 1, 0, MAX_HP);
+    showDamageFloat("#player", 1, "heal");
+
+    addLog(`💊 <b>${me.name}</b> se cura (+1 vida).`);
+    renderAll();
+    endTurn();
+    launchEffect("#player", "heal");
+    sfx.heal.play();
+    };
+
+
+
+    // ============================================
+    // SISTEMA DE PREGUNTAS
+    // ============================================
+// ============================================
+// CERRAR PREGUNTA Y REANUDAR CON TIEMPO RESTANTE
+// ============================================
+let savedTimer = null;
+
+function askQuestion(kind) {
+  savedTimer = state.timer;
+  state.awaitingAnswer = true;
+
+  $("#qModal").classList.add("active");
+  // 🔹 Botón de cambiar pregunta
+// 🔹 Crear botón “Cambiar (3)” junto al botón Cerrar
+let changeBtn = document.getElementById("changeQuestionBtn");
+if (!changeBtn) {
+  changeBtn = document.createElement("button");
+  changeBtn.id = "changeQuestionBtn";
+changeBtn.className = "btn-ghost small";
+changeBtn.style.marginRight = "8px"; // 🔹 separación visual
+
+  changeBtn.textContent = `Cambiar pregunta (${state.remainingChanges})`;
+  changeBtn.onclick = () => changeQuestion(kind);
+
+  // 📍 Insertar justo ANTES del botón cerrar
+  const closeBtn = document.getElementById("btnCloseQuestion");
+  closeBtn.parentNode.insertBefore(changeBtn, closeBtn);
+} else {
+  changeBtn.textContent = `Cambiar pregunta (${state.remainingChanges})`;
+}
+changeBtn.style.display = "inline-block";
+changeBtn.disabled = state.remainingChanges <= 0;
+
+changeBtn.textContent = `Cambiar pregunta (${state.remainingChanges})`;
+
+
+const q = state.order[state.turnIdx] === 0 && state.fixedQuestion
+  ? state.fixedQuestion
+  : rnd(QUESTIONS);
+
+
+  $("#qTopic").textContent = q.topic;
+  $("#qTitle").textContent = q.q;
+  $("#qExplain").style.display = "none";
+  $("#qExplain").innerHTML = "";
+
+  // ✅ Mostrar imagen si existe
+  const imgBox = document.getElementById("qImage");
+  if (q.img) {
+    if (!imgBox) {
+      const imgEl = document.createElement("img");
+      imgEl.id = "qImage";
+      imgEl.src = q.img;
+    imgEl.style = `
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  opacity: 0.95;
+`;
+  $("#qTitle").insertAdjacentElement("beforebegin", imgEl);
+    } else {
+      imgBox.src = q.img;
+      imgBox.style.display = "block";
+    }
+  } else if (imgBox) {
+    imgBox.style.display = "none";
+  }
+
+  const optBox = $("#qOptions");
+  optBox.innerHTML = "";
+  const shuffled = q.options.map((text, i) => ({ text, i })).sort(() => Math.random() - 0.5);
+  shuffled.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.className = "opt";
+    btn.textContent = opt.text;
+    btn.onclick = () => resolveQuestion(q, opt.i, kind);
+    optBox.appendChild(btn);
+  });
+}
+
+// ✅ el correcto
+$("#btnCloseQuestion").onclick = () => {
+  $("#qModal").classList.remove("active");
+  state.awaitingAnswer = false;
+  state.chosenAction = null;
+  state.chosenTarget = null;
+  if (savedTimer && savedTimer > 0) state.timer = savedTimer;
+  if (state.order[state.turnIdx] === 0 && !gameEnded) {
+    clearInterval(state.interval);
+    updateTimerUI();
+    state.interval = setInterval(() => {
+      if (gameEnded || state.awaitingAnswer) return;
+      state.timer -= 1;
+      updateTimerUI();
+      if (state.timer <= 0) {
+        clearInterval(state.interval);
+        onTimeOut();
+      }
+    }, 1000);
+    togglePlayerControls(true);
+    addLog("❌ Cerraste la pregunta. El turno continúa.");
+  }
+};
+
+function changeQuestion(kind) {
+  if (state.remainingChanges > 0) {
+    state.remainingChanges--;
+
+    // Genera una nueva pregunta aleatoria
+    const newQ = rnd(QUESTIONS);
+    state.fixedQuestion = newQ;
+
+    // Vuelve a mostrar la pregunta actualizada
+    askQuestion(kind);
+
+    // Actualiza el texto del botón
+    const btn = document.getElementById("changeQuestionBtn");
+    if (btn) {
+      btn.textContent = `Cambiar (${state.remainingChanges})`;
+      if (state.remainingChanges <= 0) btn.disabled = true;
+    }
+  }
+}
+
+function resolveQuestion(q, idx, kind) {
+  if (!state.awaitingAnswer) return;
+  state.awaitingAnswer = false;
+
+  // 🔒 Ocultar el botón cerrar inmediatamente
+  $("#btnCloseQuestion").style.display = "none";
+  // 🔹 Ocultar el botón de cambiar pregunta cuando ya se respondió
+  const changeBtn = document.getElementById("changeQuestionBtn");
+  if (changeBtn) changeBtn.style.display = "none";
+
+  const correct = (idx === q.correct);
+  const explainBox = $("#qExplain");
+  explainBox.style.display = "block";
+  
+  explainBox.innerHTML = correct 
+      ? "<div class='right'>✅ Correcto</div>" 
+      : "<div class='wrong'>❌ Incorrecto</div>";
+  explainBox.innerHTML += "<p class='mt-1'>" + q.explain + "</p>";
+
+  // Deshabilitar opciones
+  $$(".opt").forEach(btn => btn.style.pointerEvents = "none");
+
+  // 🔁 Esperar y cerrar
+  setTimeout(() => {
+    $("#qModal").classList.remove("active");
+    $("#btnCloseQuestion").style.display = "inline-block"; // 🔙 volver a mostrar para la próxima pregunta
+    applyQuestionOutcome(correct, kind);
+  }, 2500);
+}
+
+
+
+
+function applyQuestionOutcome(correct, kind) {
+  if (gameEnded) return;
+
+  const me = state.players[0];
+  if (!me || !me.alive) {
+    state.awaitingAnswer = false;
+    endTurn();
+    return;
+  }
+
+  let success = correct;
+
+
+  // ==== ATAQUE ====
+if (kind === "attack") {
+  const t = state.chosenTarget;
+  if (t == null || !state.players[t] || !state.players[t].alive) {
+    addLog("⚠️ Objetivo no válido.");
+    state.chosenTarget = null;
+    state.awaitingAnswer = false;
+    endTurn();
+    return;
+  }
+
+  if (success) {
+    // 🎯 aplicar multiplicador de evento y daño extra (como bots)
+    const basePts = SCORE_VALUES.ATTACK_SUCCESS;
+const pts = Math.round(basePts * (state.eventMultiplier || 1));
+state.score += pts;
+state.players[0].score = (state.players[0].score || 0) + pts;
+setTimeout(() => showPointsFloat("#player", pts), 300); // ⭐ delay visual
+
+
+    const baseDamage = 2 + (state.eventExtraDamage || 0);
+    state.players[t].hp = clamp(state.players[t].hp - baseDamage, 0, MAX_HP);
+    showDamageFloat(idFromIndex(t), baseDamage);
+
+    addLog(`⚔️ Atacás a <b>${state.players[t].name}</b> con éxito: <b>-${baseDamage} vidas</b> (+${pts} pts).`);
+    checkDeath(t);
+    flashCell("#player", "violet");
+    flashCell(idFromIndex(t), "red");
+    launchProjectile("#player", idFromIndex(t));
+    sfx.attack.play();
+  } else {
+    me.hp = clamp(me.hp - 1, 0, MAX_HP);
+    showDamageFloat("#player", 1);
+
+    addLog(`⚔️ Fallaste el ataque: <b>-1 vida</b> para vos.`);
+    launchEffect("#player", "fail");
+    flashCell("#player", "red");
+    sfx.fail.play();
+    checkDeath(0);
+  }
+}
+
+
+  // ==== FORTIFICAR ====
+if (kind === "fortify") {
+  if (success) {
+    const basePts = SCORE_VALUES.FORTIFY_SUCCESS;
+    const pts = Math.round(basePts * (state.eventMultiplier || 1));
+    const healAmount = 3;
+
+    state.score += pts;
+    state.players[0].score = (state.players[0].score || 0) + pts;
+//showPointsFloat("#player", pts);
+
+    me.hp = clamp(me.hp + healAmount, 0, MAX_HP);
+    showDamageFloat("#player", healAmount, "heal");
+    setTimeout(() => showPointsFloat("#player", pts), 300); // pequeño delay lateral
+
+
+    addLog(`🛡️ Te fortificás: <b>+${healAmount} vida</b> (+${pts} pts).`);
+    flashCell("#player", "green");
+    launchEffect("#player", "shield");
+    sfx.fortify.play();
+  } else {
+    addLog("🛡️ Fallaste la fortificación (sin efecto).");
+    launchEffect("#player", "fail");
+    sfx.fail.play();
+  }
+}
+
+
+
+  // ==== ACTUALIZAR UI ====
+  $("#score").textContent = state.score;
+
+  // ⚠️ CRÍTICO: limpiar flags ANTES de pasar turno
+  state.awaitingAnswer = false;
+  state.chosenAction = null;
+  state.chosenTarget = null;
+
+  renderAll();
+
+  // ==== PASAR TURNO ====
+  if (!gameEnded) {
+    endTurn();
+
+    // 🧠 Si después de endTurn sigue siendo tu turno → reanudar timer
+    if (state.order[state.turnIdx] === 0 && !gameEnded) {
+      startTurnTimer();
+      togglePlayerControls(true);
+    }
+  }
+}
+
+    // ============================================
+    // GESTIÓN DE MUERTE
+    // ============================================
+    function checkDeath(idx) {
+    if (gameEnded) return;
+    
+    const p = state.players[idx];
+    if (!p) return;
+    
+    if (p.hp <= 0 && p.alive) {
+        p.alive = false;
+        addLog(`💥 <b>${p.name}</b> ha sido eliminado.`);
+
+         sfx.death.play();
+
+// Remover del orden de turnos
+const currentId = state.order[state.turnIdx]; // quién estaba jugando
+state.order = state.order.filter(i => i !== idx);
+
+// Mantener la posición actual del turno
+let newIdx = state.order.indexOf(currentId);
+if (newIdx === -1) {
+  // si el que jugaba murió, pasar al siguiente jugador válido
+  newIdx = state.turnIdx % state.order.length;
+}
+
+state.turnIdx = newIdx;
+
+        // Game over si muere el jugador
+        if (idx === 0) {
+        return gameOver(false);
+        }
+
+        // Bonus por eliminar bot
+        const killerIsPlayer = state.order[state.turnIdx] === 0;
+if (killerIsPlayer) {
+  state.score += SCORE_VALUES.KILL_BONUS;
+  state.players[0].score = (state.players[0].score || 0) + SCORE_VALUES.KILL_BONUS;
+  $("#score").textContent = state.score;
+  addLog("🎉 <b>+200 puntos</b> por eliminar un rival.");
+
+  // ⭐ Kill bonus aparece un poco después del +80
+  setTimeout(() => showPointsFloat("#player", SCORE_VALUES.KILL_BONUS), 800);
+  sfx.event_double.play();
+}
+
+ else {
+const killer = state.players[state.order[state.turnIdx]];
+if (killer && killer.type === "bot") {
+  killer.score = (killer.score || 0) + SCORE_VALUES.KILL_BONUS;
+  addLog(`💀 <b>${killer.name}</b> gana ${SCORE_VALUES.KILL_BONUS} puntos por eliminar a ${p.name}.`);
+
+  // ⭐ Kill bonus con delay extra
+  setTimeout(() => showPointsFloat(idFromIndex(state.order[state.turnIdx]), SCORE_VALUES.KILL_BONUS), 800);
+  sfx.event_double.play();
+}
+
+
+}
+
+
+        // Victoria si todos los bots murieron
+        const vivosBots = state.players.slice(1).filter(x => x.alive).length;
+        if (vivosBots === 0) {
+        gameOver(true);
+        }
+    }
+    }
+
+function idFromIndex(i) {
+  switch (i) {
+    case 0: return "#player";
+    case 1: return "#p1";
+    case 2: return "#p2";
+    case 3: return "#p3";
+    case 4: return "#p4";
+    case 5: return "#p5";
+    case 6: return "#p6";
+    case 7: return "#p7";
+    default: return null;
+  }
+}
+
+
+    // Hace destellar el recuadro de un jugador
+function flashCell(selector, color) {
+  // Buscamos directamente la celda (ya no el padre)
+  const cell = $(selector);
+  if (!cell) return;
+
+  const className = `flash-${color}`;
+  cell.classList.add(className);
+
+  // Removemos después del efecto
+  setTimeout(() => cell.classList.remove(className), 1200);
+}
+
+
+
+    // ============================================
+    // TURNOS Y BOTS
+    // ============================================
+function endTurn() {
+  if (gameEnded) return;
+
+  // Reset flags
+  state.awaitingAnswer = false;
+  state.chosenAction = null;
+  state.chosenTarget = null;
+
+  // Avanzar al siguiente turno
+  state.turnIdx = (state.turnIdx + 1) % state.order.length;
+
+  // Si vuelve al jugador humano => nueva ronda
+if (state.turnIdx === 0) {
+  state.round++;
+  $("#round").textContent = state.round;
+  applyRoundEvent();
+
+  // 💫 Recompensa por sobrevivir
+  state.players.forEach((p, idx) => {
+    if (p.alive) {
+      p.score = (p.score || 0) + 100;
+
+      // 🔹 Si es el jugador humano (idx = 0)
+      if (idx === 0) {
+        state.score += 100;
+        $("#score").textContent = state.score;
+
+        // 🔸 Texto flotante +100 sobre el jugador
+        const text = document.createElement("div");
+        text.className = "floating-points";
+        text.textContent = "+100";
+        const castle = document.querySelector("#player");
+        castle.appendChild(text);
+        setTimeout(() => text.remove(), 1200);
+      }
+    }
+    /*
+    if (p.alive && p.hp < MAX_HP) {
+      p.hp = clamp(p.hp + 1, 0, MAX_HP);
+      showDamageFloat(idFromIndex(idx), 1, "heal");
+    }
+      */
+  });
+
+  addLog("💫 Todos ganan +100 puntos por sobrevivir a la ronda.");
+  renderAll();
+}
+
+
+  renderAll();
+  highlightTurn();
+  startTurnTimer();
+
+  // Si el turno es de un bot => ejecutar IA
+  const idx = state.order[state.turnIdx];
+  const player = state.players[idx];
+
+if (player && player.type === "bot" && player.alive) {
+  const turnSnapshot = state.round + "-" + state.turnIdx;
+// 🕐 Espera aleatoria antes de que el bot actúe (más natural)
+const delay = 1000 + Math.random() * 800; // entre 1.0 y 1.8 s aprox
+setTimeout(() => {
+  // 💡 verificamos que sigue siendo su turno
+  if (state.round + "-" + state.turnIdx === turnSnapshot) {
+    botAct(idx);
+  }
+}, delay);
+
+}
+
+}
+
+function botAct(idx) {
+  if (gameEnded) return;
+  if (state.order[state.turnIdx] !== idx) return;
+
+  const bot = state.players[idx];
+  if (!bot || !bot.alive) { endTurn(); return; }
+
+  // ① Mostrar mensaje "pensando..." ANTES de actuar
+  const msg = rnd(THOUGHTS).replace("{name}", bot.name);
+  botSay(idx, msg, 1200);
+
+  // Tomamos un snapshot para evitar actuar si el turno cambió
+  const turnSnapshot = state.round + "-" + state.turnIdx;
+
+  // ② Después del breve delay, ejecutar la IA normal
+const actionDelay = 1000 + Math.random() * 900; // 1.0s–1.9s
+setTimeout(() => {
+  if (gameEnded) return;
+  if (state.round + "-" + state.turnIdx !== turnSnapshot) return; // ya cambió el turno
+  
+    let action;
+
+    if (bot.hp <= 2) {
+      action = Math.random() < 0.7 ? "fortify" : "repair";
+    } else if (bot.hp >= 5) {
+      action = Math.random() < 0.8 ? "attack" : "fortify";
+    } else {
+      const r = Math.random();
+      if (r < 0.5) action = "attack";
+      else if (r < 0.8) action = "fortify";
+      else action = "repair";
+    }
+
+    // ==== REPARAR ====
+    if (action === "repair") {
+      bot.hp = clamp(bot.hp + 1, 0, MAX_HP);
+      showDamageFloat(idFromIndex(idx), 1, "heal");
+      addLog(`💊 <b>${bot.name}</b> se cura (+1 vida).`);
+      renderAll();
+      flashCell(idFromIndex(idx), "green");
+      launchEffect(idFromIndex(idx), "heal");
+      sfx.heal.play();
+      return endTurn();
+    }
+
+    // ==== FORTIFICAR ====
+if (action === "fortify") {
+  const success = rollBot(bot, "fortify");
+  if (success) {
+    const healAmount = 3; // igual que jugador
+    bot.hp = clamp(bot.hp + healAmount, 0, MAX_HP);
+    showDamageFloat(idFromIndex(idx), healAmount, "heal");
+
+    const basePts = SCORE_VALUES.FORTIFY_SUCCESS;
+    const pts = Math.round(basePts * (state.eventMultiplier || 1));
+    bot.score = (bot.score || 0) + pts;
+
+    // 💫 Mostrar los puntos después de 300ms (igual que el jugador)
+    setTimeout(() => showPointsFloat(idFromIndex(idx), pts), 300);
+
+    addLog(`🛡️ <b>${bot.name}</b> fortifica (+${healAmount} vida, +${pts} pts).`);
+    launchEffect(idFromIndex(idx), "shield");
+    flashCell(idFromIndex(idx), "green");
+    sfx.fortify.play();
+  } else {
+    addLog(`🛡️ <b>${bot.name}</b> falló la fortificación.`);
+    launchEffect(idFromIndex(idx), "fail");
+    sfx.fail.play();
+  }
+  renderAll();
+  return endTurn();
+}
+
+
+    // ==== ATAQUE ====
+    if (action === "attack") {
+      const targets = state.players
+        .map((p, i) => ({ i, p }))
+        .filter(x => x.i !== idx && x.p && x.p.alive);
+
+      if (targets.length === 0) return endTurn();
+
+      let target;
+      const chanceAttackPlayer = 0.23;
+      if (Math.random() < chanceAttackPlayer && state.players[0].alive) {
+        target = { i: 0, p: state.players[0] };
+      } else {
+        const botsOnly = targets.filter(t => t.i !== 0);
+        target = botsOnly.length > 0 ? rnd(botsOnly) : rnd(targets);
+      }
+
+      const success = rollBot(bot, "attack");
+
+if (success) {
+  const baseDamage = 2 + (state.eventExtraDamage || 0);
+  target.p.hp = clamp(target.p.hp - baseDamage, 0, MAX_HP);
+showDamageFloat(idFromIndex(target.i), baseDamage);
+
+const basePts = SCORE_VALUES.ATTACK_SUCCESS;
+const pts = Math.round(basePts * (state.eventMultiplier || 1));
+bot.score = (bot.score || 0) + pts;
+setTimeout(() => showPointsFloat(idFromIndex(idx), pts), 300);
+
+
+  addLog(`⚔️ <b>${bot.name}</b> ataca a <b>${target.p.name}</b> (-${baseDamage} vidas, +${pts} pts).`);
+  checkDeath(target.i);
+  flashCell(idFromIndex(idx), "violet");
+  flashCell(idFromIndex(target.i), "red");
+  sfx.attack.play();
+  launchProjectile(idFromIndex(idx), idFromIndex(target.i));
+} else {
+  const penalty = state.eventAccuracyPenalty ? 1 + state.eventAccuracyPenalty : 1;
+  const damage = Math.round(1 * penalty);
+  bot.hp = clamp(bot.hp - damage, 0, MAX_HP);
+  showDamageFloat(idFromIndex(idx), damage);
+
+  addLog(`⚔️ <b>${bot.name}</b> falló y se dañó (-${damage} vida).`);
+  launchEffect(idFromIndex(target.i), "fail");
+  sfx.fail.play();
+  checkDeath(idx);
+}
+
+
+      renderAll();
+      return endTurn();
+    }
+  }, actionDelay);
+}
+
+    function rollBot(bot, kind) {
+    let acc = bot.acc;
+
+    // Ajustes por personalidad
+    const topic = rnd(["Independencia", "Unión", "Complemento", "Condicional", "Bayes", "Prob. total"]);
+    
+    if (bot.name === "Frecuentín" && topic === "Independencia") {
+        acc -= 0.1;
+    }
+    if (bot.name === "Bayesito" && (topic === "Bayes" || topic === "Condicional")) {
+        acc += 0.08;
+    }
+
+    acc = clamp(acc, 0.1, 0.95);
+    return Math.random() < acc;
+    }
+
+// =====================================================
+// ANIMACIÓN DE PROYECTIL RÁPIDO (VIOLETA)
+// =====================================================
+function launchProjectile(fromSelector, toSelector) {
+  const fromEl = document.querySelector(fromSelector);
+  const toEl = document.querySelector(toSelector);
+  if (!fromEl || !toEl) return;
+
+  const fromRect = fromEl.getBoundingClientRect();
+  const toRect = toEl.getBoundingClientRect();
+
+  // Crear proyectil
+  const projectile = document.createElement("div");
+  projectile.className = "projectile";
+  document.body.appendChild(projectile);
+
+  // Posición inicial
+  const startX = fromRect.left + fromRect.width / 2;
+  const startY = fromRect.top + fromRect.height / 2;
+  const endX = toRect.left + toRect.width / 2;
+  const endY = toRect.top + toRect.height / 2;
+
+  projectile.style.left = `${startX}px`;
+  projectile.style.top = `${startY}px`;
+
+  // Forzar reflow para que la transición se aplique
+  void projectile.offsetWidth;
+
+  const dx = endX - startX;
+  const dy = endY - startY;
+
+  // Movimiento rápido (más corto)
+  projectile.style.transitionDuration = "0.35s";
+  projectile.style.transform = `translate(${dx}px, ${dy}px) scale(1.3)`;
+
+  // Desvanecer y eliminar después del impacto
+  setTimeout(() => {
+    projectile.style.opacity = "0";
+    setTimeout(() => projectile.remove(), 200);
+  }, 350);
+}
+
+// =====================================================
+// EFECTOS DE CURACIÓN / FORTIFICACIÓN / FALLO
+// =====================================================
+function launchEffect(selector, type) {
+  const targetEl = document.querySelector(selector);
+  if (!targetEl) return;
+
+  const rect = targetEl.getBoundingClientRect();
+  const effect = document.createElement("div");
+  effect.className = `effect-${type}`;
+
+  document.body.appendChild(effect);
+  effect.style.left = `${rect.left + rect.width / 2}px`;
+  effect.style.top = `${rect.top + rect.height / 2}px`;
+
+  setTimeout(() => effect.remove(), 1000);
+}
+
+// =====================================================
+// EFECTO DE VIDA (💔 / 💚) — con desplazamiento opcional
+// =====================================================
+function showDamageFloat(selector, amount, type = "damage", offsetY = 0) {
+  const target = document.querySelector(selector);
+  if (!target) return;
+
+  const rect = target.getBoundingClientRect();
+  const float = document.createElement("div");
+  float.className = `damage-float ${type}`;
+  float.innerHTML = type === "damage" ? `💔 -${amount}` : `💚 +${amount}`;
+
+  document.body.appendChild(float);
+  float.style.left = `${rect.left + rect.width / 2}px`;
+  float.style.top = `${rect.top + rect.height / 2 - 10 + offsetY}px`;
+
+  setTimeout(() => float.remove(), 1200);
+}
+
+// =====================================================
+// EFECTO DE PUNTOS (⭐) — con desplazamiento opcional
+// =====================================================
+function showPointsFloat(selector, amount, offsetY = 0) {
+  const target = document.querySelector(selector);
+  if (!target) return;
+
+  const rect = target.getBoundingClientRect();
+  const float = document.createElement("div");
+  float.className = "points-float";
+  float.innerHTML = `⭐ +${amount}`;
+
+  document.body.appendChild(float);
+  float.style.left = `${rect.left + rect.width / 2}px`;
+  float.style.top = `${rect.top + rect.height / 2 - 10 + offsetY}px`;
+
+  setTimeout(() => float.remove(), 1200);
+}
+
+
+
+    // ============================================
+    // FIN DE JUEGO
+    // ============================================
+    function gameOver(win) {
+    if (gameEnded) return;
+    
+    gameEnded = true;
+    clearInterval(state.interval);
+
+    const vivos = state.players.filter(p => p && p.alive);
+    $("#endTitle").textContent = win ? "🏆 ¡Ganaste!" : "💀 Game Over";
+    $("#endStats").innerHTML = `
+        Rondas: <b>${state.round}</b> · 
+        Puntaje: <b>${state.score}</b> · 
+        Vivos: ${vivos.map(v => v.name).join(", ") || "Ninguno"}
+    `;
+
+    // Actualizar mejor puntaje
+    const best = Number(localStorage.getItem("bp_best") || 0);
+    if (state.score > best) {
+        localStorage.setItem("bp_best", String(state.score));
+        addLog(`🎊 <b>¡Nuevo récord: ${state.score} puntos!</b>`);
+    }
+    $("#best").textContent = Math.max(best, state.score);
+
+// 🎵 Detener música y reproducir sonido final
+music.pause();
+music.currentTime = 0; // reinicia la canción para la próxima
+
+if (win) {
+  sfx.victory.play();
+} else {
+  sfx.gameover.play();
+}
+
+// Mostrar overlay después de un breve retardo
+setTimeout(() => {
+  $("#endOverlay").classList.add("active");
+}, 500);
+
+    }
+
+    // ============================================
+    // UI: INICIO Y REINICIO
+    // ============================================
+// ============================================
+// UI: INICIO Y REINICIO
+// ============================================
+
+// ✅ versión corregida con carga de preguntas antes de iniciar
+$("#btnStart").onclick = async () => {
+  const name = ($("#playerNameInput").value || "Jugador").trim().slice(0, 20);
+  await loadQuestions();
+  const mode = $("#modeFull").checked ? "full" : "normal";
+  $("#startOverlay").classList.remove("active");
+  newGame(name, mode);
+  const grid = document.getElementById("grid");
+grid.classList.remove("normal", "full");
+grid.classList.add(mode === "full" ? "full" : "normal");
+
+};
+
+$("#btnRestart").onclick = () => {
+  location.reload();
+};
+
+$("#btnPlayAgain").onclick = () => {
+  $("#endOverlay").classList.remove("active");
+  const name = state.players[0].name;
+  const mode = (state.players.length >= 8) ? "full" : "normal";
+
+  // 🎵 Reiniciar y reproducir música desde el inicio
+  music.currentTime = 0;
+  music.play();
+  $("#btnPlayMusic").textContent = "⏸️";
+
+  newGame(name, mode);
+  const grid = document.getElementById("grid");
+  grid.classList.remove("normal", "full");
+  grid.classList.add(mode === "full" ? "full" : "normal");
+};
+
+
+
+$("#btnHelp").onclick = () => {
+  alert(
+    "📖 ¡Debate BrazArg!\n\n" +
+    "OBJETIVO: Sobrevivir eliminando los rivales.\n\n" +
+    "ACCIONES:\n" +
+    "⚔️ Atacar: Resuelve pregunta. Éxito = -2 HP al rival. Fallo = -1 HP tuyo.\n" +
+    "🛡️ Fortificar: Resuelve pregunta. Éxito = +3 HP tuyo.\n" +
+    "💊 Curarse: +1 HP instantáneo (sin pregunta).\n\n" +
+
+    "⏱️ Tenés 20 segundos por turno. Si no actuás, perdés 1 vida.\n\n" +
+    "¡Buena suerte!"
+  );
+};
+
+// ===========================
+// AUDIO SYSTEM
+// ===========================
+const music = new Audio("../src/audio/gameBattle/game.mp3");
+music.loop = true;
+music.volume = 0.45;
+
+const sfx = {
+  heal: new Audio("../src/audio/gameBattle/heal.mp3"),
+  fortify: new Audio("../src/audio/gameBattle/forti.mp3"),
+  attack: new Audio("../src/audio/gameBattle/attack.mp3"),
+  fail: new Audio("../src/audio/gameBattle/miss.mp3"),
+  victory: new Audio("../src/audio/gameBattle/victory.mp3"),
+  gameover: new Audio("../src/audio/gameBattle/gameover.mp3"),
+  death: new Audio("../src/audio/gameBattle/npcdeath.mp3"),
+  event_double: new Audio("../src/audio/gameBattle/event_double.mp3"),
+  event_heal: new Audio("../src/audio/gameBattle/event_heal.mp3"),
+  event_fury: new Audio("../src/audio/gameBattle/event_fury.mp3"),
+  event_none: new Audio("../src/audio/gameBattle/event_none.mp3")
+};
+
+// 🔊 Aplicar volumen inicial del slider a todos los sonidos
+// 🔊 Aplicar volumen inicial del slider a todos los sonidos
+const initialVol = parseFloat($("#volumeControl").value);
+music.volume = initialVol;
+Object.values(sfx).forEach(a => (a.volume = initialVol));
+
+// 🔹 Actualiza el icono inicial según el volumen
+updateMusicButton();
+
+function updateMusicButton() {
+  if (music.paused) {
+    $("#btnPlayMusic").textContent = "▶️";
+  } else if (music.volume === 0) {
+    $("#btnPlayMusic").textContent = "🔇";
+  } else {
+    $("#btnPlayMusic").textContent = "🔊";
+  }
+}
+
+// 🎵 Botón Play / Pause / Mute visual
+$("#btnPlayMusic").onclick = () => {
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+  updateMusicButton();
+};
+
+// 🎚️ Control de volumen con detección de mute
+$("#volumeControl").oninput = e => {
+  const v = parseFloat(e.target.value);
+  music.volume = v;
+  Object.values(sfx).forEach(a => (a.volume = v));
+  updateMusicButton();
+};
+
+// 🧠 Si el volumen arranca en 0, mostrar mute
+if (initialVol === 0) updateMusicButton();
+
+
+
+    // ============================================
+    // INICIALIZACIÓN
+    // ============================================
+    // Render inicial vacío al cargar la página
+    if ($("#player")) {
+["#player", "#p1", "#p2", "#p3"].forEach(sel => {
+  const box = $(sel);
+  if (box) {
+    box.innerHTML = `
+      <div class="name muted">—</div>
+      <div class="lifes">🤍🤍🤍🤍🤍</div>
+    `;
+  }
+});
+
+    }
+    </script>
+
+</body> 
+
+</html>

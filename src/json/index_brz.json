@@ -1,7 +1,7 @@
 {
   "nav_inicio": "Início",
   "nav_unidades": "Unidades",
-  "nav_juegos": "Jogos",
+  "nav_juegos": "Jogo",
   "nav_contacto": "Contato",
   
   "title": "BrazArg - Aprendendo entre irmãos",
@@ -20,15 +20,7 @@
     { "icon": "🎭", "title": "Cultura compartilhada", "text": "Do mate ao samba, de Maradona a Pelé — celebre as diferenças que, no fundo, nos aproximam." }
   ],
 
-  "games_label": "Iterações",
-  "games_title": "Aprender brincando",
-  "games_text": "Descubra desafios, jogos e momentos que conectam você com o idioma e a cultura do outro lado. Aprender nunca foi tão divertido.",
-  "games_items": [
-    { "emoji": "🎵", "title": "Ritmo de palavras", "text": "Aprenda espanhol com músicas que você já conhece — e algumas que vai amar." },
-    { "emoji": "😂", "title": "Memes sem fronteiras", "text": "Descubra o humor argentino e ria de como nos entendemos sem falar igual." },
-    { "emoji": "⚡", "title": "Desafios culturais", "text": "Teste seus conhecimentos em duelos linguísticos e curiosidades históricas." },
-    { "emoji": "🗣️", "title": "Diálogos reais", "text": "Simule conversas do dia a dia com falantes nativos e melhore naturalmente." }
-  ],
+
 
   "footer_title": "Uma comunidade sem fronteiras",
   "footer_text": "Siga-nos, compartilhe, participe — porque a irmandade se constrói todos os dias, com cada palavra, cada saudação e cada história.",

@@ -1,0 +1,25 @@
+[
+  {
+    "topic": "Personajes",
+    "q": "¿Quién escribió 'El Aleph' y es uno de los máximos exponentes de la literatura argentina?",
+    "options": ["Borges", "Cortázar", "Hernández", "Echeverría"],
+    "correct": 0,
+    "explain": "Jorge Luis Borges es considerado uno de los escritores más importantes del siglo XX, autor de 'El Aleph' y 'Ficciones'."
+  },
+  {
+    "topic": "Personajes",
+    "q": "¿Quién escribió la novela 'Rayuela'?",
+    "img": "../src/img/arg.jpg",
+    "options": ["Sábato", "Cortázar", "Borges", "Hernández"],
+    "correct": 1,
+    "explain": "Julio Cortázar fue un escritor argentino y autor de 'Rayuela', una obra fundamental del boom latinoamericano."
+  },
+  {
+    "topic": "Personajes",
+    "q": "¿Quién escribió el poema épico 'Martín Fierro'?",
+    "img": "../src/img/arg.jpg",
+    "options": ["Echeverría", "Borges", "Hernández", "Lugones"],
+    "correct": 2,
+    "explain": "José Hernández escribió 'El gaucho Martín Fierro', obra cumbre de la literatura gauchesca argentina."
+  }
+]

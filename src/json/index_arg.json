@@ -1,7 +1,7 @@
 {
   "nav_inicio": "Inicio",
   "nav_unidades": "Unidades",
-  "nav_juegos": "Juegos",
+  "nav_juegos": "Juego",
   "nav_contacto": "Contacto",
   
   "title": "BrazArg - Aprendiendo entre hermanos",
@@ -20,15 +20,6 @@
     { "icon": "🎭", "title": "Cultura compartida", "text": "Del mate al samba, de Maradona a Pelé — celebrá nuestras diferencias que, en realidad, nos acercan más." }
   ],
 
-  "games_label": "Iteraciones",
-  "games_title": "Aprendé jugando",
-  "games_text": "Descubrí desafíos, juegos y momentos que te conectan con el idioma y la cultura del otro lado. Aprender nunca fue tan divertido.",
-  "games_items": [
-    { "emoji": "🎵", "title": "Ritmo de palabras", "text": "Aprendé portugués con canciones que ya conocés — y algunas que vas a amar." },
-    { "emoji": "😂", "title": "Memes sin fronteras", "text": "Descubrí el humor del otro lado y reíte de cómo nos entendemos sin hablar igual." },
-    { "emoji": "⚡", "title": "Desafíos culturales", "text": "Poné a prueba tus conocimientos en duelos lingüísticos y curiosidades históricas." },
-    { "emoji": "🗣️", "title": "Diálogos reales", "text": "Simulá conversaciones cotidianas con hablantes nativos y mejorá sin darte cuenta." }
-  ],
 
   "footer_title": "Una comunidad sin fronteras",
   "footer_text": "Seguinos, compartí, participá — porque la hermandad se construye todos los días, con cada palabra, cada saludo y cada historia.",

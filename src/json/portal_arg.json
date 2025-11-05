@@ -22,10 +22,11 @@
       "link": "./cultura.html"
     },
     {
-      "title": "Aprendé Gastronomía",
-      "description": "Conocé las recetas típicas, los sabores y el arte culinario de ambos países.",
-      "icon": "🍲",
-      "link": "./gastronomia.html"
+      "title": "BrazArg Debate",
+      "description": "Participá en intensos duelos de conocimiento sobre Argentina y Brasil. Respondé preguntas.",
+      "icon": "🎮",
+      "link": "./game.html"
     }
+
   ]
 }

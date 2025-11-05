@@ -7,7 +7,7 @@
 .temario-container {
   min-height: 100vh;
   padding: 140px 40px 100px;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
   animation: fadeInUp 1s ease;

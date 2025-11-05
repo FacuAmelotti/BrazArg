@@ -108,8 +108,10 @@ async function loadContent(mode = "argentina") {
 // 🚀 Alternar y guardar modo
 // ===============================
 async function toggleMode() {
-  const current = localStorage.getItem("mode") || "argentina";
-  const next = current === "argentina" ? "brasil" : "argentina";
+// Detecta el modo actual del body o localStorage (por si no está inicializado)
+const current = document.body.getAttribute("data-mode") || localStorage.getItem("mode") || "argentina";
+const next = current === "argentina" ? "brasil" : "argentina";
+
   document.body.setAttribute("data-mode", next);
   localStorage.setItem("mode", next);
 
